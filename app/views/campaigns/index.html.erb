@@ -1,0 +1,8 @@
+<h3>Campaigns</h3>
+
+<ul>
+<% @campaigns.each do |campaign|  %>
+  <li><strong>Campaign Name</strong>: <%= campaign.name %>  <strong>Fund Goal</strong>: <%= campaign.fund_goal %></li>
+  <br />
+<% end %>
+</ul>

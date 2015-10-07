@@ -1,0 +1,9 @@
+<%= render "layouts/errors", :object => @campaign %>
+
+<%= form_for @campaign do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :fund_goal %>
+  <%= f.text_field :fund_goal %>
+  <%= f.submit %>
+<% end %>

@@ -1,0 +1,9 @@
+<h1><%= @campaign.name %></h1>
+<h3>Fund Goal: $<%= @campaign.fund_goal %></h3>
+<h3>Current Fund Amount: $<%= @campaign.fund_amount %></h3>
+<h3>Progress: <%= @results %>%</h3>
+
+<p><%= link_to "Edit", edit_campaign_path(@campaign) %></p>
+<p><%= link_to "Delete", campaign_path(@campaign),
+                         :data => {:confirm => "You sure?",
+                                   :method => "delete"} %></p>

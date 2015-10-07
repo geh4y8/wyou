@@ -1,0 +1,40 @@
+<%= render('layouts/errors', :object => @donation) %>
+
+<%= form_for [@campaign, @donation], :html =>{:id => 'blabla'} do |f| %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+  <%= f.label :donation_amount %>
+  <%= f.text_field :donation_amount %>
+  <script src="https://checkout.stripe.com/checkout.js"></script>
+
+<button id="customButton">Purchase</button>
+
+<script>
+  var handler = StripeCheckout.configure({
+    key: 'pk_test_qwiWOaSsD3hCv4YDIxNIJOjE',
+    image: '/img/documentation/checkout/marketplace.png',
+    locale: 'auto',
+    token: function(token) {
+      console.log(token)
+      $('#blabla').append($("<input type=\"hidden\" name=\"donation[card_token]\" />").val(token.id));
+      $('#blabla').append($("<input type=\"hidden\" name=\"donation[email]\" />").val(token.email));
+      $('#blabla').get(0).submit();
+    }
+  });
+
+  $('#customButton').on('click', function(e) {
+    // Open Checkout with further options
+    handler.open({
+      name: 'wyou.co',
+      description: '2 widgets',
+      amount: $('#donation_donation_amount').val() * 100
+    });
+    e.preventDefault();
+  });
+
+  // Close Checkout on page navigation
+  $(window).on('popstate', function() {
+    handler.close();
+  });
+</script>
+  <p><%= f.submit %></p>
+<% end %>
