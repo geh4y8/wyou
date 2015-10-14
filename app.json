@@ -20,12 +20,12 @@
     "GMAIL_USERNAME": {
       "description": "Your Gmail address for sending mail.",
       "value": "user@example.com",
-      "required": false
+      "required": true
     },
     "GMAIL_PASSWORD": {
       "description": "Your Gmail password for sending mail.",
       "value": "changeme",
-      "required": false
+      "required": true
     },
     "ADMIN_EMAIL": {
       "description": "The administrator's email address for signing in.",
