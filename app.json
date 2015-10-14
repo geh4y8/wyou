@@ -42,6 +42,6 @@
       "value": "myapp.herokuapp.com",
       "required": false
     },
-    "RAILS_ENV": "development"
+    "RAILS_ENV": "production"
   }
 }
