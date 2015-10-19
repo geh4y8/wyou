@@ -1,9 +1,59 @@
-<%= render "layouts/errors", :object => @campaign %>
 
-<%= form_for @campaign do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :fund_goal %>
-  <%= f.text_field :fund_goal %>
-  <%= f.submit %>
-<% end %>
+<div class="panel-body">
+  <%= render "layouts/errors", :object => @campaign %>
+
+  <%= form_for @campaign, :html => {:class=> 'form-horizontal'} do |f| %>
+    <fieldset>
+      <div class="form-group">
+        <%= f.label :name, 'Your Name', :class => "col-lg-2 control-label" %>
+        <div class="col-lg-10">
+          <%= f.text_field :name, :class => "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :owner_email, 'Your Email Address', :class => "col-lg-2 control-label" %>
+        <div class="col-lg-10">
+          <%= f.text_field :owner_email, :class => "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :patient_name, 'Recipient Name', :class => "col-lg-2 control-label" %>
+        <div class="col-lg-10">
+          <%= f.text_field :patient_name, :class => "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :patient_email, 'Recipient Email Address', :class => "col-lg-2 control-label" %>
+        <div class="col-lg-10">
+          <%= f.text_field :patient_email, :class => "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :patient_phone, 'Recipient Phone Number', :class => "col-lg-2 control-label" %>
+        <div class="col-lg-10">
+          <%= f.text_field :patient_phone, :class => "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :relationship, 'Your Relationship to the Recipient', :class => "col-lg-2 control-label" %>
+        <div class="col-lg-10">
+          <%= f.text_field :relationship, :class => "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :fund_goal, :class =>"col-lg-2 control-label" %>
+        <div class="col-lg-10">
+          <%= f.text_field :fund_goal, :class => "form-control", :placeholder => '0' %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :inform_patient_date, 'When do you want w/you to inform the recipient of your kindness and support?', :class => "col-lg-2 control-label" %>
+        <div class="col-lg-10">
+          <%= f.date_field :inform_patient_date, :class => "form-control" %>
+        </div>
+      </div>
+
+      <%= f.submit 'submit', :class=>'btn btn-primary form-control' %>
+    </fieldset>
+  <% end %>
+</div>

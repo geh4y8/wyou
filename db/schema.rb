@@ -11,15 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151010041339) do
+ActiveRecord::Schema.define(version: 20151018233643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "campaigns", force: :cascade do |t|
     t.string  "name"
-    t.integer "fund_amount", default: 0
-    t.integer "fund_goal",   default: 0
+    t.integer "fund_amount",         default: 0
+    t.integer "fund_goal",           default: 0
+    t.string  "patient_name"
+    t.string  "patient_email"
+    t.string  "patient_phone"
+    t.string  "relationship"
+    t.string  "owner_name"
+    t.boolean "self_purchase"
+    t.string  "owner_email"
+    t.date    "inform_patient_date"
   end
 
   create_table "donations", id: false, force: :cascade do |t|

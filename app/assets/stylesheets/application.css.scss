@@ -10,7 +10,16 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require bootstrap
+ *= require template/metisMenu
+ *= require template/timeline
+ *= require template/sb-admin-2
+ *= require template/morris
+ *= require template/font-awesome
+ *= require template/dataTables.bootstrap
+ *= require template/dataTables.responsive
+ *= require paper
  *= require_tree .
  *= require_self
- *= require_bootstrap.css
+
  */
