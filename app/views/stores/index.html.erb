@@ -1,1 +1,5 @@
-<%= @products.first.name %>
+<% if @products %>
+  <%= @products.first.name %>
+<% end %>
+
+<p><%= link_to "Add product", campaign_add_product_path(@campaign) %></p>

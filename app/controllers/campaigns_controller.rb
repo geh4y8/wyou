@@ -48,9 +48,21 @@ class CampaignsController < ApplicationController
     redirect_to campaigns_path
   end
 
+  def add_product
+    @campaign = Campaign.find(params[:campaign_id])
+    render :add_product
+  end
+
+  def assign_product
+    @campaign = Campaign.find(params[:campaign_id])
+    @product = Product.find(params[:campaign][:products])
+    @campaign.products << @product
+    render :show
+  end
+
   private
 
   def campaign_params
-    params.require(:campaign).permit(:name, :fund_goal, :patient_name, :patient_email, :patient_phone, :relationship, :owner_name, :self_purchase, :owner_email, :inform_patient_date)
+    params.require(:campaign).permit(:name, :fund_goal, :patient_name, :patient_email, :patient_phone, :relationship, :owner_name, :self_purchase, :owner_email, :inform_patient_date, :product_id, :campaign_id)
   end
 end

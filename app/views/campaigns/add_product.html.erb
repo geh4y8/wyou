@@ -1,0 +1,22 @@
+<% if @product %>
+  <% @product.each do |product| %>
+    <%= product.name %>
+  <% end %>
+<% end %>
+
+<div class="panel-body">
+
+  <%= form_for @campaign, :url =>{action: "assign_product"}, :method =>:post, :html => {:class=> 'form-horizontal'} do |f| %>
+    <fieldset>
+      <div class="form-group">
+
+        <div class="col-lg-10">
+          <%= f.collection_select :products, Product.all, :id, :name, prompt: true %>
+        </div>
+      </div>
+
+      <%= f.submit 'submit', :class=>'btn btn-primary form-control' %>
+    </fieldset>
+  <% end %>
+</div>
+
