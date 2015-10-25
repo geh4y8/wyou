@@ -13,6 +13,7 @@ gem 'rolify'
 gem "refile", require: "refile/rails"
 gem "refile-mini_magick"
 gem "rails_admin"
+gem 'acts_as_votable'
 group :development, :test do
   gem 'byebug'
 end

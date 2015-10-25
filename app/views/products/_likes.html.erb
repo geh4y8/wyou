@@ -1,0 +1,9 @@
+<%= link_to like_product_path(@product), method: :put do %>
+    Upvote
+  <% end %>
+
+  <%= link_to dislike_product_path(@product), method: :put do %>
+    Downvote
+  <% end %>
+  <%= @product.get_likes.size %>
+

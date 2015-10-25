@@ -44,6 +44,18 @@ class ProductsController < ApplicationController
     redirect_to campaigns_path
   end
 
+  def like
+    @product = Product.find(params[:id])
+    @product.liked_by current_user
+    redirect_to :back
+  end
+
+  def dislike
+    @product = Product.find(params[:id])
+    @product.downvote_from current_user
+    redirect_to :back
+  end
+
 private
   def product_params
     params.require(:product).permit(:name, :description, :retail_price, :image, :remove_image)

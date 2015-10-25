@@ -2,3 +2,7 @@
 <p>Description: <%= @product.description %></p>
 <p>Price: <%= @product.retail_price %></p>
 <p><%= image_tag attachment_url(@product, :image, :fill, 200, 200) %><p>
+
+<div id="likes">
+  <%= render partial: "likes" %>
+</div>

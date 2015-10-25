@@ -57,7 +57,7 @@ class CampaignsController < ApplicationController
     @campaign = Campaign.find(params[:campaign_id])
     @product = Product.find(params[:campaign][:products])
     @campaign.products << @product
-    render :show
+    redirect_to campaign_stores_path
   end
 
   private

@@ -2,9 +2,15 @@ class User < ActiveRecord::Base
   rolify
   enum role: [:user, :vip, :admin]
   after_initialize :set_default_role, :if => :new_record?
+  has_many :likes
+  has_many :likes, :through => :campaigns_products
 
   def set_default_role
     self.role ||= :user
+  end
+
+  def likes?(product)
+    product.likes.where(user_id: id).any?
   end
 
   # Include default devise modules. Others available are:

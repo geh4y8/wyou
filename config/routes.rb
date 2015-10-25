@@ -11,5 +11,11 @@ Rails.application.routes.draw do
   end
   devise_for :users
   resources :users
-  resources :products
+  resources :products do
+    member do
+      put "like", to: "products#like"
+      put "dislike", to: "products#dislike"
+    end
+    resources :like, module: :products
+  end
 end

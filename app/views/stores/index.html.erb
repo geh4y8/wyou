@@ -1,5 +1,20 @@
 <% if @products %>
-  <%= @products.first.name %>
+  <% @products.each do |product| %>
+    <%= product.name %>
+    <%= product.get_likes.size %>
+
+
+  <%= link_to like_product_path(product), method: :put do %>
+    Upvote
+  <% end %>
+
+  <%= link_to dislike_product_path(product), method: :put do %>
+    Downvote
+  <% end %>
+
+  <% end %>
 <% end %>
+
+ <%= @campaign.products.first.get_likes.size %>
 
 <p><%= link_to "Add product", campaign_add_product_path(@campaign) %></p>
