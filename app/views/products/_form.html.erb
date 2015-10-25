@@ -1,0 +1,43 @@
+
+<div class="panel-body">
+  <%= render "layouts/errors", :object => @product %>
+
+  <%= form_for @product, :html => {:class=> 'form-horizontal'} do |f| %>
+    <fieldset>
+      <div class="form-group">
+        <%= f.label :name, 'Product Name', :class => "col-lg-2 control-label" %>
+        <div class="col-lg-10">
+          <%= f.text_field :name, :class => "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :description, 'Product Description', :class => "col-lg-2 control-label" %>
+        <div class="col-lg-10">
+          <%= f.text_area :description, :class => "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :retail_price, 'Retail Price', :class => "col-lg-2 control-label" %>
+        <div class="col-lg-10">
+          <%= f.number_field :retail_price, :class => "form-control", :step => 'any' %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :image, 'Product Image', :class => "col-lg-2 control-label" %>
+        <div class="col-lg-10">
+          <%= f.attachment_field :image, :class =>"form-control" %>
+
+        </div>
+        <% if @product.image_id? %>
+          <div class="col-lg-10">
+            <%= image_tag attachment_url(@product, :image, :fill, 100, 100) %>
+            <%= f.check_box :remove_image %>
+            <%= f.label :remove_image %>
+          </div>
+        <% end %>
+      </div>
+
+      <%= f.submit 'submit', :class=>'btn btn-primary form-control' %>
+    </fieldset>
+  <% end %>
+</div>

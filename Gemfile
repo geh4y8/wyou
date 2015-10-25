@@ -8,6 +8,10 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'dotenv-rails'
 gem 'stripe'
+gem 'cancancan'
+gem 'rolify'
+gem "refile", require: "refile/rails"
+gem "refile-mini_magick"
 group :development, :test do
   gem 'byebug'
 end
