@@ -2,6 +2,7 @@ class Campaign < ActiveRecord::Base
 has_many :donations
 has_many :supporters
 has_many :users, :through => :supporters
+has_one :store
 has_and_belongs_to_many :products
 
   def goal_percentage(campaign)

@@ -20,4 +20,8 @@ Rails.application.config.assets.version = '1.0'
   Rails.application.config.assets.precompile += %w( jquery.easing.min.js )
   Rails.application.config.assets.precompile += %w( jquery.fittext.js )
   Rails.application.config.assets.precompile += %w( wow.min.js )
+  Rails.application.config.assets.precompile += %w( fontawesome-webfont.eot)
+  Rails.application.config.assets.precompile += %w( fontawesome-webfont.woff )
+  Rails.application.config.assets.precompile += %w( fontawesome-webfont.ttf )
+  Rails.application.config.assets.precompile += %w( fontawesome-webfont.svg )
 

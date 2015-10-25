@@ -12,6 +12,7 @@ gem 'cancancan'
 gem 'rolify'
 gem "refile", require: "refile/rails"
 gem "refile-mini_magick"
+gem "rails_admin"
 group :development, :test do
   gem 'byebug'
 end
@@ -23,7 +24,7 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'devise_invitable'
 gem 'pg'
-gem 'upmin-admin'
+# gem 'upmin-admin'
 group :development do
   gem 'better_errors'
   gem 'quiet_assets'
