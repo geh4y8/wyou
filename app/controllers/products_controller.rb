@@ -48,12 +48,14 @@ class ProductsController < ApplicationController
 
     @product = Product.find(params[:id])
     @product.liked_by current_user, :vote_scope => params['campaign_id']
+    current_user.likes @product
     redirect_to :back
   end
 
   def dislike
     @product = Product.find(params[:id])
     @product.downvote_from current_user, :vote_scope => params['campaign_id']
+    current_user.dislikes @product
     redirect_to :back
   end
 
