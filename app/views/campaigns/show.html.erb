@@ -4,9 +4,11 @@
 <h3>Progress: <%= @results %>%</h3>
 <h3><%= @campaign.id %></h3>
 
+<% if current_user.present? %>
 <p><%= link_to "I Support This", campaign_supporters_path(@campaign.id), {:method => :post} %></p>
 
 <p><%= link_to "Edit", edit_campaign_path(@campaign) %></p>
 <p><%= link_to "Delete", campaign_path(@campaign),
                          :data => {:confirm => "You sure?",
                                    :method => "delete"} %></p>
+<% end %>

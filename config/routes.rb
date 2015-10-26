@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       put "like", to: "products#like"
       put "dislike", to: "products#dislike"
     end
-    resources :like, module: :products
+    # resources :like, module: :products
+    resources :comments, module: :products
   end
 end

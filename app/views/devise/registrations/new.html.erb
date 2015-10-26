@@ -19,6 +19,7 @@
       <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
     </div>
+     <%= hidden_field_tag :redirect_to, params[:redirect_to] %>
      <%= f.submit 'Sign up', :class => 'button right' %>
   <% end %>
 </div>

@@ -45,19 +45,20 @@ class ProductsController < ApplicationController
   end
 
   def like
+
     @product = Product.find(params[:id])
-    @product.liked_by current_user
+    @product.liked_by current_user, :vote_scope => params['campaign_id']
     redirect_to :back
   end
 
   def dislike
     @product = Product.find(params[:id])
-    @product.downvote_from current_user
+    @product.downvote_from current_user, :vote_scope => params['campaign_id']
     redirect_to :back
   end
 
 private
   def product_params
-    params.require(:product).permit(:name, :description, :retail_price, :image, :remove_image)
+    params.require(:product).permit(:name, :description, :retail_price, :image, :remove_image, :campaign_id)
   end
 end

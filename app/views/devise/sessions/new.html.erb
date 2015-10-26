@@ -38,6 +38,7 @@
                                 <% end -%>
                                 <!-- Change this to a button or input when using this as a form -->
                             </fieldset>
+                            <%= hidden_field_tag :redirect_to, params[:redirect_to] %>
                             <%= f.submit 'Sign in', :class => 'btn btn-lg btn-success btn-block' %>
                         <% end %>
                     </div>

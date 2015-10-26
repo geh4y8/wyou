@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151025212626) do
+ActiveRecord::Schema.define(version: 20151026044854) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,10 +33,21 @@ ActiveRecord::Schema.define(version: 20151025212626) do
   create_table "campaigns_products", force: :cascade do |t|
     t.integer "campaign_id"
     t.integer "product_id"
+    t.integer "like_count"
   end
 
   add_index "campaigns_products", ["campaign_id"], name: "index_campaigns_products_on_campaign_id", using: :btree
   add_index "campaigns_products", ["product_id"], name: "index_campaigns_products_on_product_id", using: :btree
+
+  create_table "comments", force: :cascade do |t|
+    t.string   "commentable_type"
+    t.integer  "commentable_id"
+    t.integer  "user_id"
+    t.integer  "campaign_id"
+    t.text     "body"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
 
   create_table "donations", id: false, force: :cascade do |t|
     t.integer "campaign_id",     null: false
