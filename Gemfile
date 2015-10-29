@@ -14,6 +14,7 @@ gem "refile", require: "refile/rails"
 gem "refile-mini_magick"
 gem "rails_admin"
 gem 'acts_as_votable'
+gem 'friendly_id', '~> 5.1'
 group :development, :test do
   gem 'byebug'
 end

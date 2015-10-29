@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get '/cart' => 'cart#index'
+  get '/cart/clear' => 'cart#clearCart'
+  get '/cart/:id' => 'cart#add'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   # mount Upmin::Engine => '/admin'
   root to: 'visitors#index'

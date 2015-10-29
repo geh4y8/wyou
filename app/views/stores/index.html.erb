@@ -1,26 +1,38 @@
+<table>
+  <thead>
+    <th>Product Name</th>
+    <th>Description</th>
+    <th>Likes</th>
+  </thead>
 <% if @products %>
+  <tbody>
   <% @products.each do |product| %>
-    <%= product.name %>
-    <%= product.get_likes(:vote_scope => @campaign.id).size %>
+    <tr>
+    <td><%= product.name %></td>
+    <td><%= product.description %></td>
+    <td><%= product.get_likes(:vote_scope => @campaign.id).size %></td>
     <!-- @post.vote_by :voter => @user5, :vote => 'like' -->
-      <% if current_user.voted_down_on? product  %>
+      <td><% if current_user.voted_down_on? product  %>
         <%= link_to like_product_path(:id => product.id, :campaign_id => @campaign.id), method: :put do %>
           Upvote
-        <% end %>
-      <% elsif current_user.voted_up_on? product %>
+        <% end %></td>
+      <td><% elsif current_user.voted_up_on? product %>
       <%= link_to dislike_product_path(:id => product.id, :campaign_id => @campaign.id), method: :put do %>
         Downvote
-      <% end %>
+      <% end %></td>
       <% else %>
-        <%= link_to like_product_path(:id => product.id, :campaign_id => @campaign.id), method: :put do %>
+        <td><%= link_to like_product_path(:id => product.id, :campaign_id => @campaign.id), method: :put do %>
           Upvote
-        <% end %>
+        <% end %></td>
       <% end %>
-    <%= render partial: "comments/comments", locals:{commentable: product} %>
-    <%= render partial: "comments/form", locals: {commentable: product} %>
+    <!--<%= render partial: "comments/comments", locals:{commentable: product} %>
+    <%= render partial: "comments/form", locals: {commentable: product} %> -->
+    <td><a href="/cart/<%= product.id %>"> Add to Cart</a></td>
   <% end %>
+</tr>
 <% end %>
-
+</tbody>
+</table>
 
 
 <p><%= link_to "Add product", campaign_add_product_path(@campaign) %></p>
