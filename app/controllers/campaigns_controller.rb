@@ -15,7 +15,6 @@ class CampaignsController < ApplicationController
   end
 
   def show
-    # @campaign = Campaign.find(params[:id])
     @results = @campaign.goal_percentage(@campaign)
     render :show
   end
@@ -31,12 +30,10 @@ class CampaignsController < ApplicationController
   end
 
   def edit
-    # @campaign = Campaign.find(params[:id])
     render :edit
   end
 
   def update
-    # @campaign = Campaign.find(params[:id])
     if @campaign.update(campaign_params)
       redirect_to campaigns_path
     else
@@ -45,7 +42,6 @@ class CampaignsController < ApplicationController
   end
 
   def destroy
-    # @campaign = Campaign.find(params[:id])
     @campaign.destroy
     redirect_to campaigns_path
   end

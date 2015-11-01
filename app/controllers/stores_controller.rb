@@ -3,7 +3,7 @@ class StoresController < ApplicationController
 
   def index
 
-    @campaign = Campaign.find(params[:campaign_id])
+    @campaign = Campaign.friendly.find(params[:campaign_id])
     if @campaign.products.first
       @products = @campaign.products.all
     end
