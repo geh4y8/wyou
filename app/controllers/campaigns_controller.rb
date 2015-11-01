@@ -22,7 +22,7 @@ class CampaignsController < ApplicationController
   def create
     @campaign = Campaign.new(campaign_params)
     if @campaign.save
-      CampaignMailer.new_campaign_email(@campaign.owner_email, self)
+      CampaignMailer.new_campaign_email(@campaign).deliver_later
       redirect_to campaigns_path
     else
       render :new
