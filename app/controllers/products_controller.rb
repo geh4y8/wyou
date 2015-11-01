@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
 
   before_action :authenticate_user!
+  before_filter :set_product, :except => [:index, :new, :create]
 
   def index
     @products = Product.all
@@ -21,16 +22,13 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
   end
 
   def edit
-    @product = Product.find(params[:id])
     render :edit
   end
 
   def update
-    @product = Product.find(params[:id])
     if @product.update(product_params)
       redirect_to products_path
     else
@@ -39,27 +37,26 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @campaign = Campaign.find(params[:id])
-    @campaign.destroy
-    redirect_to campaigns_path
+    @product.destroy
+    redirect_to products_path
   end
 
   def like
-
-    @product = Product.find(params[:id])
     @product.liked_by current_user, :vote_scope => params['campaign_id']
     current_user.likes @product
     redirect_to :back
   end
 
   def dislike
-    @product = Product.find(params[:id])
     @product.downvote_from current_user, :vote_scope => params['campaign_id']
     current_user.dislikes @product
     redirect_to :back
   end
 
 private
+  def set_product
+    @product = Product.friendly.find(params[:id])
+  end
   def product_params
     params.require(:product).permit(:name, :description, :retail_price, :image, :remove_image, :campaign_id)
   end

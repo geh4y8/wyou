@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.atwho
 //= require bootstrap-sprockets
 //= require bootstrap
 //= require template/metisMenu
@@ -28,3 +29,7 @@
 //= require template/dataTables.bootstrap
 //= require template/sb-admin-2
 //= require_tree .
+
+$(function(){
+    $('[data-behavior="autocomplete"]').atwho({at:"@", 'data':"/users"});
+});

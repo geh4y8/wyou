@@ -2,6 +2,7 @@ class CampaignsController < ApplicationController
 
 
   before_action :authenticate_user!, :except => :show
+  before_filter :set_campaign, :except => [:index, :new, :create, :add_product, :assign_product]
   # before_action :admin_only, :except => :show
 
   def index
@@ -14,7 +15,7 @@ class CampaignsController < ApplicationController
   end
 
   def show
-    @campaign = Campaign.find(params[:id])
+    # @campaign = Campaign.find(params[:id])
     @results = @campaign.goal_percentage(@campaign)
     render :show
   end
@@ -22,6 +23,7 @@ class CampaignsController < ApplicationController
   def create
     @campaign = Campaign.new(campaign_params)
     if @campaign.save
+      CampaignMailer.new_campaign_email(@campaign.owner_email, self)
       redirect_to campaigns_path
     else
       render :new
@@ -29,12 +31,12 @@ class CampaignsController < ApplicationController
   end
 
   def edit
-    @campaign = Campaign.find(params[:id])
+    # @campaign = Campaign.find(params[:id])
     render :edit
   end
 
   def update
-    @campaign = Campaign.find(params[:id])
+    # @campaign = Campaign.find(params[:id])
     if @campaign.update(campaign_params)
       redirect_to campaigns_path
     else
@@ -43,24 +45,28 @@ class CampaignsController < ApplicationController
   end
 
   def destroy
-    @campaign = Campaign.find(params[:id])
+    # @campaign = Campaign.find(params[:id])
     @campaign.destroy
     redirect_to campaigns_path
   end
 
   def add_product
-    @campaign = Campaign.find(params[:campaign_id])
+    @campaign = Campaign.friendly.find(params[:campaign_id])
     render :add_product
   end
 
   def assign_product
-    @campaign = Campaign.find(params[:campaign_id])
+    @campaign = Campaign.friendly.find(params[:campaign_id])
     @product = Product.find(params[:campaign][:products])
     @campaign.products << @product
     redirect_to campaign_stores_path
   end
 
   private
+
+  def set_campaign
+     @campaign = Campaign.friendly.find(params[:id])
+  end
 
   def campaign_params
     params.require(:campaign).permit(:name, :fund_goal, :patient_name, :patient_email, :patient_phone, :relationship, :owner_name, :self_purchase, :owner_email, :inform_patient_date, :product_id, :campaign_id)

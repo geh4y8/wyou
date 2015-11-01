@@ -1,4 +1,6 @@
 class Campaign < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :name, use: :slugged
 has_many :donations
 has_many :supporters
 has_many :users, :through => :supporters

@@ -25,8 +25,8 @@
           Upvote
         <% end %></td>
       <% end %>
-    <!--<%= render partial: "comments/comments", locals:{commentable: product} %>
-    <%= render partial: "comments/form", locals: {commentable: product} %> -->
+    <%= render partial: "comments/comments", locals:{commentable: product} %>
+    <%= render partial: "comments/form", locals: {commentable: product} %>
     <td><a href="/cart/<%= product.id %>"> Add to Cart</a></td>
   <% end %>
 </tr>
