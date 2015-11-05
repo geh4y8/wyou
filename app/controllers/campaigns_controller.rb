@@ -1,5 +1,5 @@
 class CampaignsController < ApplicationController
-
+  theme 'kickstars'
 
   before_action :authenticate_user!, :except => :show
   before_filter :set_campaign, :except => [:index, :new, :create, :add_product, :assign_product]
@@ -11,12 +11,10 @@ class CampaignsController < ApplicationController
 
   def new
     @campaign = Campaign.new
-    render :new
   end
 
   def show
     @results = @campaign.goal_percentage(@campaign)
-    render :show
   end
 
   def create

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kickstars</title>
+  <%= stylesheet_link_tag    "kickstars/all", media: "all" %>
+  <%= javascript_include_tag "kickstars/all" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<header id="header">
+<%= render 'layouts/navigation' %>
+</header>
+<%= render 'layouts/messages' %>
+<%= yield %>
+
+</body>
+</html>

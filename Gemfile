@@ -16,6 +16,7 @@ gem "rails_admin"
 gem 'acts_as_votable'
 gem 'friendly_id', '~> 5.1'
 gem 'jquery-atwho-rails'
+gem 'themes_on_rails'
 group :development, :test do
   gem 'byebug'
 end

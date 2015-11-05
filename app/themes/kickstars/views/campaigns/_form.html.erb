@@ -1,0 +1,49 @@
+<%= render "layouts/errors", :object => @campaign %>
+<div class="layout-2cols">
+        <div class="content grid_8">
+            <div class="single-page">
+                <div class="wrapper-box box-post-comment">
+                    <h2 class="common-title">Create New Campaign</h2>
+                    <div class="box-white">
+                      <%= form_for @campaign, :html => {:class=> 'clearfix'} do |f| %>
+                             <p class="rs pb30">Fill out the following form to create a new campaign.</p>
+                            <div class="form form-post-comment">
+                               <%= f.hidden_field :name, :value => current_user.name %>
+                               <%= f.hidden_field :owner_email, :value => current_user.email %>
+                                <div class="left-input">
+                                    <label for="txt-name">
+
+                                      <%= f.text_field :patient_name, :class => "txt fill-width txt-name", :placeholder=>"Enter Recipient's Name", :type=>"text" %>
+                                    </label>
+                                    <label for="txt_email_contact">
+                                      <%= f.text_field :patient_email, :class => "txt fill-width txt-email", :placeholder => "Enter Recipient Email Address", :type=>"email" %>
+                                    </label>
+                                    <label for="txt_phone">
+                                      <%= f.text_field :patient_phone, :class => "txt fill-width", :placeholder => "Enter Recipient Phone Number" %>
+                                    </label>
+                                    <label for="txt_relationship">
+                                      <%= f.text_field :relationship, :class => "txt fill-width", :placeholder => "What is your relationship to the patient?" %>
+                                    </label>
+                                    <label for="txt_fund_goal">
+                                      <%= f.text_field :fund_goal, :class => "txt fill-width", :placeholder => "blsjkd" %>
+                                    </label>
+                                </div>
+                                <!-- <div class="right-input">
+                                    <label for="txt_content_contact">
+                                        <textarea name="message" id="txt_content_contact" cols="30" rows="10" class="txt fill-width" placeholder="Your message"></textarea>
+                                    </label>
+                                </div> -->
+                                <div class="clear"></div>
+                                <p class="rs ta-r clearfix">
+                  <span id="response"></span>
+                                  <%= f.submit 'submit', :class=>'btn btn-white btn-submit-comment' %>
+
+                               </p>
+                            </div>
+                        </form>
+                    </div>
+                </div><!--end: .box-list-comment -->
+            </div>
+        </div><!--end: .content -->
+        <% end %>
+

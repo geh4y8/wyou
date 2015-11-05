@@ -6,6 +6,7 @@ has_many :supporters
 has_many :users, :through => :supporters
 has_one :store
 has_and_belongs_to_many :products
+has_many :comments, as: :commentable
 #has_and_belongs_to_many :likes
 # has_many :products, :through => :campaigns_products
 
