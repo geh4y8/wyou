@@ -57,6 +57,7 @@ private
   def set_product
     @product = Product.friendly.find(params[:id])
   end
+
   def product_params
     params.require(:product).permit(:name, :description, :retail_price, :image, :remove_image, :campaign_id)
   end

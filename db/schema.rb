@@ -11,24 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151029053158) do
+ActiveRecord::Schema.define(version: 20151107003522) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "campaigns", force: :cascade do |t|
-    t.string  "name"
-    t.integer "fund_amount",         default: 0
-    t.integer "fund_goal",           default: 0
-    t.string  "patient_name"
-    t.string  "patient_email"
-    t.string  "patient_phone"
-    t.string  "relationship"
-    t.string  "owner_name"
-    t.boolean "self_purchase"
-    t.string  "owner_email"
-    t.date    "inform_patient_date"
-    t.string  "slug"
+    t.string   "name"
+    t.integer  "fund_amount",         default: 0
+    t.integer  "fund_goal",           default: 0
+    t.string   "patient_name"
+    t.string   "patient_email"
+    t.string   "patient_phone"
+    t.string   "relationship"
+    t.string   "owner_name"
+    t.boolean  "self_purchase"
+    t.string   "owner_email"
+    t.date     "inform_patient_date"
+    t.string   "slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "campaigns", ["slug"], name: "index_campaigns_on_slug", unique: true, using: :btree
@@ -136,6 +138,7 @@ ActiveRecord::Schema.define(version: 20151029053158) do
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
     t.integer  "invitations_count",      default: 0
+    t.string   "image_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

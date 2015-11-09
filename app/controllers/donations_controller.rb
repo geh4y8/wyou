@@ -3,17 +3,17 @@ class DonationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @campaign = Campaign.find(params[:campaign_id])
+    @campaign = Campaign.friendly.find(params[:campaign_id])
     @donations = @campaign.donations.all
   end
 
   def new
-    @campaign = Campaign.find(params[:campaign_id])
+    @campaign = Campaign.friendly.find(params[:campaign_id])
     @donation = @campaign.donations.new
   end
 
   def create
-    @campaign = Campaign.find(params[:campaign_id])
+    @campaign = Campaign.friendly.find(params[:campaign_id])
     @donation = @campaign.donations.new(donation_params.except(:email))
     customer = Stripe::Customer.create email: donation_params[:email],
                                        card: @donation.card_token

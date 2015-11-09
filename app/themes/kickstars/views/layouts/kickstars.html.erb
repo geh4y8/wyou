@@ -3,15 +3,17 @@
 <head>
   <title>Kickstars</title>
   <%= stylesheet_link_tag    "kickstars/all", media: "all" %>
-  <%= javascript_include_tag "kickstars/all" %>
+  <%= javascript_include_tag "kickstars/all", media: "all" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div id="wrapper">
 <header id="header">
 <%= render 'layouts/navigation' %>
 </header>
 <%= render 'layouts/messages' %>
 <%= yield %>
-
+<%= render 'layouts/footer' %>
+</div>
 </body>
 </html>

@@ -14,6 +14,7 @@ class CampaignsController < ApplicationController
   end
 
   def show
+    @user = current_user
     @results = @campaign.goal_percentage(@campaign)
   end
 

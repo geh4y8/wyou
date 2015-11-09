@@ -1453,7 +1453,7 @@ a.fc-gray-dark,.fc-gray-dark{color: #999}
 /* 11.	Page: Home
 --------------------------------------------------------------------------------*/
 #home-slider p {
-	margin: 0	
+	margin: 0
 }
 #home-slider .slide-item{
     float: left;
@@ -1482,7 +1482,7 @@ a.fc-gray-dark,.fc-gray-dark{color: #999}
 	color: #fff
 }
 .slide-with-background {
-	background:url(../images/slide-item-bg.png) repeat 0 0;	
+	background:url(../images/slide-item-bg.png) repeat 0 0;
 }
 #home-slider .md-bullet{
     cursor: pointer;
