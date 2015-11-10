@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :admin_only, :except => :show
+  # before_action :admin_only, :except => [:show, :add_avatar, :update]
 
   def index
     @users = User.all
@@ -30,6 +30,11 @@ class UsersController < ApplicationController
     redirect_to users_path, :notice => "User deleted."
   end
 
+  def add_avatar
+    user = current_user
+    render 'add_avatar'
+  end
+
   private
 
   def admin_only
@@ -39,7 +44,7 @@ class UsersController < ApplicationController
   end
 
   def secure_params
-    params.require(:user).permit(:role, :image, :remove_image)
+    params.require(:user).permit(:role, :image, :remove_image, :image_id)
   end
 
 end

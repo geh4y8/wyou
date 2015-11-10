@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get '/cart/clear' => 'cart#clearCart'
   get '/cart/:id' => 'cart#add'
 
+  get '/add_avatar' => 'users#add_avatar'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   # mount Upmin::Engine => '/admin'
   root to: 'visitors#index'
