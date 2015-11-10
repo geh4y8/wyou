@@ -30,9 +30,11 @@
                                         <div class="container_12">
                                             <div class="row-friends" style="margin-left:50px">
                                                 <% count = 0 %>
+                                                <% if @supporter.results.any? %>
                                                 <% @supporter_results.each do |supporter| %>
                                                     <a class="thumb-avatar"><%= image_tag attachment_url(supporter.user, :image, :fill, 80, 80) %></a>
                                                     <% count+=1 %>
+                                                <% end %>
                                                 <% end %>
                                                 <% if @supporter_results.count < 4 %>
                                                     <% until count > 3 do %>

@@ -18,8 +18,6 @@ has_many :comments, as: :commentable
   def supporters_image_count(campaign)
     supporters_array = []
     supporters = campaign.supporters.order("RANDOM()").limit(8)
-    supporters_array << supporters(0..3)
-    supporters_array << supporters(4..7)
     return supporters_array
   end
 
