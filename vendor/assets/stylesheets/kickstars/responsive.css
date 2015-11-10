@@ -29,7 +29,7 @@
         width: 100%;
         border-bottom: 1px solid #d4d4d4;
         padding-bottom: 12px;
-        display: none;
+        /*display: none;*/
     }
     .header-content .header-right.active{
         display: block;

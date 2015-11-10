@@ -255,6 +255,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_votable
+  aws-sdk
   better_errors
   bootstrap-sass
   byebug

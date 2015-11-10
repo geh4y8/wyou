@@ -16,6 +16,7 @@ class CampaignsController < ApplicationController
   def show
     @user = current_user
     @results = @campaign.goal_percentage(@campaign)
+    @supporter_results = @campaign.supporters_image_count(@campaign)
   end
 
   def create

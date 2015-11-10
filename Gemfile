@@ -17,6 +17,7 @@ gem 'acts_as_votable'
 gem 'friendly_id', '~> 5.1'
 gem 'jquery-atwho-rails'
 gem 'themes_on_rails'
+gem 'aws-sdk'
 gem 'refile-s3'
 
 group :development, :test do

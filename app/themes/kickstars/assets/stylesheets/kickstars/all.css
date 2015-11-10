@@ -5,7 +5,8 @@
  *
 
  *= require kickstars/animate.min
-
+ *= require kickstars/ie7
+ *= require kickstars/ie8
  *= require kickstars/jquery.sidr.light
  *= require kickstars/md-slider
  *= require kickstars/normalize
