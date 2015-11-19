@@ -298,7 +298,7 @@
                               <% else %>
                                 <div class="minicart-header" style="display:block">
                                   <div class="minicart-body">
-                                    <% @cart.each do |product_id, quantity| %>
+                                    <% if @cart.each do |product_id, quantity| %>
                                     <% product = Product.find(product_id) %>
                                     <div class="cart-product clearfix">
                                       <div class="cart-product-image">
