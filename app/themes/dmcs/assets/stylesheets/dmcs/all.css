@@ -13,7 +13,6 @@
  *= require dmcs/settings
  *= require dmcs/shop
  *= require dmcs/style
- *= require font-awesome
  *= require_self
  *= require_tree .
 
