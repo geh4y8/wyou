@@ -4,8 +4,10 @@ class Store < ActiveRecord::Base
 
   def self.products_in_cart(cart)
     total = 0
-    cart.each do |product, amount|
-      total += amount
+    if cart
+      cart.each do |product, amount|
+        total += amount
+      end
     end
     return total
   end
