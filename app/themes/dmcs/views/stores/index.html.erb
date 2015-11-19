@@ -298,25 +298,27 @@
                               <% else %>
                                 <div class="minicart-header" style="display:block">
                                   <div class="minicart-body">
-                                    <% if @cart.each do |product_id, quantity| %>
-                                    <% product = Product.find(product_id) %>
-                                    <div class="cart-product clearfix">
-                                      <div class="cart-product-image">
-                                        <a class="cart-product-img" href="#">
-                                          <%= image_tag attachment_url(product, :image) %>
-                                        </a>
-                                      </div>
-                                      <div class="cart-product-details">
-                                        <div class="cart-product-title">
-                                          <a href="#"> <%= product.name %> </a>
+                                    <% if @cart %>
+                                      <% @cart.each do |product_id, quantity| %>
+                                      <% product = Product.find(product_id) %>
+                                      <div class="cart-product clearfix">
+                                        <div class="cart-product-image">
+                                          <a class="cart-product-img" href="#">
+                                            <%= image_tag attachment_url(product, :image) %>
+                                          </a>
                                         </div>
-                                        <div class="cart-product-quantity-price">
-                                          <%= quantity %> x
-                                          <span class="amount">$<%= product.retail_price %></span>
+                                        <div class="cart-product-details">
+                                          <div class="cart-product-title">
+                                            <a href="#"> <%= product.name %> </a>
+                                          </div>
+                                          <div class="cart-product-quantity-price">
+                                            <%= quantity %> x
+                                            <span class="amount">$<%= product.retail_price %></span>
+                                          </div>
+                                          <a href="/cart/removeItem/<%= product.id %>" class="remove" title="Remove this item">×</a>
                                         </div>
-                                        <a href="/cart/removeItem/<%= product.id %>" class="remove" title="Remove this item">×</a>
                                       </div>
-                                    </div>
+                                      <% end %>
                                     <% end %>
                                   </div>
                                 </div>
