@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get '/cart' => 'cart#index'
   get '/cart/clear' => 'cart#clearCart'
   get '/cart/:id' => 'cart#add'
-
+  get '/cart/removeItem/:id' => 'cart#removeItem'
   get '/add_avatar' => 'users#add_avatar'
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'

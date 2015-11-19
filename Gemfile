@@ -19,6 +19,7 @@ gem 'jquery-atwho-rails'
 gem 'themes_on_rails'
 gem 'aws-sdk'
 gem 'refile-s3'
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'byebug'

@@ -27,6 +27,15 @@
                                     <label for="txt_fund_goal">
                                       <%= f.text_field :fund_goal, :class => "txt fill-width", :placeholder => "blsjkd" %>
                                     </label>
+                                    <label for="txt_description">
+                                      <%= f.text_area :campaign_description, :class=> "txt fill-width", :placeholder => "Please write a short description" %>
+                                    </label>
+                                    <label for="txt_description">
+                                      <%= f.text_area :provide_description, :class=> "txt fill-width", :placeholder => "How will this help?" %>
+                                    </label>
+                                    <label for="image_upload">
+                                      <%= f.attachment_field :image, :class =>"txt fill-width" %>
+                                    </label>
                                 </div>
                                 <!-- <div class="right-input">
                                     <label for="txt_content_contact">

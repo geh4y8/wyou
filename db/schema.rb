@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151107003522) do
+ActiveRecord::Schema.define(version: 20151110061845) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "campaigns", force: :cascade do |t|
     t.string   "name"
-    t.integer  "fund_amount",         default: 0
-    t.integer  "fund_goal",           default: 0
+    t.integer  "fund_amount",          default: 0
+    t.integer  "fund_goal",            default: 0
     t.string   "patient_name"
     t.string   "patient_email"
     t.string   "patient_phone"
@@ -31,6 +31,9 @@ ActiveRecord::Schema.define(version: 20151107003522) do
     t.string   "slug"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_id"
+    t.text     "campaign_description"
+    t.text     "provide_description"
   end
 
   add_index "campaigns", ["slug"], name: "index_campaigns_on_slug", unique: true, using: :btree

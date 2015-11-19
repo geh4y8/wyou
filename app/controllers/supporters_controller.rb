@@ -17,7 +17,7 @@ class SupportersController < ApplicationController
     @campaign = Campaign.find(params[:campaign_id])
     @supporter = @campaign.supporters.new(:user_id => current_user.id)
     if @supporter.save
-      redirect_to campaign_supporters_path
+      redirect_to campaign_path(@campaign)
     else
       render :new
     end

@@ -264,6 +264,7 @@ DEPENDENCIES
   devise
   devise_invitable
   dotenv-rails
+  font-awesome-rails
   friendly_id (~> 5.1)
   jbuilder (~> 2.0)
   jquery-atwho-rails

@@ -7,6 +7,7 @@ has_many :users, :through => :supporters
 has_one :store
 has_and_belongs_to_many :products
 has_many :comments, as: :commentable
+attachment :image
 #has_and_belongs_to_many :likes
 # has_many :products, :through => :campaigns_products
 
@@ -16,9 +17,13 @@ has_many :comments, as: :commentable
   end
 
   def supporters_image_count(campaign)
-    supporters_array = []
     supporters = campaign.supporters.order("RANDOM()").limit(8)
-    return supporters_array
+    supporters = supporters.map {|x|
+      if x.user.image_id
+        x
+      end}
+
+    return supporters
   end
 
 end

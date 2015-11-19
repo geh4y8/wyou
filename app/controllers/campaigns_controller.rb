@@ -14,6 +14,7 @@ class CampaignsController < ApplicationController
   end
 
   def show
+    @campaign_owner = User.where('email = :email', { email: @campaign.owner_email}).first
     @user = current_user
     @results = @campaign.goal_percentage(@campaign)
     @supporter_results = @campaign.supporters_image_count(@campaign)
@@ -65,6 +66,6 @@ class CampaignsController < ApplicationController
   end
 
   def campaign_params
-    params.require(:campaign).permit(:name, :fund_goal, :patient_name, :patient_email, :patient_phone, :relationship, :owner_name, :self_purchase, :owner_email, :inform_patient_date, :product_id, :campaign_id)
+    params.require(:campaign).permit(:name, :fund_goal, :patient_name, :patient_email, :patient_phone, :relationship, :owner_name, :self_purchase, :owner_email, :inform_patient_date, :product_id, :campaign_id, :image, :remove_image, :campaign_description, :provide_description)
   end
 end

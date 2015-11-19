@@ -1,16 +1,9 @@
+<% if current_user %>
 <% if !@campaign.supporters.where(:user_id =>current_user.id).exists? %>
 <p><%= link_to "I Support This", campaign_supporters_path(@campaign.id), {:method => :post} %></p>
 <% end %>
-<% if @campaign.owner_email == current_user.email %>
-<p><%= link_to "Edit", edit_campaign_path(@campaign) %></p>
-<p><%= link_to "Delete", campaign_path(@campaign),
-                         :data => {:confirm => "You sure?",
-                                   :method => "delete"} %></p>
 <% end %>
-<% @supporter_results.each do |supporter| %>
-<%= image_tag attachment_url(supporter.user, :image, :fill, 80,80) %>
 
-<% end %>
 <div class="layout-2cols">
         <div class="content grid_8">
             <div class="project-detail">
@@ -23,47 +16,48 @@
                                 <div class="rslides_container">
 
                                   <ul class="rslides" id="slider1">
-                                    <div>
-                                        <h2> Current Supporters: </h2>
-                                    </div>
+
                                     <div class="home-discover-friends">
                                         <div class="container_12">
                                             <div class="row-friends" style="margin-left:50px">
                                                 <% count = 0 %>
-                                                <% if @supporter_results.any? %>
-                                                <% @supporter_results.each do |supporter| %>
-                                                    <a class="thumb-avatar"><%= image_tag attachment_url(supporter.user, :image, :fill, 80, 80) %></a>
+                                                <% i = 0 %>
+                                                <% until i > 3 do %>
+                                                    <% if @supporter_results[i] %>
+                                                    <a class="thumb-avatar"><%= image_tag attachment_url(@supporter_results[i].user, :image, :fill, 100, 100) %></a>
+                                                    <% else %>
+                                                    <a class="thumb-avatar" href="#"><%= image_tag 'kickstars/your_face_here.jpg' %></a>
+                                                    <%end%>
                                                     <% count+=1 %>
+                                                    <% i+=1 %>
                                                 <% end %>
-                                                <% end %>
-                                                <% if @supporter_results.count < 4 %>
-                                                    <% until count > 3 do %>
-                                                        <a class="thumb-avatar" href="#"><%= image_tag 'kickstars/1.jpg' %></a>
-                                                        <% count+=1 %>
-                                                    <% end %>
-                                                <% end %>
+
                                                 <div class="clear"></div>
                                             </div>
-                                            <div class="row-friends" style="margin-left:50px">
-
-                                                <div style="margin-left: 15%; padding: 10px">
-                                                    <%= link_to new_campaign_donation_path(@campaign), :class=>"btn btn-green", :style=>'padding:10px'   do %>
-                                                        <h3>I Support <%= @campaign.patient_name %></h3>
-                                                    <% end %>
-
-
-
+                                            <div class="row-friends row-connect-fb" style="margin-left:50px">
+                                                <div class="connect-fb">
+                                                    <p class="rs description" style="padding-bottom:20px;margin-left:15%">we are w/you</p>
+                                                    <!-- <div style="margin-left: 15%; padding: 10px">
+                                                        <%= link_to new_campaign_donation_path(@campaign), :class=>"btn btn-green", :style=>'padding:10px'   do %>
+                                                            <h3>I</h3> <div style="height:20px;width:20px"><%= image_tag 'kickstars/heart301.png', size:'20' %>
+                                                            </div> <h3><%= @campaign.patient_name %></h3>
+                                                        <% end %>
+                                                    </div> -->
                                                 </div>
-
                                                 <div class="clear"></div>
                                             </div>
                                             <div class="row-friends" style="margin-left:50px">
-                                                <% count2 = 0 %>
-
-                                                <a class="thumb-avatar" href="#"><%= image_tag 'kickstars/1.jpg' %></a>
-                                                <a class="thumb-avatar" href="#"><%= image_tag 'kickstars/1.jpg' %></a>
-                                                <a class="thumb-avatar" href="#"><%= image_tag 'kickstars/1.jpg' %></a>
-                                                <a class="thumb-avatar" href="#"><%= image_tag 'kickstars/1.jpg' %></a>
+                                                <% count = 0 %>
+                                                <% i = 4 %>
+                                                <% until i > 7 do %>
+                                                    <% if @supporter_results[i] %>
+                                                    <a class="thumb-avatar"><%= image_tag attachment_url(@supporter_results[i].user, :image, :fill, 80, 80) %></a>
+                                                    <% else %>
+                                                    <a class="thumb-avatar" href="#"><%= image_tag 'kickstars/your_face_here.jpg' %></a>
+                                                    <%end%>
+                                                    <% count+=1 %>
+                                                    <% i+=1 %>
+                                                <% end %>
 
                                                 <div class="clear"></div>
                                             </div>
@@ -91,8 +85,8 @@
                             </div>
                             <div class="sep"></div>
                             <div class="fee-item">
-                                <p class="rs lbl">Days Left</p>
-                                <span class="val">25</span>
+                                <!-- <p class="rs lbl">Days Left</p>
+                                <span class="val">25</span> -->
                             </div>
                         </div>
                         <div class="clear"></div>
@@ -109,17 +103,18 @@
                             <h3 class="rs alternate-tab accordion-label">About</h3>
                             <div class="tab-pane active accordion-content">
                                 <div class="editor-content">
-                                    <h3 class="rs title-inside">LYK and Bear #1: No Food Deed Unpunished</h3>
-                                    <p class="rs post-by">by <a href="#" class="fw-b fc-gray be-fc-orange">Ray Sumser</a> in <span class="fw-b fc-gray">New York, NY</span></p>
-                                    <p>Nam sit amet est sapien, a faucibus purus. Sed commodo facilisis tempus. Pellentesque placerat elementum adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
+                                    <h3 class="rs title-inside">Why help <%= @campaign.name %>?</h3>
+                                    <!-- <p class="rs post-by">by <a href="#" class="fw-b fc-gray be-fc-orange"><%= @campaign_owner.name %></a></p> -->
+                                    <p><%= @campaign.campaign_description %></p>
                                     <p>
-                                        <img class="img-desc" src="images/ex/th-552x411-2.jpg" alt="$DESCRIPTION"/>
+                                        <%= image_tag attachment_url(@campaign, :image), :class=>"img-desc" %>
                                         <span class="img-label">Me and project friends on meeting</span>
                                     </p>
-                                    <p>Nam sit amet est sapien, a faucibus purus. Sed commodo facilisis tempus. Pellentesque placerat elementum adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
-                                    <div class="social-sharing">
-                                        <!-- AddThis Button BEGIN -->
+                                    <br />
+                                    <h3 class="rs title-inside">What will this provide?</h3>
+                                    <p><%= @campaign.provide_description %></p>
+                                    <!-- <div class="social-sharing">
+
                                         <div class="addthis_toolbox addthis_default_style">
                                         <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
                                         <a class="addthis_button_tweet"></a>
@@ -127,13 +122,13 @@
                                         <a class="addthis_counter addthis_pill_style"></a>
                                         </div>
                                         <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=undefined"></script>
-                                        <!-- AddThis Button END -->
-                                    </div>
+
+                                    </div> -->
                                 </div>
-                                <div class="project-btn-action">
+                                <!-- <div class="project-btn-action">
                                     <a class="btn big btn-red" href="#">Ask a question</a>
                                     <a class="btn big btn-black" href="#">Report this project</a>
-                                </div>
+                                </div> -->
                             </div><!--end: .tab-pane(About) -->
                         </div>
                         <div>
@@ -199,19 +194,22 @@
             <div class="project-runtime">
                 <div class="box-gray">
                     <div class="project-date clearfix">
-                        <i class="icon iCalendar"></i>
-                        <span class="val"><span class="fw-b">Launched: </span><%= @campaign.created_at.strftime("%b %-d, %Y") %></span>
+
+                        <span class="val"><span class="glyphicon glyphicon-calendar" style="padding-right:10px"></span><span class="fw-b">Launched: </span><%= @campaign.created_at.strftime("%b %-d, %Y") %></span>
                     </div>
                     <div class="project-date clearfix">
-                        <i class="icon iClock"></i>
-                        <span class="val"><span class="fw-b">Funding ends: </span>Apr 8, 2013</span>
+                        <span class="val"><span class="glyphicon glyphicon-circle-arrow-down" style="padding-right:10px"></span><span class="fw-b">Funding ends: </span>Dec 12, 2015</span>
                     </div>
+                    <div class="btn btn-green btn-buck-project lbl" style="font-size:20px; color:white;">
+                        <%= link_to "Donate", new_campaign_donation_path(@campaign), :style=>"color:white;" %>
+                        <span class="glyphicon glyphicon-heart-empty"></span>
 
-                    <%= link_to "Donate", new_campaign_donation_path(@campaign), :class=>"btn btn-green btn-buck-project lbl" %>
+                    </div>
+                    <!-- <span class="desc">$20 minimum pledge</span> -->
                         <!-- <span class="lbl">Donate</span>
-                        <span class="desc">$1 minimum pledge</span> -->
 
-                    <!-- <p class="rs description">This project will only be funded if at least $15,000 is pledged by Wednesday May 8, 2:05pm EDT.</p> -->
+
+                     <p class="rs description">This project will only be funded if at least $15,000 is pledged by Wednesday May 8, 2:05pm EDT.</p> -->
                 </div>
             </div>
             <div class="project-author">
@@ -219,22 +217,23 @@
                     <h3 class="title-box">Project by</h3>
                     <div class="media">
                         <a href="#" class="thumb-left">
-                            <%= image_tag attachment_url(@user, :image, :fill, 300, 300) %>
+                            <%= image_tag attachment_url(@campaign_owner, :image, :fill, 300, 300) %>
                         </a>
                         <div class="media-body">
-                            <h4 class="rs pb10"><a href="#" class="be-fc-orange fw-b"><%= @user.name %></a></h4>
+                            <h4 class="rs pb10"><a href="#" class="be-fc-orange fw-b"><%= @campaign_owner.name %></a></h4>
                             <p class="rs"></p>
                             <p class="rs fc-gray"></p>
                         </div>
                     </div>
                     <div class="author-action">
-                        <a class="btn btn-red" href="#">Contact me</a>
-                        <a class="btn btn-white" href="#">See full bio</a>
+                        <a class="btn btn-red" href="#"><span class="glyphicon glyphicon-envelope" style="padding-right:10px"></span>Contact me</a>
+                        <!-- <a class="btn btn-white" href="#">See full bio</a> -->
                     </div>
                 </div>
             </div><!--end: .project-author -->
         </div><!--end: .sidebar -->
         <div class="clear"></div>
+
     </div>
 
 

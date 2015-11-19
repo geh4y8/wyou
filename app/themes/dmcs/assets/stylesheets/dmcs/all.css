@@ -1,0 +1,20 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+ *= require dmcs/layout
+ *= require dmcs/magnific-popup
+ *= require dmcs/swatches-and-photos
+ *= require dmcs/elegant-icon
+ *= require dmcs/font-awesome.min
+ *= require dmcs/settings
+ *= require dmcs/shop
+ *= require dmcs/style
+ *= require font-awesome
+ *= require_self
+ *= require_tree .
+
+*/
