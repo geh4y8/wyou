@@ -420,87 +420,87 @@
               <div class="main-content">
                 <div class="shop-loop grid">
                   <ul class="products">
-                    <% @products.each do |product| %>
-                    <li class="product">
-                      <div class="product-container">
-                        <figure>
-                          <div class="product-wrap">
-                            <div class="product-images">
-                              <div class="shop-loop-thumbnail"> <div height="350" width="300"><%= image_tag attachment_url(product, :image, :fill, 350, 300), :id=>'image'+product.id.to_s %></div>
+                    <% if @products %>
+                      <% @products.each do |product| %>
+                      <li class="product">
+                        <div class="product-container">
+                          <figure>
+                            <div class="product-wrap">
+                              <div class="product-images">
+                                <div class="shop-loop-thumbnail"> <div height="350" width="300"><%= image_tag attachment_url(product, :image, :fill, 350, 300), :id=>'image'+product.id.to_s %></div>
 
-                                                            </div>
-                                                            <div class="yith-wcwl-add-to-wishlist">
-                                                                <div class="yith-wcwl-add-button">
-                                                                    <a href="#" class="add_to_wishlist">
-                                                                        Add to Wishlist
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="clear"></div>
+                                                              </div>
+                                                              <div class="yith-wcwl-add-to-wishlist">
+                                                                  <div class="yith-wcwl-add-button">
+                                                                      <a href="#" class="add_to_wishlist">
+                                                                          Add to Wishlist
+                                                                      </a>
+                                                                  </div>
+                                                              </div>
+                                                              <div class="clear"></div>
 
-                              <div class="shop-loop-quickview">
-                                <a href="#" data-rel="quickViewModal" data-products='<%= product.id.to_s %>' data-productdescription='<%=product.description %>' data-productprice='<%= product.retail_price %>' data-productname='<%= product.name %>'><i class="fa fa-plus" style="color:white"></i></a>
+                                <div class="shop-loop-quickview">
+                                  <a href="#" data-rel="quickViewModal" data-products='<%= product.id.to_s %>' data-productdescription='<%=product.description %>' data-productprice='<%= product.retail_price %>' data-productname='<%= product.name %>'><i class="fa fa-plus" style="color:white"></i></a>
+                                </div>
                               </div>
                             </div>
-                          </div>
-                          <figcaption>
-                            <div class="shop-loop-product-info">
-                              <div class="info-title">
-                                <div class="yith-wcwl-add-to-wishlist" style="color:red">
-                                                                <div class="yith-wcwl-add-button" style="color:red">
-                                                                    <a href="#" class="add_to_wishlist" style="color:red">
-                                                                        Add to Wishlist
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                <h3 class="product_title"><a href="#"><%= product.name %></a></h3>
-<div class="shop-loop-quickview">
-                                <a href="#" data-rel="quickViewModal" data-productdescription='<%=product.description %>' data-productprice='<%= product.retail_price %>' data-productname='<%= product.name %>' data-productid='<%= product.id %>'><i class="fa fa-plus"></i></a>
-                                </div>
-                              </div>
-                              <div class="info-metas">
-                                <div class="info-price">
-                                  <span class="price">
-                                    <span class="amount">&#36;<%= product.retail_price %></span>
-
-                                  </span>
-
-                                </div>
-                                <!-- <div class="loop-add-to-cart">
-                                  <a href="#">Select options</a>
-                                </div> -->
-                              </div>
-                              <div class="info-excerpt">
-                                <%= product.description %>&hellip;
-                              </div>
-                              <div class="list-info-meta clearfix">
-                                <div class="info-price">
-                                  <span class="price">
-                                    <span class="amount">&#36;<%= product.retail_price %></span>&ndash;<span class="amount">&#36;23.00</span>
-                                  </span>
-
-                                </div>
-                                <div class="list-action clearfix">
-                                  <div class="loop-add-to-cart">
-                                    <a href="#">Select options</a>
+                            <figcaption>
+                              <div class="shop-loop-product-info">
+                                <div class="info-title">
+                                  <div class="yith-wcwl-add-to-wishlist" style="color:red">
+                                                                  <div class="yith-wcwl-add-button" style="color:red">
+                                                                      <a href="#" class="add_to_wishlist" style="color:red">
+                                                                          Add to Wishlist
+                                                                      </a>
+                                                                  </div>
+                                                              </div>
+                                  <h3 class="product_title"><a href="#"><%= product.name %></a></h3>
+  <div class="shop-loop-quickview">
+                                  <a href="#" data-rel="quickViewModal" data-productdescription='<%=product.description %>' data-productprice='<%= product.retail_price %>' data-productname='<%= product.name %>' data-productid='<%= product.id %>'><i class="fa fa-plus"></i></a>
                                   </div>
-                                  <div class="yith-wcwl-add-to-wishlist">
-                                    <div class="yith-wcwl-add-button">
-                                      <a href="#" class="add_to_wishlist">
-                                        Add to Wishlist
-                                      </a>
+                                </div>
+                                <div class="info-metas">
+                                  <div class="info-price">
+                                    <span class="price">
+                                      <span class="amount">&#36;<%= product.retail_price %></span>
+
+                                    </span>
+
+                                  </div>
+                                  <!-- <div class="loop-add-to-cart">
+                                    <a href="#">Select options</a>
+                                  </div> -->
+                                </div>
+                                <div class="info-excerpt">
+                                  <%= product.description %>&hellip;
+                                </div>
+                                <div class="list-info-meta clearfix">
+                                  <div class="info-price">
+                                    <span class="price">
+                                      <span class="amount">&#36;<%= product.retail_price %></span>&ndash;<span class="amount">&#36;23.00</span>
+                                    </span>
+
+                                  </div>
+                                  <div class="list-action clearfix">
+                                    <div class="loop-add-to-cart">
+                                      <a href="#">Select options</a>
+                                    </div>
+                                    <div class="yith-wcwl-add-to-wishlist">
+                                      <div class="yith-wcwl-add-button">
+                                        <a href="#" class="add_to_wishlist">
+                                          Add to Wishlist
+                                        </a>
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
                               </div>
-                            </div>
-                          </figcaption>
-                        </figure>
-                      </div>
-                    </li>
+                            </figcaption>
+                          </figure>
+                        </div>
+                      </li>
+                      <% end %>
                     <% end %>
-
-
                     <li class="product">
                       <div class="product-container">
                         <figure>
