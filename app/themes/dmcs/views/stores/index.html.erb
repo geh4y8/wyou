@@ -427,42 +427,32 @@
                           <figure>
                             <div class="product-wrap">
                               <div class="product-images">
-                                <div class="shop-loop-thumbnail"> <div height="350" width="300"><%= image_tag attachment_url(product, :image, :fill, 350, 300), :id=>'image'+product.id.to_s %></div>
-
-                                                              </div>
-                                                              <div class="yith-wcwl-add-to-wishlist">
-                                                                  <div class="yith-wcwl-add-button">
-                                                                      <a href="#" class="add_to_wishlist">
-                                                                          Add to Wishlist
-                                                                      </a>
-                                                                  </div>
-                                                              </div>
-                                                              <div class="clear"></div>
-
-                                <div class="shop-loop-quickview">
-                                  <a href="#" data-rel="quickViewModal" data-products='<%= product.id.to_s %>' data-productdescription='<%=product.description %>' data-productprice='<%= product.retail_price %>' data-productname='<%= product.name %>'><i class="fa fa-plus" style="color:white"></i></a>
+                                <div class="shop-loop-thumbnail">
+                                  <div height="350" width="300"><%= image_tag attachment_url(product, :image, :fill, 350, 300), :id=>'image'+product.id.to_s %>
+                                  </div>
                                 </div>
+                                <div class="clear"></div>
                               </div>
                             </div>
                             <figcaption>
                               <div class="shop-loop-product-info">
                                 <div class="info-title">
                                   <div class="yith-wcwl-add-to-wishlist" style="color:red">
-                                                                  <div class="yith-wcwl-add-button" style="color:red">
-                                                                      <a href="#" class="add_to_wishlist" style="color:red">
+                                                                  <div class="yith-wcwl-add-button">
+                                                                      <a href="#" class="add_to_wishlist added_to_favorites" >
                                                                           Add to Wishlist
                                                                       </a>
                                                                   </div>
                                                               </div>
                                   <h3 class="product_title"><a href="#"><%= product.name %></a></h3>
   <div class="shop-loop-quickview">
-                                  <a href="#" data-rel="quickViewModal" data-productdescription='<%=product.description %>' data-productprice='<%= product.retail_price %>' data-productname='<%= product.name %>' data-productid='<%= product.id %>'><i class="fa fa-plus"></i></a>
+                                  <a href="#" data-rel="quickViewModal" data-productdescription='<%=product.description %>' data-productprice='<%= number_to_currency product.retail_price %>' data-productname='<%= product.name %>' data-productid='<%= product.id %>'><i class="fa fa-plus"></i></a>
                                   </div>
                                 </div>
                                 <div class="info-metas">
                                   <div class="info-price">
                                     <span class="price">
-                                      <span class="amount">&#36;<%= product.retail_price %></span>
+                                      <span class="amount"><%= number_to_currency product.retail_price %></span>
 
                                     </span>
 
@@ -811,24 +801,25 @@
                             <div class="quantity">
                               <input type="number" name="quantity" value="1" title="Qty" class="input-text qty text" size="4">
                             </div>
-                            <a class="add-to-cart-modal-button" class="button" href="/cart/"> Add to Cart</a>
-                            <!-- <button type="submit" class="button">Add to cart</button> -->
+                            <button class="add-to-cart-modal-button button" href="/cart/"> Add to Cart</button>
                           </div>
                         </div>
                       </form>
                     </div>
                     <div class="yith-wcwl-add-to-wishlist">
-                      <a href="#" class="add_to_wishlist">
-                        Add to Wishlist
-                      </a>
+                      <div class="yith-wcwl-add-button">
+                        <a href="#" class="add_to_wishlist">
+                          Add to Wishlist
+                        </a>
+                      </div>
                     </div>
-                    <div class="product_meta">
+                    <!-- <div class="product_meta">
                       <span class="sku_wrapper">SKU: <span class="sku">N/A</span></span>
                       <span class="posted_in">Category: <a href="#">Aliquam</a></span>
                       <span class="tagged_as">Tags: <a href="#">Men</a>, <a href="#">Women</a></span>
                       <span class="posted_in">Brand: <a href="#">Adesso</a>, <a href="#">Carvela</a>.</span>
-                    </div>
-                    <div class="share-links">
+                    </div> -->
+                    <!-- <div class="share-links">
                       <div class="share-icons">
                         <span class="facebook-share">
                           <a href="#" title="Share on Facebook"><i class="fa fa-facebook"></i></a>
@@ -843,7 +834,7 @@
                           <a href="#" title="Share on Linked In"><i class="fa fa-linkedin"></i></a>
                         </span>
                       </div>
-                    </div>
+                    </div> -->
                   </div>
                 </div>
               </div>

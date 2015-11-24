@@ -12,6 +12,10 @@ class DonationsController < ApplicationController
     @donation = @campaign.donations.new
   end
 
+  def show
+    @campaign = Campaign.friendly.find(params[:campaign_id])
+  end
+
   def create
     @campaign = Campaign.friendly.find(params[:campaign_id])
     @donation = @campaign.donations.new(donation_params.except(:email))

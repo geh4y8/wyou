@@ -12,13 +12,14 @@ gem 'cancancan'
 gem 'rolify'
 gem "refile", require: "refile/rails"
 gem "refile-mini_magick"
-gem "rails_admin"
+# gem "rails_admin"
 gem 'acts_as_votable'
 gem 'friendly_id', '~> 5.1'
 gem 'jquery-atwho-rails'
 gem 'themes_on_rails'
 gem 'aws-sdk'
 gem 'refile-s3'
+gem 'administrate'
 
 group :development, :test do
   gem 'byebug'

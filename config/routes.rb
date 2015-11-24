@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
+
   get '/cart' => 'cart#index'
   get '/cart/clear' => 'cart#clearCart'
   get '/cart/:id' => 'cart#add'
   get '/cart/removeItem/:id' => 'cart#removeItem'
   get '/add_avatar' => 'users#add_avatar'
+  get '/checkout' => 'checkout#index'
 
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  # mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   # mount Upmin::Engine => '/admin'
   root to: 'visitors#index'
   resources :campaigns do
