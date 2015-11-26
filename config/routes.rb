@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get '/add_avatar' => 'users#add_avatar'
   get '/checkout' => 'checkout#index'
 
+  get '/fetch_comments' => 'comments#from_product', as: 'fetch_comments'
+
   # mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   # mount Upmin::Engine => '/admin'
   root to: 'visitors#index'

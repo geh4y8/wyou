@@ -380,9 +380,10 @@
                     <tbody>
                       <tr class="cart_item">
                         <% subtotal = 0 %>
+                        <% if @cart %>
                         <% @cart.each do |product_id, quantity | %>
                           <td class="product-remove hidden-xs">
-                            <a href="#" class="remove" title="Remove this item">&times;</a>
+                            <a href="/cart/removeItem/<%= product_id %>" class="remove" title="Remove this item">&times;</a>
                           </td>
                           <td class="product-thumbnail hidden-xs">
                             <a href="#">
@@ -400,7 +401,7 @@
                             </dl>
                           </td>
                           <td class="product-price text-center">
-                            <span class="amount">&#36;<%= Product.find(product_id).retail_price %></span>
+                            <span class="amount"><%= number_to_currency Product.find(product_id).retail_price %></span>
                           </td>
                           <td class="product-quantity text-center">
                             <div class="quantity">
@@ -408,10 +409,11 @@
                             </div>
                           </td>
                           <td class="product-subtotal hidden-xs text-center">
-                            <span class="amount">&#36;<%= Product.find(product_id).retail_price * quantity%></span>
+                            <span class="amount"><%= number_to_currency Product.find(product_id).retail_price * quantity%></span>
                           </td>
                         </tr>
                         <% subtotal += Product.find(product_id).retail_price * quantity %>
+                      <% end %>
                       <% end %>
 
                         <td colspan="6" class="actions">
@@ -432,7 +434,7 @@
                     <table>
                       <tr class="cart-subtotal">
                         <th>Subtotal</th>
-                        <td><span class="amount">&#36;<%= subtotal %></span></td>
+                        <td><span class="amount"><%= number_to_currency subtotal %></span></td>
                       </tr>
                       <tr class="shipping">
                         <th>Shipping</th>
@@ -440,7 +442,7 @@
                       </tr>
                       <tr class="order-total">
                         <th>Total</th>
-                        <td><strong><span class="amount">&#36;<%= subtotal %></span></strong></td>
+                        <td><strong><span class="amount"><%= number_to_currency subtotal %></span></strong></td>
                       </tr>
                     </table>
                     <div class="wc-proceed-to-checkout">

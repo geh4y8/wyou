@@ -1,8 +1,21 @@
 <h3>Comments</h3>
-  <% commentable.comments.each do |comment| %>
-    <% if comment.campaign_id == @campaign.id %>
-      <div class="well">
-        <%= comment.body %>
-      </div>
+  <ol class="commentlist">
+    <% commentable.comments.each do |comment| %>
+      <% if comment.campaign_id == @campaign.id %>
+       <li>
+        <div class="comment_container">
+        <%= image_tag attachment_url(User.find(comment.user_id), :image, :fill, 70, 70), :class=>'avatar' %>
+        <div class="comment-text">
+        <div class="star-rating">
+        <span style="width:80%"></span>
+        </div>
+        <p class="meta">
+        <strong><%= comment.user.name %></strong> – <time datetime="<%= comment.created_at %>"><%= comment.created_at.strftime("%b %-d, %Y") %></time>:
+        </p>
+        <div class="description"><p><%= comment.body %></p></div>
+        </div>
+        </div>
+      </li>
     <% end %>
   <% end %>
+  </ol>

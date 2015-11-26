@@ -1,0 +1,4 @@
+var blah = document.getElementById('comments');
+var respond_div = document.getElementById('respond-wrap');
+blah.innerHTML = "<%= escape_javascript (render partial: 'comments/comments', locals: {commentable: @commentable}) %>";
+respond_div.innerHTML = "<%= escape_javascript (render partial: 'comments/form', locals: {commentable: @commentable}) %>";

@@ -1,7 +1,16 @@
-<%= form_for [commentable, Comment.new] do |f| %>
-  <%= f.hidden_field :campaign_id, :value => @campaign.id %>
-  <div class="form-group">
-    <%= f.text_area :body, class: "form-control", placeholder: "Add a comment", data: {behavior: "autocomplete"} %>
-  </div>
-  <%= f.submit class: "btn btn-primary" %>
-<% end %>
+<div id="respond" class="comment-respond">
+  <h3 class="comment-reply-title">
+    <span>Leave a reply</span>
+  </h3>
+  <%= form_for [commentable, Comment.new] do |f| %>
+    <%= f.hidden_field :campaign_id, :value => @campaign.id %>
+    <p class="comment-form-comment">
+      <label>Comment</label>
+      <%= f.text_area :body, class: "form-control", placeholder: "Add a comment", data: {behavior: "autocomplete"} %>
+    </p>
+    <p>
+      <%= f.submit class: "btn", value:"Post Comment" %>
+    </p>
+  <% end %>
+</div>
+

@@ -500,6 +500,7 @@
 			$(document).on('click','[data-rel=quickViewModal]',function(e){
 				e.stopPropagation();
 				e.preventDefault();
+				var campaignId = $(this).data('campaignid');
 				var productId = $(this).data('productid');
 				var productimage = $('#image'+productId).attr('src');
 				var description= $(this).data('productdescription');
@@ -510,6 +511,8 @@
 				$('.product-name-modal').text(name);
 				$('.product-price-modal').text(price);
 				$('.add-to-cart-modal-button').attr('href', '/cart/' + productId);
+				$('#comments-load').attr('href', '/fetch_comments?campaign_id=' + campaignId + '&product_id=' + productId);
+				$('#comments-load')[0].click();
 				if($('.modal.product-quickview').length){
 					$('.modal.product-quickview').modal('show');
 				}
