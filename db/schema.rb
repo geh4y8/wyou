@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151110061845) do
+ActiveRecord::Schema.define(version: 20151202065302) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,12 +84,37 @@ ActiveRecord::Schema.define(version: 20151110061845) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.string   "shipping_name"
+    t.string   "shipping_street_address"
+    t.string   "shipping_city"
+    t.string   "shipping_state"
+    t.string   "shipping_zip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "campaign_id"
+  end
+
+  add_index "orders", ["campaign_id"], name: "index_orders_on_campaign_id", using: :btree
+
+  create_table "orders_products", id: false, force: :cascade do |t|
+    t.integer  "order_id"
+    t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "quantity"
+  end
+
+  add_index "orders_products", ["order_id"], name: "index_orders_products_on_order_id", using: :btree
+  add_index "orders_products", ["product_id"], name: "index_orders_products_on_product_id", using: :btree
+
   create_table "products", force: :cascade do |t|
     t.string  "name"
     t.text    "description"
-    t.decimal "retail_price", precision: 8, scale: 2
+    t.decimal "retail_price",     precision: 8, scale: 2
     t.string  "image_id"
     t.string  "slug"
+    t.text    "long_description"
   end
 
   add_index "products", ["slug"], name: "index_products_on_slug", unique: true, using: :btree

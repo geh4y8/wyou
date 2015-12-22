@@ -13,6 +13,9 @@
  *= require dmcs/settings
  *= require dmcs/shop
  *= require dmcs/style
+ *= require froala_editor.min
+ *= require froala_style.min
+ *= require dmcs/jquery-steps
  *= require_self
  *= require_tree .
 

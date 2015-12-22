@@ -20,6 +20,7 @@ gem 'themes_on_rails'
 gem 'aws-sdk'
 gem 'refile-s3'
 gem 'administrate'
+gem 'wysiwyg-rails'
 
 group :development, :test do
   gem 'byebug'

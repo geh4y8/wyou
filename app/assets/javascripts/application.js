@@ -28,6 +28,9 @@
 //= require template/jquery.dataTables
 //= require template/dataTables.bootstrap
 //= require template/sb-admin-2
+//= require jquery.steps.min
+//= require jquery.validate.min
+//= require froala_editor.min
 //= require_tree .
 
 $(function(){

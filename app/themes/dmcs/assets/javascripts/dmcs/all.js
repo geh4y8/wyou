@@ -7,6 +7,7 @@
 //= require_tree .
 //= require jquery
 //= require jquery_ujs
+//= require froala_editor.min
 //= require dmcs/jquery
 //= require dmcs/jquery-migrate.min
 //= require dmcs/jquery.themepunch.tools.min
@@ -32,6 +33,8 @@
 //= require dmcs/slider.min
 //= require dmcs/jquery-ui-touch-punch.min
 //= require dmcs/price-slider
+//= require dmcs/jquery.validate.min
+//= require dmcs/jquery.steps.min
 
 
 

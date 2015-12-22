@@ -1,0 +1,6 @@
+<h1> Which store would you like to go to? </h1>
+
+<% @supporter.each do |supporter| %>
+  <% campaign = Campaign.find(supporter.campaign_id) %>
+  <%= link_to campaign.name, Campaign.find(supporter.campaign_id) %>
+<% end %>

@@ -291,7 +291,7 @@
                             </span>
                           </a>
                           <div class="minicart">
-                            <% if !@cart_count %>
+                            <% if @cart_count == 0 %>
                             <div class="minicart-header no-items show">
                               Your shopping bag is empty.
                             </div>
@@ -428,7 +428,7 @@
                           <div class="product-wrap">
                             <div class="product-images">
                               <div class="shop-loop-thumbnail">
-                                <div height="350" width="300"><%= image_tag attachment_url(product, :image, :fill, 350, 300), :id=>'image'+product.id.to_s %>
+                                <div height="350" width="300"><%= image_tag attachment_url(product, :image, :fill, 350, 300), :id=>'image' + product.id.to_s %>
                                 </div>
                               </div>
                               <div class="clear"></div>
@@ -446,7 +446,7 @@
                                                             </div>
                                 <h3 class="product_title"><a href="#"><%= product.name %></a></h3>
                                 <div class="shop-loop-quickview">
-                                  <a href="#" data-rel="quickViewModal" data-productdescription='<%=product.description %>' data-productprice='<%= number_to_currency product.retail_price %>' data-productname='<%= product.name %>' data-productid='<%= product.id %>' data-campaignid='<%= @campaign.id %>'><i class="fa fa-plus"></i></a>
+                                  <a href="#" data-rel="quickViewModal" data-productdescription='<%= h raw product.description %>' data-productlongdescription= '<%= h raw product.long_description %>' data-productprice='<%= number_to_currency product.retail_price %>' data-productname='<%= product.name %>' data-productid='<%= product.id %>' data-campaignid='<%= @campaign.id %>' class="fr-view"><i class="fa fa-plus"></i></a>
                                 </div>
                               </div>
                               <div class="info-metas">
@@ -455,7 +455,6 @@
                                     <span class="amount"><%= number_to_currency product.retail_price %></span>
 
                                   </span>
-
                                 </div>
                                 <!-- <div class="loop-add-to-cart">
                                   <a href="#">Select options</a>
@@ -737,8 +736,8 @@
                       <span class="amount product-price-modal">$12.00</span>
                     </p>
                     <div class="product-excerpt">
-                      <p class="product-description-modal">
-                        Proin malesuada enim nulla, nec bibendum justo vestibulum non. Duis et ipsum convallis, bibendum enim a, hendrerit diam. Praesent tellus mi, vehicula et risus eget, laoreet tristique tortor. Fusce id metus eget nibh imperdiet fermentum non in metus.
+                      <p class="product-description-modal fr-view">
+
                       </p>
                     </div>
                     <div class="product-actions res-color-attr">
@@ -748,7 +747,7 @@
                             <div class="product-options icons-lg">
                               <table class="variations-table">
                                 <tbody>
-                                  <tr>
+                                  <!-- <tr>
                                     <td><label>Color</label></td>
                                     <td>
                                       <div class="select-option swatch-wrapper">
@@ -762,7 +761,7 @@
                                       </div>
                                     </td>
                                   </tr>
-                                  <tr>
+                                  <tr> -->
                                     <!-- <td><label>Size</label></td>
                                     <td>
                                       <div class="select-option swatch-wrapper selected">
@@ -857,25 +856,7 @@
                         </ul>
                         <div class="tab-content">
                           <div class="tab-pane active" id="tab-description">
-                            <h2>Product Description</h2>
-                            <h3>Nullam vulputate erat id enim lacinia</h3>
-                            <h3>
-                              <a href="images/11.png">
-                                <img class="alignright" src="images/11.png" alt="img" width="500" height="500">
-                              </a>
-                            </h3>
-                            <p>
-                            Vel rutrum odio bibendum. Vestibulum quis metus euismod, porta odio et, lacinia eros. Vestibulum vel lobortis ligula, non mollis diam. Donec eu urna quis nibh consectetur pharetra eget vitae dolor. Duis volutpat orci at
-                            </p>
-                            <p>
-                            Curabitur rutrum tristique arcu eget tincidunt. Nullam cursus viverra condimentum. Fusce vel nisi sem. Suspendisse sit amet mauris laoreet velit pretium tempus in quis purus.
-                            </p>
-                            <p>
-                            Nullam molestie vulputate magna ac tempus. Quisque ac nibh finibus, tempor nunc a, euismod nunc. Nunc lectus magna, mattis eget libero eu, pharetra dapibus tellus. Aliquam dignissim lacus arcu, eu gravida purus rhoncus nec. Aenean porta tempus diam sit amet consequat. Morbi condimentum hendrerit aliquam. Sed at neque faucibus
-                            </p>
-                            <h3>Aenean aliquet condimentum augue, ut tempor turpis sollicitudin in.</h3>
-                            <p>
-                            Nunc vitae odio mollis, euismod mauris at, finibus felis. Phasellus vestibulum, sem at varius imperdiet, velit risus laoreet tortor, in feugiat massa augue sed nibh. Ut fermentum, ligula eget dictum vulputate, orci risus viverra nulla, non posuere metus orci quis mauris. Vivamus aliquam, purus sit amet ultricies dignissim, libero massa rhoncus mi, et imperdiet mauris mi in leo. Ut viverra, erat non rutrum suscipit, nunc purus porta odio, sit amet egestas ex tellus quis nisl. Nullam vitae egestas lectus. Duis faucibus sagittis nunc non porta. Ut eget tempus justo. Donec iaculis id nibh at rhoncus. Nam sed ex lectus. Sed aliquam imperdiet libero ut sollicitudin.
+                            <p class="product-long-description-modal fr-view">
                             </p>
                           </div>
                           <div class="tab-pane" id="tab-additional_information">
@@ -893,12 +874,10 @@
                           </div>
                           <div class="tab-pane" id="tab-comments">
                             <div id="reviews">
-                            <div id="comments">
-
-                            </div>
-                            <div id="respond-wrap">
-
-                            </div>
+                              <div id="comments">
+                              </div>
+                              <div id="respond-wrap">
+                              </div>
                           </div>
                         </div>
                       </div>

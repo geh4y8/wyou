@@ -10,10 +10,6 @@ class User < ActiveRecord::Base
     self.role ||= :user
   end
 
-  # def likes?(product)
-  #   product.likes.where(user_id: id).any?
-  # end
-
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable,

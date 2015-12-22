@@ -362,6 +362,20 @@
     <div class="content-container">
       <div class="container">
         <div class="row">
+          <% if @cart.count == 0 %>
+            <div class="col-md-12 main-wrap">
+              <div class="main-content">
+                <div class="shop">
+                  <div class="woocommerce">
+                    <p class="cart-empty">Your cart is currently empty.</p>
+                    <p class="return-to-shop">
+                      <a class="button wc-backward" href="#">Return To Shop</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% else %>
           <div class="col-md-12 main-wrap">
             <div class="main-content">
               <div class="shop">
@@ -540,6 +554,7 @@
               </div>
             </div>
           </div>
+          <% end %>
         </div>
       </div>
     </div>

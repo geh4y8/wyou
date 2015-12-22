@@ -20,6 +20,10 @@
  *= require template/dataTables.responsive
  *= require paper
  *= require jquery.atwho
+ *= require froala_editor.min
+ *= require froala_style.min
+ *= require font-awesome
+ *= require jquery.steps
  *= require_tree .
  *= require_self
 

@@ -11,9 +11,15 @@
         </div>
       </div>
       <div class="form-group">
-        <%= f.label :description, 'Product Description', :class => "col-lg-2 control-label" %>
+        <%= f.label :description, 'Product Description (short)', :class => "col-lg-2 control-label" %>
         <div class="col-lg-10">
-          <%= f.text_area :description, :class => "form-control" %>
+          <%= f.text_area :description, :class => "form-control", :id => 'description' %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :long_description, 'Product Description (long)', :class => "col-lg-2 control-label" %>
+        <div class="col-lg-10">
+          <%= f.text_area :long_description, :class => "form-control", :id => 'long_description' %>
         </div>
       </div>
       <div class="form-group">
@@ -41,3 +47,14 @@
     </fieldset>
   <% end %>
 </div>
+
+<script>
+      $(function() {
+          // $('#description').froalaEditor({
+          //   toolbarButtons: ['fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|', 'color', 'emoticons', 'inlineStyle', 'paragraphStyle', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', '-', 'insertLink', 'insertTable', '|', 'quote', 'insertHR', 'undo', 'redo', 'clearFormatting', 'selectAll']
+          // });
+          $('#long_description').froalaEditor({
+            toolbarButtons: ['fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|', 'color', 'emoticons', 'inlineStyle', 'paragraphStyle', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', '-', 'insertLink', 'insertTable', '|', 'quote', 'insertHR', 'undo', 'redo', 'clearFormatting', 'selectAll']
+          });
+      });
+  </script>

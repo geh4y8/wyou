@@ -35,6 +35,16 @@ class UsersController < ApplicationController
     render 'add_avatar'
   end
 
+  def user_store
+    @user = current_user
+    @supporter = Supporter.where(:user_id => @user.id)
+    @supporter.each do |supporter|
+
+    end
+
+    render 'campaigns/#{@campaign.id}/stores'
+  end
+
   private
 
   def admin_only

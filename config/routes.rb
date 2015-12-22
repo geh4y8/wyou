@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get '/cart/removeItem/:id' => 'cart#removeItem'
   get '/add_avatar' => 'users#add_avatar'
   get '/checkout' => 'checkout#index'
+  get '/mystore' => 'users#user_store'
+  get '/possible_stores' => 'stores#possible_stores'
 
   get '/fetch_comments' => 'comments#from_product', as: 'fetch_comments'
 
@@ -19,6 +21,7 @@ Rails.application.routes.draw do
     get 'add_product', to: 'campaigns#add_product'
     post 'assign_product', to: 'campaigns#assign_product'
     resources :comments, module: :campaigns
+    resources :orders
   end
   devise_for :users
   resources :users

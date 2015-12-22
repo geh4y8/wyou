@@ -504,10 +504,14 @@
 				var productId = $(this).data('productid');
 				var productimage = $('#image'+productId).attr('src');
 				var description= $(this).data('productdescription');
+				var longDescription = $(this).data('productlongdescription');
 				var price = $(this).data('productprice');
 				var name = $(this).data('productname');
 				$('.product-image-modal').attr('src', productimage);
-				$('.product-description-modal').text(description);
+				$('.product-description-modal').empty();
+				$('.product-description-modal').append(description);
+				$('.product-long-description-modal').empty();
+				$('.product-long-description-modal').append(longDescription);
 				$('.product-name-modal').text(name);
 				$('.product-price-modal').text(price);
 				$('.add-to-cart-modal-button').attr('href', '/cart/' + productId);
