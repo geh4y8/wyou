@@ -12,6 +12,7 @@
 //= require dmcs/jquery-migrate.min
 //= require dmcs/jquery.themepunch.tools.min
 //= require dmcs/jquery.themepunch.revolution.min
+//= require dmcs/custom
 //= require dmcs/easing.min
 //= require dmcs/imagesloaded.pkgd.min
 //= require dmcs/bootstrap.min

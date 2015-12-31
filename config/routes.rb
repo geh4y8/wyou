@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   get '/fetch_comments' => 'comments#from_product', as: 'fetch_comments'
 
+  get '/faq' => 'faq#index'
+
   # mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   # mount Upmin::Engine => '/admin'
   root to: 'visitors#index'
