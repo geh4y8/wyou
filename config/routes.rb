@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   # mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   # mount Upmin::Engine => '/admin'
-  root to: 'visitors#index'
+  root to: 'landing#index'
   resources :campaigns do
     resources :donations
     resources :supporters

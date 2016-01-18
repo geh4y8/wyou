@@ -31,6 +31,7 @@
 //= require jquery.steps.min
 //= require jquery.validate.min
 //= require froala_editor.min
+//= require landing-page
 //= require_tree .
 
 $(function(){
