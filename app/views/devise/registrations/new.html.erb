@@ -20,12 +20,16 @@
       <%= f.password_field :password_confirmation, class: 'form-control' %>
     </div>
     <div class="form-group">
+      <%= f.label :campaign_code %>
+      <%= f.text_field :campaign_code, class: 'form-control' %>
+    </div>
+    <!-- <div class="form-group">
         <%= f.label :image, 'Profile Photo', :class => "col-lg-2 control-label" %>
         <div class="col-lg-10">
           <%= f.attachment_field :image, :class =>"form-control" %>
         </div>
-      </div>
-     <%= hidden_field_tag :redirect_to, params[:redirect_to] %>
+      </div> -->
+     <%= hidden_field_tag :redirect_to, '/add_avatar' %>
      <%= f.submit 'Sign up', :class => 'button right' %>
   <% end %>
 </div>

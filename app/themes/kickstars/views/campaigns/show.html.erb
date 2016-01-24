@@ -1,7 +1,7 @@
 <% if current_user %>
-<% if !@campaign.supporters.where(:user_id =>current_user.id).exists? %>
-<p><%= link_to "I Support This", campaign_supporters_path(@campaign.id), {:method => :post} %></p>
-<% end %>
+<%# if !@campaign.supporters.where(:user_id =>current_user.id).exists? %>
+<!-- <p><%= link_to "I Support This", campaign_supporters_path(@campaign.id), {:method => :post} %></p> -->
+<%# end %>
 <% end %>
 
 <div class="layout-2cols">
@@ -22,7 +22,7 @@
                                                 <% i = 0 %>
                                                 <% until i > 3 do %>
                                                     <% if @supporter_results[i] %>
-                                                    <a class="thumb-avatar"><%= image_tag attachment_url(@supporter_results[i].user, :image, :fill, 100, 100) %></a>
+                                                    <a class="thumb-avatar"><%= image_tag attachment_url(@supporter_results[i].user, :image, fallback: "kickstars/your_face_here.jpg") %></a>
                                                     <% else %>
                                                     <a class="thumb-avatar" href="#"><%= image_tag 'kickstars/your_face_here.jpg' %></a>
                                                     <%end%>
