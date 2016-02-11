@@ -89,17 +89,17 @@ function validateFirstStep(){
 
     $(".wizard-card form").validate({
     rules: {
-      patientname: "required",
-      patientphone: {
+      "campaign[patient_name]": "required",
+      "campaign[patient_phone]": {
         required: true,
         minlength: 10,
         maxlength: 10
       },
-      patientemail: {
+      "campaign[patient_email]": {
         required: true,
         email: true
       },
-      patientrelationship: "required"
+      "campaign[patient_relationship]": "required"
 
 /*  other possible input validations
       ,username: {
@@ -125,7 +125,7 @@ function validateFirstStep(){
 
     },
     messages: {
-       patientphone: "Please enter a 10 digit phone number"
+       "campaign[patient_phone]": "Please enter a 10 digit phone number"
       // lastname: "Please enter your Last Name",
       // email: "Please enter a valid email address",
 
@@ -164,9 +164,9 @@ function validateSecondStep(){
     //code here for second step
     $(".wizard-card form").validate({
     rules: {
-      fundgoal: "required",
-      campaigndescription: "required",
-      providedescription: "required"
+      // fundgoal: "required",
+      "campaign[campaign_description]": "required",
+      "campaign[provide_description]": "required"
     },
     messages: {
 
