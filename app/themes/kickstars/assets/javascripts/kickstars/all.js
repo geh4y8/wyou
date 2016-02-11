@@ -7,6 +7,7 @@
 //= require_tree .
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap-sprockets
 //= require kickstars/jquery.min
 //= require kickstars/html5
 //= require kickstars/jquery-migrate-1.2.1.min
@@ -19,3 +20,8 @@
 //= require kickstars/raphael-min
 //= require kickstars/script
 //= require kickstars/pie
+//= require bootstrap
+//= require jquery.bootstrap.wizard
+//= require wizard
+//= require jquery.steps.min
+//= require jquery.validate.min

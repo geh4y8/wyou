@@ -429,7 +429,7 @@
                           <div class="product-wrap">
                             <div class="product-images">
                               <div class="shop-loop-thumbnail">
-                                <div height="350" width="300"><%= image_tag attachment_url(product, :image, :fill, 350, 300), :id=>'image' + product.id.to_s %>
+                                <div height="350" width="300"><%= image_tag attachment_url(product, :image), :id=>'image' + product.id.to_s %>
                                 </div>
                               </div>
                               <div class="clear"></div>
@@ -850,7 +850,7 @@
                             <a data-toggle="tab" role="tab" href="#tab-additional_information" aria-expanded="false">Additional Information</a>
                           </li>
                           <li class="">
-                            <%= link_to @campaign.name, fetch_comments_path(:campaign_id => @campaign.id, :product_id => Product.find(3)), :remote => true, :id=>"comments-load", :style=>'display:none;' %>
+                            <%= link_to @campaign.name, fetch_comments_path(:campaign_id => @campaign.id, :product_id => ''), :remote => true, :id=>"comments-load", :style=>'display:none;' %>
                               <a data-toggle="tab" role="tab" href="#tab-comments" aria-expanded="false" id="comments-tab-trig" >Comments</a>
 
                           </li>

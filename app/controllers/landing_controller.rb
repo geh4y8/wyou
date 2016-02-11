@@ -1,7 +1,11 @@
 class LandingController < ApplicationController
 
-def index
+  def index
 
-end
+  end
+
+  def recipients
+    render 'recipients'
+  end
 
 end

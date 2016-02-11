@@ -460,7 +460,7 @@
                       </tr>
                     </table>
                     <div class="wc-proceed-to-checkout">
-                      <a href="#" class="checkout-button button alt wc-forward">Proceed to Checkout</a>
+                      <%= link_to 'Proceed to Checkout', new_campaign_order_path(session[:campaign_id]), class: "checkout-button button alt wc-forward"  %>
                     </div>
                   </div>
                   <!-- <div class="cross-sells">

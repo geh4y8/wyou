@@ -22,7 +22,7 @@
                                                 <% i = 0 %>
                                                 <% until i > 3 do %>
                                                     <% if @supporter_results[i] %>
-                                                    <a class="thumb-avatar"><%= image_tag attachment_url(@supporter_results[i].user, :image, fallback: "kickstars/your_face_here.jpg") %></a>
+                                                    <a class="thumb-avatar"><%= image_tag attachment_url(@supporter_results[i].user, :image, :fill, 300, 300, fallback: "kickstars/your_face_here.jpg") %></a>
                                                     <% else %>
                                                     <a class="thumb-avatar" href="#"><%= image_tag 'kickstars/your_face_here.jpg' %></a>
                                                     <%end%>
@@ -48,7 +48,7 @@
                                                 <% i = 4 %>
                                                 <% until i > 7 do %>
                                                     <% if @supporter_results[i] %>
-                                                    <a class="thumb-avatar"><%= image_tag attachment_url(@supporter_results[i].user, :image, :fill, 80, 80) %></a>
+                                                    <a class="thumb-avatar"><%= image_tag attachment_url(@supporter_results[i].user, :image, :fill, 300, 300, fallback: "kickstars/your_face_here.jpg") %></a>
                                                     <% else %>
                                                     <a class="thumb-avatar" href="#"><%= image_tag 'kickstars/your_face_here.jpg' %></a>
                                                     <%end%>
@@ -134,7 +134,7 @@
                                     <div class="project-author pb20">
                                         <div class="media">
                                             <a href="#" class="thumb-left">
-                                                <%= image_tag attachment_url(supporter.user, :image, :fill, 300, 300) %>
+                                                <%= image_tag attachment_url(supporter.user, :image) %>
                                             </a>
                                             <div class="media-body">
                                                 <h4 class="rs pb10"><a href="#" class="be-fc-orange fw-b"><%= supporter.user.name %></a></h4>
@@ -158,7 +158,7 @@
                                     <% @campaign.comments.each do |comment| %>
                                         <div class="media comment-item">
                                             <a href="#" class="thumb-left">
-                                                <%= image_tag attachment_url(comment.user, :image, :fill, 80,80) %>
+                                                <%= image_tag attachment_url(comment.user, :image) %>
                                                 <!-- <img src="images/ex/th-90x90-1.jpg" alt="$TITLE"> -->
                                             </a>
                                             <div class="media-body">
@@ -193,9 +193,9 @@
                         <span class="val"><span class="glyphicon glyphicon-calendar" style="padding-right:10px"></span><span class="fw-b">Launched: </span><%= @campaign.created_at.strftime("%b %-d, %Y") %></span>
                     </div>
                     <div class="project-date clearfix">
-                        <span class="val"><span class="glyphicon glyphicon-circle-arrow-down" style="padding-right:10px"></span><span class="fw-b">Funding ends: </span>Dec 12, 2015</span>
+                        <span class="val"><span class="glyphicon glyphicon-circle-arrow-down" style="padding-right:10px"></span><span class="fw-b">Funding ends: </span>Feb 30, 2016</span>
                     </div>
-                    <div class="btn btn-green btn-buck-project lbl" style="font-size:20px; color:white;">
+                    <div class="btn btn-wyoublue btn-buck-project lbl" style="font-size:20px; color:white;">
                         <%= link_to "Donate", new_campaign_donation_path(@campaign), :style=>"color:white;" %>
                         <span class="glyphicon glyphicon-heart-empty"></span>
 
@@ -212,7 +212,7 @@
                     <h3 class="title-box">Project by</h3>
                     <div class="media">
                         <a href="#" class="thumb-left">
-                            <%= image_tag attachment_url(@campaign_owner, :image, :fill, 300, 300) %>
+                            <%= image_tag attachment_url(@campaign_owner, :image, :fit, 300, 300) %>
                         </a>
                         <div class="media-body">
                             <h4 class="rs pb10"><a href="#" class="be-fc-orange fw-b"><%= @campaign_owner.name %></a></h4>

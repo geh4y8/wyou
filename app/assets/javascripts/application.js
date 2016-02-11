@@ -32,6 +32,8 @@
 //= require jquery.validate.min
 //= require froala_editor.min
 //= require landing-page
+//= require jquery.bootstrap.wizard.js
+//= require wizard.js
 //= require_tree .
 
 $(function(){

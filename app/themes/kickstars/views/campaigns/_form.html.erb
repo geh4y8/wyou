@@ -1,58 +1,145 @@
 <%= render "layouts/errors", :object => @campaign %>
-<div class="layout-2cols">
-        <div class="content grid_8">
-            <div class="single-page">
-                <div class="wrapper-box box-post-comment">
-                    <h2 class="common-title">Create New Campaign</h2>
-                    <div class="box-white">
-                      <%= form_for @campaign, :html => {:class=> 'clearfix'} do |f| %>
-                             <p class="rs pb30">Fill out the following form to create a new campaign.</p>
-                            <div class="form form-post-comment">
-                               <%= f.hidden_field :name, :value => current_user.name %>
-                               <%= f.hidden_field :owner_email, :value => current_user.email %>
-                                <div class="left-input">
-                                    <label for="txt-name">
+<!--   Big container   -->
+    <div class="container">
+        <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+<!--      Wizard container        -->
+            <div class="wizard-container">
+                <div class="card wizard-card ct-wizard-blue" id="wizardProfile">
+                    <%= form_for @campaign, :html => {:class=> 'clearfix'} do |f| %>
+                    <%= f.hidden_field :name, :value => current_user.name %>
+                    <%= f.hidden_field :owner_email, :value => current_user.email %>
+                <!--        You can switch "ct-wizard-orange"  with one of the next bright colors: "ct-wizard-blue", "ct-wizard-green", "ct-wizard-orange", "ct-wizard-red"             -->
+                      <div class="wizard-header">
+                          <h3>
+                             Start A Campaign <br>
+                             <small>This information will let us know more about you and the recipient.</small>
+                          </h3>
+                      </div>
+                      <ul>
+                            <li><a href="#recipient" data-toggle="tab">Recipient</a></li>
+                            <li><a href="#campaign" data-toggle="tab">Campaign</a></li>
+                            <!-- <li><a href="#address" data-toggle="tab">Address</a></li> -->
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane" id="recipient">
+                              <div class="row">
+                                  <h4 class="info-text"> Let's start with the basics</h4>
+                                  <div class="col-sm-4 col-sm-offset-1">
+                                     <div class="picture-container">
+                                          <div class="picture">
+                                            <%= image_tag 'kickstars/your_face_here.jpg', class: "picture-src", id: "wizardPicturePreview", title: "" %>
+                                              <%= f.attachment_field :image, id: "wizard-picture" %>
+                                          </div>
+                                          <h6>Choose Picture</h6>
+                                      </div>
+                                  </div>
+                                  <div class="col-sm-6">
+                                      <div class="form-group">
+                                        <label>Patient Name <small></small></label>
+                                        <%= f.text_field :patient_name, class: "form-control", name: 'patientname', type: "text", :placeholder=>"Enter Recipient's Full Name" %>
+                                      </div>
+                                      <div class="form-group">
+                                        <label>Recipient's Email <small></small></label>
+                                        <%= f.text_field :patient_email, :class => "form-control", :placeholder => "Enter Recipient's Email Address", :type=>"email", name: 'patientemail' %>
+                                      </div>
+                                      <div class="form-group">
+                                        <label>Recipient's Phone Number <small></small></label>
+                                        <%= f.text_field :patient_phone, :class => "form-control", :placeholder => "Enter Recipient's Phone Number", name: 'patientphone' %>
+                                      </div>
+                                      <div class="form-group">
+                                        <label>Relationship to Recipient <small></small></label>
+                                        <%= f.text_field :relationship, :class => "form-control", :placeholder => "What is your relationship to the recipient?", name: 'patientrelationship' %>
+                                      </div>
 
-                                      <%= f.text_field :patient_name, :class => "txt fill-width txt-name", :placeholder=>"Enter Recipient's Name", :type=>"text" %>
-                                    </label>
-                                    <label for="txt_email_contact">
-                                      <%= f.text_field :patient_email, :class => "txt fill-width txt-email", :placeholder => "Enter Recipient Email Address", :type=>"email" %>
-                                    </label>
-                                    <label for="txt_phone">
-                                      <%= f.text_field :patient_phone, :class => "txt fill-width", :placeholder => "Enter Recipient Phone Number" %>
-                                    </label>
-                                    <label for="txt_relationship">
-                                      <%= f.text_field :relationship, :class => "txt fill-width", :placeholder => "What is your relationship to the patient?" %>
-                                    </label>
-                                    <label for="txt_fund_goal">
-                                      <%= f.text_field :fund_goal, :class => "txt fill-width", :placeholder => "blsjkd" %>
-                                    </label>
-                                    <label for="txt_description">
-                                      <%= f.text_area :campaign_description, :class=> "txt fill-width", :placeholder => "Please write a short description" %>
-                                    </label>
-                                    <label for="txt_description">
-                                      <%= f.text_area :provide_description, :class=> "txt fill-width", :placeholder => "How will this help?" %>
-                                    </label>
-                                    <label for="image_upload">
-                                      <%= f.attachment_field :image, :class =>"txt fill-width" %>
-                                    </label>
-                                </div>
-                                <!-- <div class="right-input">
-                                    <label for="txt_content_contact">
-                                        <textarea name="message" id="txt_content_contact" cols="30" rows="10" class="txt fill-width" placeholder="Your message"></textarea>
-                                    </label>
-                                </div> -->
-                                <div class="clear"></div>
-                                <p class="rs ta-r clearfix">
-                  <span id="response"></span>
-                                  <%= f.submit 'submit', :class=>'btn btn-white btn-submit-comment' %>
+                                  </div>
+                                  <div class="col-sm-10 col-sm-offset-1">
+                                      <div class="form-group">
 
-                               </p>
+                                      </div>
+                                  </div>
+                              </div>
                             </div>
-                        </form>
-                    </div>
-                </div><!--end: .box-list-comment -->
-            </div>
-        </div><!--end: .content -->
-        <% end %>
+                            <div class="tab-pane" id="campaign">
+                                <h4 class="info-text"></h4>
+                                <div class="row">
+                                  <div class="col-sm-2"></div>
+                                  <div class="col-sm-8">
+                                      <div class="form-group">
+                                        <label>Campaign Fund Goal <small>(required)</small></label>
+                                        <%= f.text_field :fund_goal, :class => "form-control", :placeholder => "blsjkd", name: 'fundgoal' %>
+                                      </div>
+                                      <div class="form-group">
+                                        <label>Description <small>(required)</small></label>
+                                        <%= f.text_area :campaign_description, :class=> "form-control", :placeholder => "Please write a short description", name: 'campaigndescription' %>
+                                      </div>
+                                      <div class="form-group">
+                                        <label>Provide Description <small>(required)</small></label>
+                                        <%= f.text_area :provide_description, :class=> "form-control", :placeholder => "How will this help?", name: 'providedescription' %>
+                                      </div>
+                                  </div>
+                                  <div class="col-sm-2"></div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="address">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <h4 class="info-text"> Are you living in a nice area? </h4>
+                                    </div>
+                                    <div class="col-sm-7 col-sm-offset-1">
+                                         <div class="form-group">
+                                            <labe>Street Name</label>
+                                            <input type="text" class="form-control" placeholder="5h Avenue">
+                                          </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                         <div class="form-group">
+                                            <label>Street Number</label>
+                                            <input type="text" class="form-control" placeholder="242">
+                                          </div>
+                                    </div>
+                                    <div class="col-sm-5 col-sm-offset-1">
+                                         <div class="form-group">
+                                            <label>City</label>
+                                            <input type="text" class="form-control" placeholder="New York...">
+                                          </div>
+                                    </div>
+                                    <div class="col-sm-5">
+                                         <div class="form-group">
+                                            <label>Country</label><br>
+                                             <select name="country" class="form-control">
+                                                <option value="Afghanistan"> Afghanistan </option>
+                                                <option value="Albania"> Albania </option>
+                                                <option value="Algeria"> Algeria </option>
+                                                <option value="American Samoa"> American Samoa </option>
+                                                <option value="Andorra"> Andorra </option>
+                                                <option value="Angola"> Angola </option>
+                                                <option value="Anguilla"> Anguilla </option>
+                                                <option value="Antarctica"> Antarctica </option>
+                                                <option value="...">...</option>
+                                            </select>
+                                          </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wizard-footer">
+                          <div class="pull-right">
+                            <input type='button' class='btn btn-next btn-fill btn-warning btn-wd btn-sm' name='next' value='Next' />
+                            <%= f.submit 'Finish', :class=>'btn btn-finish btn-fill btn-warning btn-wd btn-sm', name: 'finish' %>
+                          </div>
+
+                          <div class="pull-left">
+                            <input type='button' class='btn btn-previous btn-fill btn-default btn-wd btn-sm' name='previous' value='Previous' />
+                          </div>
+                          <div class="clearfix"></div>
+                        </div>
+                    <% end %>
+                </div>
+            </div> <!-- wizard container -->
+            <br>
+            <br>
+          </div>
+        </div>
+      </div>
 

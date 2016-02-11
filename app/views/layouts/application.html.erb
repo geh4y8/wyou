@@ -5,16 +5,17 @@
     <title><%= content_for?(:title) ? yield(:title) : "w/you" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "w/you" %>">
     <%= stylesheet_link_tag 'application', media: 'all' %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
 
     <%= javascript_include_tag 'application' %>
 
     <%= csrf_meta_tags %>
   </head>
-  <body>
+  <body class="landing-page landing-page1">
     <header>
-      <%= render 'layouts/navigation' %>
+      <%# render 'layouts/navigation' %>
     </header>
-    <main role="main">
+    <main >
        <%= render 'layouts/messages' %>
        <%= yield %>
     </main>

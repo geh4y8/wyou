@@ -10,6 +10,7 @@ class StoresController < ApplicationController
     end
     @cart = session[:cart]
     @cart_count = Store.products_in_cart(@cart)
+    session[:campaign_id] = @campaign.id
   end
 
   def possible_stores
