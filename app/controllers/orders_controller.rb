@@ -25,6 +25,7 @@ class OrdersController < ApplicationController
       @cart.each do |product_id, quantity|
         @order.products << Product.find(product_id)
       end
+      OrderMailer.order_confirmation_email(@order).deliver_later
       if @campaign.update(:fund_amount => (@campaign.fund_amount - params[:order][:order_total].to_i))
         redirect_to campaign_path(@campaign)
       end
