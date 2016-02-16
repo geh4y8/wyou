@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   enum role: [:user, :vip, :admin]
   after_initialize :set_default_role, :if => :new_record?
   has_many :likes
+  has_many :supporters
+  has_many :campaigns, through: :supporters
   attachment :image
   acts_as_voter
 

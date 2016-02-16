@@ -2,7 +2,7 @@ class CampaignsController < ApplicationController
   theme 'kickstars'
 
   before_action :authenticate_user!, :except => :show
-  before_filter :set_campaign, :except => [:index, :new, :create, :add_product, :assign_product]
+  before_filter :set_campaign, :except => [:index, :new, :create, :add_product, :assign_product, :possible_campaigns]
   # before_action :admin_only, :except => :show
 
   def index
@@ -21,7 +21,7 @@ class CampaignsController < ApplicationController
   end
 
   def create
-    @campaign = Campaign.new(campaign_params)
+    @campaign = Campaign.new(campaign_params.merge(campaign_code: create_unique_code))
     if @campaign.save
       CampaignMailer.new_campaign_email(@campaign).deliver_later
       redirect_to campaigns_path
@@ -59,10 +59,36 @@ class CampaignsController < ApplicationController
     redirect_to campaign_stores_path
   end
 
+  def possible_campaigns
+    add_new_campaign
+    @current_campaigns = current_user.campaigns
+    if @current_campaigns.size == 1
+      redirect_to campaign_path(@current_campaigns.first.id)
+    else
+      render :possible_campaigns
+    end
+  end
+
   private
 
   def set_campaign
      @campaign = Campaign.friendly.find(params[:id])
+  end
+
+  def add_new_campaign
+    if Campaign.where(campaign_code: current_user.campaign_code).first
+      campaign = Campaign.where(campaign_code: current_user.campaign_code).first
+      if !campaign.supporters.where(user_id: current_user.id).present?
+        campaign.supporters.create!(user_id: current_user.id)
+      end
+    end
+  end
+
+  def create_unique_code
+    begin
+      unique_code = SecureRandom.hex(2)
+    end while Campaign.exists?(:campaign_code => unique_code)
+    unique_code
   end
 
   def campaign_params
