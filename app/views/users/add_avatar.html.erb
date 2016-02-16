@@ -1,10 +1,61 @@
-<%= form_for current_user, :html => {:class=> 'form-horizontal'} do |f| %>
-
+<%# form_for current_user, :html => {:class=> 'form-horizontal'} do |f| %>
+<!--
   <div class="form-group">
-    <%= f.label :image, 'User Avatar', :class => "col-lg-2 control-label" %>
+    <%# f.label :image, 'User Avatar', :class => "col-lg-2 control-label" %>
     <div class="col-lg-10">
-      <%= f.attachment_field :image, :class =>"form-control" %>
+      <%# f.attachment_field :image, :class =>"form-control" %>
+    </div>
+  </div> -->
+  <%# f.submit 'submit', :class=>'btn btn-primary form-control' %>
+<%# end %>
+<%= render "layouts/errors", :object => current_user %>
+<!--   Big container   -->
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <!--      Wizard container        -->
+      <div class="wizard-container">
+        <div class="card wizard-card ct-wizard-blue" id="wizardProfile">
+          <%= form_for current_user, :html => {:class=> 'clearfix'} do |f| %>
+            <div class="wizard-header">
+              <h3>
+                 Add a profile photo <br>
+                 <small></small>
+              </h3>
+            </div>
+            <ul>
+              <li><a href="#photo" data-toggle="tab">Photo</a></li>
+              <!-- <li><a href="#campaign" data-toggle="tab">Campaign</a></li> -->
+              <!-- <li><a href="#address" data-toggle="tab">Address</a></li>
+            </ul> -->
+            <div class="tab-content">
+              <div class="tab-pane" id="photo">
+                <div class="row">
+                  <h4 class="info-text"></h4>
+                  <div class="col-sm-4 col-sm-offset-1">
+                    <div class="picture-container">
+                      <div class="picture">
+                        <%= image_tag 'kickstars/your_face_here.jpg', class: "picture-src", id: "wizardPicturePreview", title: "" %>
+                        <%= f.attachment_field :image, id: "wizard-picture" %>
+                      </div>
+                      <h6>Choose Picture</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="wizard-footer">
+              <div class="pull-right">
+                <input type='button' class='btn btn-next btn-fill btn-warning btn-wd btn-sm' name='next' value='Next' />
+                <%= f.submit 'Finish', :class=>'btn btn-finish btn-fill btn-warning btn-wd btn-sm', name: 'finish' %>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+          <% end %>
+        </div>
+      </div> <!-- wizard container -->
+      <br>
+      <br>
     </div>
   </div>
-  <%= f.submit 'submit', :class=>'btn btn-primary form-control' %>
-<% end %>
+</div>

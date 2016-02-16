@@ -24,7 +24,7 @@ class CampaignsController < ApplicationController
     @campaign = Campaign.new(campaign_params.merge(campaign_code: create_unique_code))
     if @campaign.save
       CampaignMailer.new_campaign_email(@campaign).deliver_later
-      redirect_to campaigns_path
+      redirect_to campaign_path(@campaign)
     else
       render :new
     end

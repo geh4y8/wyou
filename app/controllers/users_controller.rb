@@ -18,7 +18,11 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(secure_params)
-      redirect_to users_path, :notice => "User updated."
+      if @user.campaigns.empty?
+        redirect_to attach_to_campaign_path
+      else
+        redirect_to users_path, :notice => "User updated."
+      end
     else
       redirect_to users_path, :alert => "Unable to update user."
     end

@@ -11,7 +11,9 @@ class Campaign < ActiveRecord::Base
   attachment :image
 
   def goal_percentage(campaign)
-    goal_percentage = ((campaign.fund_amount.to_f/campaign.fund_goal.to_f) *100)
+    if campaign.fund_amount > 0
+      goal_percentage = ((campaign.fund_amount.to_f/campaign.fund_goal.to_f) *100)
+    end
     return goal_percentage.to_i
   end
 
