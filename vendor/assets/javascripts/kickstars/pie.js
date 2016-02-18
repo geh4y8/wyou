@@ -15,10 +15,10 @@ Raphael.fn.pieChart = function (cx, cy, r, values, stroke) {
             var value = values[j],
                 angleplus = 360 * value / total;
             if(values[j] == 100) {
-                var p = paper.circle(cx, cy, r).attr({fill: "#ea503d", stroke: "#ea503d", "stroke-width": 0});
+                var p = paper.circle(cx, cy, r).attr({fill: "#17375e", stroke: "#17375e", "stroke-width": 0});
             }else{
                 if (j == 1) {
-                    var p = sector(cx, cy, r, angle, angle + angleplus, {fill: "90-#ea503d-#ea503d", stroke: stroke, "stroke-width": 0});
+                    var p = sector(cx, cy, r, angle, angle + angleplus, {fill: "90-#17375e-#17375e", stroke: stroke, "stroke-width": 0});
                 }else{
                     var p = sector(cx, cy, r, angle, angle + angleplus, {fill: "90-#cecece-#cecece", stroke: stroke, "stroke-width": 0});
                 }
@@ -43,7 +43,7 @@ $(function () {
             values[0] = getPendingPercent;
             values[1]=getDonePercent;
         }
-        Raphael($(this).find(".sys_holder_sector")[0], 78, 78).pieChart(39, 39, 39, values, "#cecece");
-        $(this).append('<span class="val-progress">' + $(this).attr("data-percent") + '%</span>');
+        Raphael($(this).find(".sys_holder_sector")[0], 78, 78).pieChart(39, 39, 39, values, "#17375e");
+        $(this).append('<span class="val-progress" style="color:white;">' + $(this).attr("data-percent") + '%</span>');
     });
 });

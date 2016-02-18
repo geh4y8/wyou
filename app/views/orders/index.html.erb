@@ -5,7 +5,7 @@
       <% order.products.each do |product| %>
         <ul class="col-sm-12">
           <li>Name: <%= product.name %></li>
-          <li>Price: <%= number_to_currency(product.retail_price, :unit => '$') %></li>
+          <li>Price: <%= number_to_currency(product.retail_price, unit: '$') %></li>
           <li class="col-sm-1"><%= image_tag attachment_url(product, :image, :fill, 100, 100) %></li>
         </ul>
       <% end %>
