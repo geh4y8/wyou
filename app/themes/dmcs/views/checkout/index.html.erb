@@ -2,160 +2,31 @@
   <div class="offcanvas open">
     <div class="offcanvas-wrap">
       <div class="offcanvas-user clearfix">
-        <a class="offcanvas-user-wishlist-link" href="wishlist.html">
-          <i class="fa fa-heart-o"></i> My Wishlist
-        </a>
-        <a class="offcanvas-user-account-link" href="my-account.html">
-          <i class="fa fa-user"></i> Login
-        </a>
+        <%= link_to campaign_stores_path(@campaign.id), class: "offcanvas-user-wishlist-link" do %>
+          <i class="fa fa-heart-o"></i> My Store
+        <% end %>
+        <%= link_to destroy_user_session_path, :method => :delete, class: "offcanvas-user-account-link" do %>
+          <i class="fa fa-user"></i> Logout
+        <% end %>
       </div>
       <nav class="offcanvas-navbar">
         <ul class="offcanvas-nav">
           <li class="menu-item-has-children dropdown">
-            <a href="./" class="dropdown-hover">Home <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="home-lookbook.html">Home Lookbook</a></li>
-              <li><a href="home-instagram.html">Home Instagram</a></li>
-              <li><a href="home-product-slider.html">Home Product Slider</a></li>
-              <li><a href="home-default.html">Home Default</a></li>
-            </ul>
+            <%= link_to "My Campaign", campaign_path(@campaign) %>
           </li>
           <li class="menu-item-has-children dropdown">
-            <a href="shop.html" class="dropdown-hover">Shop <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li id="menu-item-10433" class="menu-item-has-children dropdown-submenu">
-                <a href="shop-by-category.html">Women <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="shop-by-category.html">Nulla</a></li>
-                  <li><a href="shop-by-category.html">Maecenas</a></li>
-                  <li><a href="shop-by-category.html">Aliquam</a></li>
-                  <li><a href="shop-by-category.html">Donec</a></li>
-                </ul>
-              </li>
-              <li class="menu-item-has-children dropdown-submenu">
-                <a href="shop-by-category.html">Brands <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="shop-by-category.html">Adesso</a></li>
-                  <li><a href="shop-by-category.html">Barbour</a></li>
-                  <li><a href="shop-by-category.html">Carvela</a></li>
-                  <li><a href="shop-by-category.html">Crocs</a></li>
-                  <li><a href="shop-by-category.html">Evans</a></li>
-                </ul>
-              </li>
-              <li class="menu-item-has-children dropdown-submenu">
-                <a href="shop-by-collection.html">Conllections <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="shop-by-collection.html">Spring/Summer 2014</a></li>
-                  <li><a href="shop-by-collection.html">Sweet Summer</a></li>
-                  <li><a href="shop-by-collection.html">Winter 2015</a></li>
-                </ul>
-              </li>
-              <li class="menu-item-has-children dropdown-submenu">
-                <a href="#">Woo <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="shop-masonry.html">Shop Masonry</a></li>
-                  <li><a href="shop-detail.html">Shop Detail</a></li>
-                  <li><a href="my-account.html">My Account</a></li>
-                  <li><a href="cart.html">Cart</a></li>
-                  <li><a href="cart-empty.html">Empty Cart</a></li>
-                </ul>
-              </li>
-            </ul>
+            <%= link_to "FAQ", faq_path %>
           </li>
-          <li><a href="collection.html">Collections</a></li>
-          <li class="menu-item-has-children dropdown">
-            <a href="#" class="dropdown-hover">Blog <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="blog-default.html">Blog Default</a></li>
-              <li><a href="blog-center.html">Blog Center</a></li>
-              <li><a href="blog-masonry.html">Blog Masonry</a></li>
-              <li><a href="blog-detail.html">Blog Detail</a></li>
-            </ul>
-          </li>
-          <li class="menu-item-has-children dropdown">
-            <a href="#" class="dropdown-hover">Pages <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="about-us.html">About us</a></li>
-              <li><a href="contact-us.html">Contact Us</a></li>
-              <li><a href="faq.html">FAQ</a></li>
-            </ul>
+          <li>
+            <%= link_to "Orders", campaign_orders_path(@campaign) %>
           </li>
         </ul>
       </nav>
-      <div class="offcanvas-widget">
-        <div class="widget social-widget">
-          <div class="social-widget-wrap social-widget-none">
-            <a href="#" title="Facebook" target="_blank">
-              <i class="fa fa-facebook"></i>
-            </a>
-            <a href="#" title="Twitter" target="_blank">
-              <i class="fa fa-twitter"></i>
-            </a>
-            <a href="#" title="Google+" target="_blank">
-              <i class="fa fa-google-plus"></i>
-            </a>
-            <a href="#" title="Pinterest" target="_blank">
-              <i class="fa fa-pinterest"></i>
-            </a>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
   <div id="wrapper" class="wide-wrap">
     <div class="offcanvas-overlay"></div>
     <header class="header-type-classic">
-      <div class="topbar">
-        <div class="container topbar-wap">
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="left-topbar">
-                <div class="topbar-social">
-                  <a href="#" title="Facebook" target="_blank">
-                    <i class="fa fa-facebook facebook-bg-hover"></i>
-                  </a>
-                  <a href="#" title="Twitter" target="_blank">
-                    <i class="fa fa-twitter twitter-bg-hover"></i>
-                  </a>
-                  <a href="#" title="Google+" target="_blank">
-                    <i class="fa fa-google-plus google-plus-bg-hover"></i>
-                  </a>
-                  <a href="#" title="Pinterest" target="_blank">
-                    <i class="fa fa-pinterest pinterest-bg-hover"></i>
-                  </a>
-                  <a href="#" title="RSS" target="_blank">
-                    <i class="fa fa-rss rss-bg-hover"></i>
-                  </a>
-                  <a href="#" title="Instagram" target="_blank">
-                    <i class="fa fa-instagram instagram-bg-hover"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="right-topbar">
-                <div class="user-wishlist">
-                  <a href="wishlist.html"><i class="fa fa-heart-o"></i> My Wishlist</a>
-                </div>
-                <div class="user-login">
-                  <ul class="nav top-nav">
-                    <li class="menu-item">
-                      <a data-rel="loginModal" href="#"><i class="fa fa-user"></i> Login</a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="language-switcher">
-                  <div class="wpml-languages disabled">
-                    <a class="active" href="#" data-toggle="dropdown">
-                      <img src="images/en.png" alt="English"/> EN
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
       <div class="navbar-container">
         <div class="navbar navbar-default  navbar-scroll-fixed">
           <div class="navbar-default-wrap">
@@ -170,160 +41,20 @@
                         <span class="icon-bar bar-middle"></span>
                         <span class="icon-bar bar-bottom"></span>
                       </button>
-                      <a class="navbar-search-button search-icon-mobile" href="#">
-                        <i class="fa fa-search"></i>
-                      </a>
-                      <a class="cart-icon-mobile" href="#">
-                        <i class="elegant_icon_bag"></i><span>3</span>
-                      </a>
-                      <a class="navbar-brand" href="./">
-                        <img class="logo" alt="The DMCS" src="images/logo.png">
-                        <img class="logo-fixed" alt="The DMCS" src="images/logo-fixed.png">
-                        <img class="logo-mobile" alt="The DMCS" src="images/logo-mobile.png">
-                      </a>
+                      <%= link_to campaign_path(@campaign), class: "navbar-brand" do %>
+                        <%= image_tag 'dmcs/wyoulogo.png', :class=>'logo logo-fixed logo-transparent' %>
+                      <% end %>
                     </div>
                     <nav class="collapse navbar-collapse primary-navbar-collapse">
                       <ul class="nav navbar-nav primary-nav">
                         <li class="menu-item-has-children dropdown">
-                          <a href="./" class="dropdown-hover">
-                            <span class="underline">Home</span> <span class="caret"></span>
-                          </a>
-                          <ul class="dropdown-menu">
-                            <li><a href="home-lookbook.html">Home Lookbook</a></li>
-                            <li><a href="home-instagram.html">Home Instagram</a></li>
-                            <li><a href="home-product-slider.html">Home Product Slider</a></li>
-                            <li><a href="home-default.html">Home Default</a></li>
-                          </ul>
+                          <%= link_to "My Campaign", campaign_path(@campaign) %>
                         </li>
                         <li class="menu-item-has-children megamenu megamenu-fullwidth dropdown">
-                          <a href="shop.html" class="dropdown-hover">
-                            <span class="underline">Shop</span> <span class="caret"></span>
-                          </a>
-                          <ul class="dropdown-menu">
-                            <li class="menu-item-has-children mega-col-3 dropdown-submenu">
-                              <h3 class="megamenu-title">
-                                Women <span class="caret"></span>
-                              </h3>
-                              <ul class="dropdown-menu">
-                                <li><a href="shop-by-category.html">Nulla</a></li>
-                                <li><a href="shop-by-category.html">Maecenas</a></li>
-                                <li><a href="shop-by-category.html">Aliquam</a></li>
-                                <li><a href="shop-by-category.html">Donec</a></li>
-                              </ul>
-                            </li>
-                            <li class="menu-item-has-children mega-col-3 dropdown-submenu">
-                              <h3 class="megamenu-title">
-                                Brands <span class="caret"></span>
-                              </h3>
-                              <ul class="dropdown-menu">
-                                <li><a href="shop-by-category.html">Adesso</a></li>
-                                <li><a href="shop-by-category.html">Barbour</a></li>
-                                <li><a href="shop-by-category.html">Carvela</a></li>
-                                <li><a href="shop-by-category.html">Crocs</a></li>
-                                <li><a href="shop-by-category.html">Evans</a></li>
-                              </ul>
-                            </li>
-                            <li class="menu-item-has-children mega-col-3 dropdown-submenu">
-                              <h3 class="megamenu-title">
-                                Collections <span class="caret"></span>
-                              </h3>
-                              <ul class="dropdown-menu">
-                                <li><a href="shop-by-collection.html">Spring/Summer 2014</a></li>
-                                <li><a href="shop-by-collection.html">Sweet Summer</a></li>
-                                <li><a href="shop-by-collection.html">Winter 2015</a></li>
-                              </ul>
-                            </li>
-                            <li class="menu-item-has-children mega-col-3 dropdown-submenu">
-                              <h3 class="megamenu-title">
-                                Woo <span class="caret"></span>
-                              </h3>
-                              <ul class="dropdown-menu">
-                                <li><a href="shop-masonry.html">Shop Masonry</a></li>
-                                <li><a href="shop-detail.html">Shop Detail</a></li>
-                                <li><a href="my-account.html">My Account</a></li>
-                                <li><a href="cart.html">Cart</a></li>
-                                <li><a href="cart-empty.html">Empty Cart</a></li>
-                              </ul>
-                            </li>
-                          </ul>
+                          <%= link_to "FAQ", faq_path %>
                         </li>
-                        <li><a href="collection.html"><span class="underline">Collections</span></a></li>
-                        <li class="menu-item-has-children dropdown">
-                          <a href="#" class="dropdown-hover">
-                            <span class="underline">Blog</span> <span class="caret"></span>
-                          </a>
-                          <ul class="dropdown-menu">
-                            <li><a href="blog-default.html">Blog Default</a></li>
-                            <li><a href="blog-center.html">Blog Center</a></li>
-                            <li><a href="blog-masonry.html">Blog Masonry</a></li>
-                            <li><a href="blog-detail.html">Blog Detail</a></li>
-                          </ul>
-                        </li>
-                        <li class="menu-item-has-children dropdown">
-                          <a href="#" class="dropdown-hover">
-                            <span class="underline">Pages</span> <span class="caret"></span>
-                          </a>
-                          <ul class="dropdown-menu">
-                            <li><a href="about-us.html">About us</a></li>
-                            <li><a href="contact-us.html">Contact Us</a></li>
-                            <li><a href="faq.html">FAQ</a></li>
-                          </ul>
-                        </li>
-                        <li class="navbar-search">
-                          <a class="navbar-search-button" href="#">
-                            <i class="fa fa-search"></i>
-                          </a>
-                        </li>
-                        <li class="navbar-minicart navbar-minicart-nav">
-                          <a class="minicart-link" href="#">
-                            <span class="minicart-icon has-item">
-                              <i class="minicart-icon-svg elegant_icon_bag"></i> <span>3</span>
-                            </span>
-                          </a>
-                          <div class="minicart" style="display:none">
-                            <div class="minicart-header">3 items in the shopping cart</div>
-                            <div class="minicart-body">
-                              <div class="cart-product clearfix">
-                                <div class="cart-product-image">
-                                  <a class="cart-product-img" href="#">
-                                    <img width="100" height="150" src="images/product/product-1.jpg" alt="Product-1"/>
-                                  </a>
-                                </div>
-                                <div class="cart-product-details">
-                                  <div class="cart-product-title">
-                                    <a href="#">Cras rhoncus duis viverra</a>
-                                  </div>
-                                  <div class="cart-product-quantity-price">
-                                    2 x <span class="amount">&#36;22.00</span>
-                                  </div>
-                                </div>
-                                <a href="#" class="remove" title="Remove this item">&times;</a>
-                              </div>
-                              <div class="cart-product clearfix">
-                                <div class="cart-product-image">
-                                  <a class="cart-product-img" href="#">
-                                    <img width="100" height="150" src="images/product/product-3.jpg" alt="Product-3"/>
-                                  </a>
-                                </div>
-                                <div class="cart-product-details">
-                                  <div class="cart-product-title">
-                                    <a href="#">Creamy Spring Pasta</a>
-                                  </div>
-                                  <div class="cart-product-quantity-price">
-                                    1 x <span class="amount">&#36;12.00</span>
-                                  </div>
-                                </div>
-                                <a href="#" class="remove" title="Remove this item">&times;</a>
-                              </div>
-                            </div>
-                            <div class="minicart-footer">
-                              <div class="minicart-actions clearfix">
-                                <a class="checkout-button button" href="#">
-                                  <span class="text">Checkout</span>
-                                </a>
-                              </div>
-                            </div>
-                          </div>
+                        <li>
+                          <%= link_to "Orders", campaign_orders_path(@campaign) %>
                         </li>
                       </ul>
                     </nav>
@@ -332,44 +63,20 @@
               </div>
             </div>
           </div>
-          <div class="header-search-overlay hide">
-            <div class="container">
-              <div class="header-search-overlay-wrap">
-                <form class="searchform">
-                  <input type="search" class="searchinput" name="s" value="" placeholder="Search..."/>
-                  <input type="submit" class="searchsubmit hidden" name="submit" value="Search"/>
-                </form>
-                <button type="button" class="close">
-                  <span aria-hidden="true" class="fa fa-times"></span>
-                  <span class="sr-only">Close</span>
-                </button>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </header>
-    <div class="heading-container">
-      <div class="container heading-standar">
-        <div class="page-breadcrumb">
-          <ul class="breadcrumb">
-            <li><span><a href="#" class="home"><span>Home</span></a></span></li>
-            <li><span>Cart</span></li>
-          </ul>
-        </div>
-      </div>
-    </div>
     <div class="content-container">
       <div class="container">
         <div class="row">
-          <% if @cart.count == 0 %>
+          <% if @cart.nil? || @cart.empty? %>
             <div class="col-md-12 main-wrap">
               <div class="main-content">
                 <div class="shop">
                   <div class="woocommerce">
                     <p class="cart-empty">Your cart is currently empty.</p>
                     <p class="return-to-shop">
-                      <a class="button wc-backward" href="#">Return To Shop</a>
+                      <%= link_to "Return To Store", campaign_stores_path(@campaign), class: "button wc-backward" %>
                     </p>
                   </div>
                 </div>
@@ -395,49 +102,49 @@
                       <tr class="cart_item">
                         <% subtotal = 0 %>
                         <% if @cart %>
-                        <% @cart.each do |product_id, quantity | %>
-                          <td class="product-remove hidden-xs">
-                            <a href="/cart/removeItem/<%= product_id %>" class="remove" title="Remove this item">&times;</a>
-                          </td>
-                          <td class="product-thumbnail hidden-xs">
-                            <a href="#">
-                              <%= image_tag attachment_url(Product.find(product_id), :image) %>
-                              <!-- <img width="100" height="150" src="images/product/product-1.jpg" alt="Product-1"/> -->
-                            </a>
-                          </td>
-                          <td class="product-name">
-                            <a href="#"><%= Product.find(product_id).name %></a>
-                            <dl class="variation">
-                              <dt class="variation-Color">Color:</dt>
-                              <dd class="variation-Color"><p>Green</p></dd>
-                              <dt class="variation-Size">Size:</dt>
-                              <dd class="variation-Size"><p>Extra Large</p></dd>
-                            </dl>
-                          </td>
-                          <td class="product-price text-center">
-                            <span class="amount"><%= number_to_currency Product.find(product_id).retail_price %></span>
-                          </td>
-                          <td class="product-quantity text-center">
-                            <div class="quantity">
-                              <input type="number" step="1" min="0" name="quantity" value="<%= quantity %>" title="Qty" class="input-text qty text" size="4"/>
-                            </div>
-                          </td>
-                          <td class="product-subtotal hidden-xs text-center">
-                            <span class="amount"><%= number_to_currency Product.find(product_id).retail_price * quantity%></span>
-                          </td>
-                        </tr>
-                        <% subtotal += Product.find(product_id).retail_price * quantity %>
-                      <% end %>
+                          <% @cart.each do |product_id, quantity | %>
+                            <td class="product-remove hidden-xs">
+                              <a href="/cart/removeItem/<%= product_id %>" class="remove" title="Remove this item">&times;</a>
+                            </td>
+                            <td class="product-thumbnail hidden-xs">
+                              <a href="#">
+                                <%= image_tag attachment_url(Product.find(product_id), :image) %>
+                                <!-- <img width="100" height="150" src="images/product/product-1.jpg" alt="Product-1"/> -->
+                              </a>
+                            </td>
+                            <td class="product-name">
+                              <a href="#"><%= Product.find(product_id).name %></a>
+                              <dl class="variation">
+                                <dt class="variation-Color">Color:</dt>
+                                <dd class="variation-Color"><p>Green</p></dd>
+                                <dt class="variation-Size">Size:</dt>
+                                <dd class="variation-Size"><p>Extra Large</p></dd>
+                              </dl>
+                            </td>
+                            <td class="product-price text-center">
+                              <span class="amount"><%= number_to_currency Product.find(product_id).retail_price %></span>
+                            </td>
+                            <td class="product-quantity text-center">
+                              <div class="quantity">
+                                <input type="number" step="1" min="0" name="quantity" value="<%= quantity %>" title="Qty" class="input-text qty text" size="4"/>
+                              </div>
+                            </td>
+                            <td class="product-subtotal hidden-xs text-center">
+                              <span class="amount"><%= number_to_currency Product.find(product_id).retail_price * quantity%></span>
+                            </td>
+                          </tr>
+                          <% subtotal += Product.find(product_id).retail_price * quantity %>
+                        <% end %>
                       <% end %>
 
-                        <td colspan="6" class="actions">
+                        <!-- <td colspan="6" class="actions">
                           <div class="coupon">
                             <label for="coupon_code">Coupon:</label>
                             <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="Coupon code"/>
                             <input type="submit" class="button" name="apply_coupon" value="Apply Coupon"/>
                           </div>
                           <input type="submit" class="button update-cart-button" name="update_cart" value="Update Cart"/>
-                        </td>
+                        </td> -->
                       </tr>
                     </tbody>
                   </table>
@@ -558,7 +265,7 @@
         </div>
       </div>
     </div>
-    <div class="footer-widget">
+    <!-- <div class="footer-widget">
       <div class="container">
         <div class="footer-widget-wrap">
           <div class="row">
@@ -620,8 +327,8 @@
           </div>
         </div>
       </div>
-    </div>
-    <footer id="footer" class="footer">
+    </div> -->
+    <!-- <footer id="footer" class="footer">
       <div class="footer-info">
         <div class="container">
           <div class="row">
@@ -654,9 +361,9 @@
           </div>
         </div>
       </div>
-    </footer>
+    </footer> -->
   </div>
-  <div class="modal fade user-login-modal" id="userloginModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <!-- <div class="modal fade user-login-modal" id="userloginModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <form id="userloginModalForm">
@@ -699,8 +406,8 @@
         </form>
       </div>
     </div>
-  </div>
-  <div class="modal fade user-register-modal" id="userregisterModal" tabindex="-1" role="dialog" aria-hidden="true">
+  </div> -->
+ <!--  <div class="modal fade user-register-modal" id="userregisterModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <form id="userregisterModalForm">
@@ -743,8 +450,8 @@
         </form>
       </div>
     </div>
-  </div>
-  <div class="modal fade user-lostpassword-modal" id="userlostpasswordModal" tabindex="-1" role="dialog" aria-hidden="true">
+  </div> -->
+ <!--  <div class="modal fade user-lostpassword-modal" id="userlostpasswordModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <form id="userlostpasswordModalForm">
@@ -769,7 +476,7 @@
         </form>
       </div>
     </div>
-  </div>
+  </div> -->
       <div class="modal fade shop product-quickview" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">

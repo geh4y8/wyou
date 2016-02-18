@@ -9,12 +9,9 @@ Rails.application.routes.draw do
   get '/mystore' => 'users#user_store'
   get '/possible_stores' => 'stores#possible_stores'
   get '/attach_to_campaign' => 'campaigns#possible_campaigns'
-
   get '/fetch_comments' => 'comments#from_product', as: 'fetch_comments'
-
   get '/faq' => 'faq#index'
   get '/recipients' => 'landing#recipients'
-
   # mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   # mount Upmin::Engine => '/admin'
   root to: 'landing#index'

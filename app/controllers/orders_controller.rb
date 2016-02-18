@@ -4,7 +4,8 @@ class OrdersController < ApplicationController
   before_filter :set_order, :except => [:create, :index, :new]
 
   def index
-
+    @campaign = Campaign.friendly.find(params[:campaign_id])
+    @orders = @campaign.orders
   end
 
   def show

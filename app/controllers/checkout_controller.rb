@@ -4,5 +4,6 @@ class CheckoutController < ApplicationController
 
   def index
     @cart = session[:cart]
+    @campaign = Campaign.find(session[:campaign_id])
   end
 end

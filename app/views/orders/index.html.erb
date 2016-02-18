@@ -1,0 +1,22 @@
+<% if @orders.any? %>
+  <% @orders.each do |order| %>
+    <P>Order: <%= @orders.index(order) + 1 %></p>
+      <h4>Products in Order</h4>
+      <% order.products.each do |product| %>
+        <ul class="col-sm-12">
+          <li>Name: <%= product.name %></li>
+          <li>Price: <%= number_to_currency(product.retail_price, :unit => '$') %></li>
+          <li class="col-sm-1"><%= image_tag attachment_url(product, :image, :fill, 100, 100) %></li>
+        </ul>
+      <% end %>
+      <br />
+      <h4>Shipping Address</h4>
+      <ul>
+        <li><%= order.shipping_name %></li>
+        <li><%= order.shipping_street_address %></li>
+        <li><%= order.shipping_city %>, <%= order.shipping_state %> <%= order.shipping_zip %></li>
+      </ul>
+  <% end %>
+<% else %>
+  <h1> You do not currently have any orders </h1>
+<% end %>

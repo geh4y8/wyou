@@ -18,6 +18,7 @@ class CampaignsController < ApplicationController
     @user = current_user
     @results = @campaign.goal_percentage(@campaign)
     @supporter_results = @campaign.supporters_image_count(@campaign)
+    session[:campaign_id] = @campaign.id
   end
 
   def create
@@ -72,7 +73,7 @@ class CampaignsController < ApplicationController
   private
 
   def set_campaign
-     @campaign = Campaign.friendly.find(params[:id])
+    @campaign = Campaign.friendly.find(params[:id])
   end
 
   def add_new_campaign
