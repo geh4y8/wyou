@@ -31,6 +31,8 @@ class DonationsController < ApplicationController
         if @campaign.supporters.where(:user_id => current_user.id).empty?
           @campaign.supporters.new(:user_id => current_user.id).save
         end
+        DonationMailer.new_donation_email(@campaign, current_user, @donation.donation_amount).deliver_later
+        DonationMailer.confirm_donation_email(@campaign, current_user, @donation.donation_amount).deliver_later
         redirect_to campaign_path(@donation.campaign)
       end
     else
