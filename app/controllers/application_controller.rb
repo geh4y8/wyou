@@ -10,13 +10,8 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    if params[:redirect_to].present?
-      store_location_for(resource, params[:redirect_to])
-    # elsif request.referer == new_session_url
-    #   super
-    else
-      stored_location_for(resource) || request.referer || root_path
-    end
+    campaign = User.find(resource.id).campaigns.first
+    campaign_path(campaign)
   end
 
   def after_sign_up_path_for(resource)

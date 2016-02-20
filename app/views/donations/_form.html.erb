@@ -1,17 +1,67 @@
 <%= render('layouts/errors', :object => @donation) %>
 
-<%= form_for [@campaign, @donation], :html =>{:id => 'blabla'} do |f| %>
-  <%= f.hidden_field :user_id, :value => current_user.id %>
-  <%= f.label :donation_amount %>
-  <%= f.text_field :donation_amount %>
-  <script src="https://checkout.stripe.com/checkout.js"></script>
-
-<button id="customButton">Purchase</button>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <!--      Wizard container        -->
+      <div class="wizard-container">
+        <div class="card wizard-card ct-wizard-blue" id="wizardProfile">
+          <%= form_for [@campaign, @donation], :html =>{:id => 'blabla'} do |f| %>
+            <%= f.hidden_field :user_id, :value => current_user.id %>
+            <script src="https://checkout.stripe.com/checkout.js"></script>
+            <div class="wizard-header">
+              <h3>
+                 Donate to <%= @campaign.patient_name %><br>
+                 <small></small>
+              </h3>
+            </div>
+            <ul>
+              <li><a href="#recipient" data-toggle="tab"></a></li>
+              <!-- <li><a href="#campaign" data-toggle="tab">Campaign</a></li> -->
+              <!-- <li><a href="#address" data-toggle="tab">Address</a></li> -->
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane" id="recipient">
+                <br />
+                <br />
+                <div class="row">
+                  <div class="col-sm-3">
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Donation Amount <small></small></label>
+                      <%= f.text_field :donation_amount, id: "donation_amount_field", class: "form-control", type: "text",
+                      placeholder: "Enter Donation Amount" %>
+                      <%# f.text_field :patient_name, class: "form-control", name: 'patient_name', type: "text", :placeholder=>"Enter Recipient's Full Name" %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="wizard-footer">
+              <div class="pull-right">
+                <input type='button' class='btn btn-next btn-fill btn-warning btn-wd btn-sm' name='next' value='Next' />
+                <input type='button' class='btn btn-finish btn-fill btn-warning btn-wd btn-sm' id="customButton" value="Purchase"/>
+                <%# f.submit 'Finish', :class=>'btn btn-finish btn-fill btn-warning btn-wd btn-sm', name: 'finish' %>
+              </div>
+              <div class="pull-left">
+                <input type='button' class='btn btn-previous btn-fill btn-default btn-wd btn-sm' name='previous' value='Previous' />
+              </div>
+              <div class="clearfix"></div>
+            </div>
+          <% end %>
+        </div>
+      </div> <!-- wizard container -->
+      <br>
+      <br>
+    </div>
+  </div>
+</div>
 
 <script>
   var handler = StripeCheckout.configure({
     key: 'pk_test_qwiWOaSsD3hCv4YDIxNIJOjE',
-    image: '/img/documentation/checkout/marketplace.png',
+    // image: "<%= asset_path 'wyoulogo.png' %>",
     locale: 'auto',
     token: function(token) {
       console.log(token)
@@ -23,9 +73,10 @@
 
   $('#customButton').on('click', function(e) {
     // Open Checkout with further options
+    var description_amount = 'Donation Amount: $' + $('#donation_amount_field').val();
     handler.open({
-      name: 'wyou.co',
-      description: '2 widgets',
+      name: 'w/you',
+      description: description_amount,
       amount: $('#donation_donation_amount').val() * 100
     });
     e.preventDefault();
@@ -36,5 +87,3 @@
     handler.close();
   });
 </script>
-  <p><%= f.submit %></p>
-<% end %>

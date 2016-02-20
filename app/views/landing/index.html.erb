@@ -1,5 +1,52 @@
 
 <!-- <body class="landing-page landing-page1"> -->
+<nav class="navbar navbar-top" role="navigation" style="background-color:white;">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button id="menu-toggle" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example" style="background-color: #17375e;">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar bar1"></span>
+            <span class="icon-bar bar2"></span>
+            <span class="icon-bar bar3"></span>
+            </button>
+            <!-- <a href="http://www.creative-tim.com"> -->
+                <!-- <div class="logo-container"> -->
+                    <!-- <div class="logo"> -->
+                    <div class="logo">
+                        <%= image_tag 'wyoulogo.png', style: "max-height:50px;" %>
+                        <!-- <img src="/landing-page/assets/img/new_logo.png" alt="Creative Tim Logo"> -->
+                    </div>
+                <!-- </div> -->
+            <!-- </a> -->
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="example">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <% if user_signed_in? %>
+                        <%= link_to "Logout", destroy_user_session_path(current_user), method: "delete" %>
+                    <% else %>
+                        <%= link_to "Login", new_user_session_path %>
+                    <% end %>
+                </li>
+                <!-- <li>
+                    <a href="#">
+                    <i class="fa fa-twitter"></i>
+                    Tweet
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                    <i class="fa fa-pinterest"></i>
+                    Pin
+                    </a>
+                </li> -->
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</nav>
     <div class="wrapper">
         <div class="parallax filter-gradient blue" data-color="blue">
             <div class="parallax-background">

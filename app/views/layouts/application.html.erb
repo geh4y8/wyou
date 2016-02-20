@@ -12,13 +12,15 @@
     <%= csrf_meta_tags %>
   </head>
   <body class="landing-page landing-page1">
+
     <header>
+      <%= render 'layouts/messages' %>
       <%# render 'layouts/navigation' %>
     </header>
-    <main >
-       <%= render 'layouts/messages' %>
+    <!-- <main > -->
+
        <%= yield %>
-    </main>
+    <!-- </main> -->
 
     <!-- ClickDesk Live Chat Service for websites -->
     <script type='text/javascript'>
