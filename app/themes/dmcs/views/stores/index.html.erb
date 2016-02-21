@@ -189,6 +189,61 @@
                 <ul class="products">
                   <% if @products %>
                     <% @products.each do |product| %>
+
+                      <li class="product">
+                        <div class="card-container" style="max-width:300px;">
+                          <div class="card">
+                              <div class="front">
+                                <div class="product-images">
+                                  <div class="shop-loop-thumbnail">
+                                    <div style="max-height:350px; max-width:300px;"><%= image_tag attachment_url(product, :image), :id=>'image' + product.id.to_s%></div>
+                                  </div>
+                                </div>
+                                <div class="footer">
+                                  <h3 class="product_title"><a href="#"><%= product.name %></a></h3>
+                                  <span class="amount"><%= number_to_currency product.retail_price %></span>
+                                </div>
+                              </div> <!-- end front panel -->
+                              <div class="back">
+
+                                  <!-- <div class="header">
+                                      <h5 class="motto">"To be or not to be, this is my awesome motto!"</h5>
+                                  </div> -->
+                                  <div class="content">
+                                      <div class="main">
+                                        <div class="row" style="min-height:180px;">
+                                          <div class="col-xs-4 col-xs-offset-4" style="min-height:180px;">
+                                            <div style="max-height:180px; max-width: 150px; margin-top:50px">
+                                              <%= image_tag attachment_url(product, :image), :id=>'image' + product.id.to_s, class: "img-circle" %>
+                                            </div>
+                                          </div>
+                                        </div>
+                                          <h3 class="name"><%= product.name %></h3>
+                                          <p class="profession"><%= number_to_currency product.retail_price %></p>
+                                          <h4 class="text-center">Description</h4>
+                                          <p><%= product.description %></p>
+                                          <!-- <h4 class="text-center">Areas of Expertise</h4>
+                                          <p>Web design, Adobe Photoshop, HTML5, CSS3, Corel and many others...</p> -->
+                                      </div>
+                                  </div>
+                                  <div class="footer" style="margin-top:170px">
+                                      <div class="social-links text-center">
+                                        <a href="#" data-rel="quickViewModal" data-productdescription='<%= h raw product.description %>' data-productlongdescription= '<%= h raw product.long_description %>' data-productprice='<%= number_to_currency product.retail_price %>' data-productname='<%= product.name %>' data-productid='<%= product.id %>' data-campaignid='<%= @campaign.id %>' class="fr-view"><i class="fa fa-plus"></i></a>
+                                          <!-- <a href="http://creative-tim.com" class="twitter"><i class="fa fa-twitter fa-fw"></i></a> -->
+                                      </div>
+                                  </div>
+                              </div> <!-- end back panel -->
+                          </div> <!-- end card -->
+                      </div> <!-- end card-container -->
+                    </li>
+
+
+
+
+
+
+
+
                     <li class="product">
                       <div class="product-container">
                         <figure>
@@ -571,33 +626,11 @@
                         </div>
                       <!-- </form> -->
                     </div>
-                    <div class="yith-wcwl-add-to-wishlist">
+                    <!-- <div class="yith-wcwl-add-to-wishlist">
                       <div class="yith-wcwl-add-button">
                         <a href="#" class="add_to_wishlist">
                           Add to Wishlist
                         </a>
-                      </div>
-                    </div>
-                    <!-- <div class="product_meta">
-                      <span class="sku_wrapper">SKU: <span class="sku">N/A</span></span>
-                      <span class="posted_in">Category: <a href="#">Aliquam</a></span>
-                      <span class="tagged_as">Tags: <a href="#">Men</a>, <a href="#">Women</a></span>
-                      <span class="posted_in">Brand: <a href="#">Adesso</a>, <a href="#">Carvela</a>.</span>
-                    </div> -->
-                    <!-- <div class="share-links">
-                      <div class="share-icons">
-                        <span class="facebook-share">
-                          <a href="#" title="Share on Facebook"><i class="fa fa-facebook"></i></a>
-                        </span>
-                        <span class="twitter-share">
-                          <a href="#" title="Share on Twitter"><i class="fa fa-twitter"></i></a>
-                        </span>
-                        <span class="google-plus-share">
-                          <a href="#" title="Share on Google +"><i class="fa fa-google-plus"></i></a>
-                        </span>
-                        <span class="linkedin-share">
-                          <a href="#" title="Share on Linked In"><i class="fa fa-linkedin"></i></a>
-                        </span>
                       </div>
                     </div> -->
                   </div>

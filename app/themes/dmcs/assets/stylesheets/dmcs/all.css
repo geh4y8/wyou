@@ -16,6 +16,8 @@
  *= require froala_editor.min
  *= require froala_style.min
  *= require dmcs/jquery-steps
+ *= require rotating-card
+
  *= require_self
  *= require_tree .
 

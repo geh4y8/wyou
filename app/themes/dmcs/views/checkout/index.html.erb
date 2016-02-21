@@ -56,6 +56,11 @@
                         <li>
                           <%= link_to "Orders", campaign_orders_path(@campaign) %>
                         </li>
+                        <li>
+                          <%= link_to campaign_stores_path(@campaign.id), class: "offcanvas-user-wishlist-link" do %>
+                             My Store
+                          <% end %>
+                        </li>
                       </ul>
                     </nav>
                   </div>

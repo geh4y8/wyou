@@ -34,6 +34,12 @@
 //= require landing-page
 //= require jquery.bootstrap.wizard.js
 //= require wizard.js
+//= require chartist.min
+//= require bootstrap-checkbox-radio-switch
+//= require bootstrap-notify
+//= require bootstrap-select
+//= require light-bootstrap-dashboard
+//= require light-bootstrap-demo
 //= require_tree .
 
 $(function(){

@@ -1,3 +1,26 @@
+<body class="shop-account">
+<div class="offcanvas open">
+  <div class="offcanvas-wrap">
+    <div class="offcanvas-user clearfix">
+      <%= link_to campaign_stores_path(@campaign.id), class: "offcanvas-user-wishlist-link" do %>
+        <i class="fa fa-heart-o"></i> My Store
+      <% end %>
+      <%= link_to destroy_user_session_path, :method => :delete, class: "offcanvas-user-account-link" do %>
+        <i class="fa fa-user"></i> Logout
+      <% end %>
+    </div>
+    <nav class="offcanvas-navbar">
+      <ul class="offcanvas-nav">
+        <li class="menu-item-has-children dropdown">
+          <%= link_to "My Campaign", campaign_path(@campaign) %>
+        </li>
+        <li>
+          <%= link_to "Orders", campaign_orders_path(@campaign) %>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
 <div id="wrapper" class="wide-wrap">
   <div class="offcanvas-overlay"></div>
   <header class="header-type-classic">
@@ -15,130 +38,23 @@
                       <span class="icon-bar bar-middle"></span>
                       <span class="icon-bar bar-bottom"></span>
                     </button>
-                    <a class="navbar-search-button search-icon-mobile" href="#">
-                      <i class="fa fa-search"></i>
-                    </a>
-                    <a class="cart-icon-mobile" href="#">
-                      <i class="elegant_icon_bag"></i><span>0</span>
-                    </a>
-                    <a class="navbar-brand" href="./">
-                      <img class="logo" alt="The DMCS" src="images/logo.png">
-                      <img class="logo-fixed" alt="The DMCS" src="images/logo-fixed.png">
-                      <img class="logo-mobile" alt="The DMCS" src="images/logo-mobile.png">
-                    </a>
+                    <%= link_to campaign_path(@campaign), class: "navbar-brand" do %>
+                      <%= image_tag 'dmcs/wyoulogo.png', :class=>'logo logo-fixed logo-transparent' %>
+                    <% end %>
                   </div>
                   <nav class="collapse navbar-collapse primary-navbar-collapse">
                     <ul class="nav navbar-nav primary-nav">
                       <li class="menu-item-has-children dropdown">
-                        <a href="./" class="dropdown-hover">
-                          <span class="underline">Home</span> <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li><a href="home-lookbook.html">Home Lookbook</a></li>
-                          <li><a href="home-instagram.html">Home Instagram</a></li>
-                          <li><a href="home-product-slider.html">Home Product Slider</a></li>
-                          <li><a href="home-default.html">Home Default</a></li>
-                        </ul>
+                        <%= link_to "My Campaign", campaign_path(@campaign) %>
                       </li>
-                      <li class="menu-item-has-children megamenu megamenu-fullwidth dropdown">
-                        <a href="shop.html" class="dropdown-hover">
-                          <span class="underline">Shop</span> <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                        <li class="menu-item-has-children mega-col-3 dropdown-submenu">
-                          <h3 class="megamenu-title">
-                            Women <span class="caret"></span>
-                          </h3>
-                          <ul class="dropdown-menu">
-                            <li><a href="shop-by-category.html">Nulla</a></li>
-                            <li><a href="shop-by-category.html">Maecenas</a></li>
-                            <li><a href="shop-by-category.html">Aliquam</a></li>
-                            <li><a href="shop-by-category.html">Donec</a></li>
-                          </ul>
-                        </li>
-                        <li class="menu-item-has-children mega-col-3 dropdown-submenu">
-                          <h3 class="megamenu-title">
-                            Brands <span class="caret"></span>
-                          </h3>
-                          <ul class="dropdown-menu">
-                            <li><a href="shop-by-category.html">Adesso</a></li>
-                            <li><a href="shop-by-category.html">Barbour</a></li>
-                            <li><a href="shop-by-category.html">Carvela</a></li>
-                            <li><a href="shop-by-category.html">Crocs</a></li>
-                            <li><a href="shop-by-category.html">Evans</a></li>
-                          </ul>
-                        </li>
-                        <li class="menu-item-has-children mega-col-3 dropdown-submenu">
-                          <h3 class="megamenu-title">
-                            Collections <span class="caret"></span>
-                          </h3>
-                          <ul class="dropdown-menu">
-                            <li><a href="shop-by-collection.html">Spring/Summer 2014</a></li>
-                            <li><a href="shop-by-collection.html">Sweet Summer</a></li>
-                            <li><a href="shop-by-collection.html">Winter 2015</a></li>
-                          </ul>
-                        </li>
-                        <li class="menu-item-has-children mega-col-3 dropdown-submenu">
-                          <h3 class="megamenu-title">
-                            Woo <span class="caret"></span>
-                          </h3>
-                          <ul class="dropdown-menu">
-                            <li><a href="shop-masonry.html">Shop Masonry</a></li>
-                            <li><a href="shop-detail.html">Shop Detail</a></li>
-                            <li><a href="my-account.html">My Account</a></li>
-                            <li><a href="cart.html">Cart</a></li>
-                            <li><a href="cart-empty.html">Empty Cart</a></li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </li>
-                    <li><a href="collection.html"><span class="underline">Collections</span></a></li>
-                    <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-hover">
-                    <span class="underline">Blog</span> <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                    <li><a href="blog-default.html">Blog Default</a></li>
-                    <li><a href="blog-center.html">Blog Center</a></li>
-                    <li><a href="blog-masonry.html">Blog Masonry</a></li>
-                    <li><a href="blog-detail.html">Blog Detail</a></li>
-                    </ul>
-                    </li>
-                    <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-hover">
-                    <span class="underline">Pages</span> <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                    <li><a href="about-us.html">About us</a></li>
-                    <li><a href="contact-us.html">Contact Us</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
-                    </ul>
-                    </li>
-                    <li class="navbar-search">
-                    <a class="navbar-search-button" href="#">
-                    <i class="fa fa-search"></i>
-                    </a>
-                    </li>
-                    <li class="navbar-minicart navbar-minicart-nav">
-                    <a class="minicart-link" href="#">
-                    <span class="minicart-icon">
-                    <i class="minicart-icon-svg elegant_icon_bag"></i>
-                    <span>0</span>
-                    </span>
-                    </a>
-                    <div class="minicart">
-                    <div class="minicart-header no-items show">
-                    Your shopping bag is empty.
-                    </div>
-                    <div class="minicart-footer">
-                    <div class="minicart-actions clearfix">
-                    <a class="button" href="#">
-                    <span class="text">Go to the shop</span>
-                    </a>
-                    </div>
-                    </div>
-                    </div>
-                    </li>
+                      <li>
+                        <%= link_to "Orders", campaign_orders_path(@campaign) %>
+                      </li>
+                      <li>
+                        <%= link_to campaign_stores_path(@campaign.id), class: "offcanvas-user-wishlist-link" do %>
+                           My Store
+                        <% end %>
+                      </li>
                     </ul>
                   </nav>
                 </div>
@@ -149,16 +65,6 @@
       </div>
     </div>
   </header>
-  <div class="heading-container">
-    <div class="container heading-standar">
-      <div class="page-breadcrumb">
-        <ul class="breadcrumb">
-          <li><span><a href="#" class="home"><span>Home</span></a></span></li>
-          <li><span>FAQ</span></li>
-        </ul>
-      </div>
-    </div>
-  </div>
   <div class="content-container">
     <div class="container">
       <div class="row">

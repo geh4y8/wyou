@@ -1949,7 +1949,6 @@ p.demo_store {
 }
 .shop ul.products li.product {
   overflow: hidden;
-  background-color: #f6f6f6;
 }
 .shop ul.products li.product .shop-loop-quickview {
   position: absolute;
