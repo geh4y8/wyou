@@ -1,7 +1,7 @@
 class LandingController < ApplicationController
 
   def index
-
+    @landing = true
   end
 
   def recipients
