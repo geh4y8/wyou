@@ -1,0 +1,62 @@
+<!--   Big container   -->
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <!--      Wizard container        -->
+      <div class="wizard-container">
+        <div class="card wizard-card ct-wizard-blue" id="wizardProfile">
+          <%= form_for [@campaign, @invite], :html => {:class=> 'clearfix'} do |f| %>
+            <%= f.hidden_field :name, :value => current_user.name %>
+            <%= f.hidden_field :owner_email, :value => current_user.email %>
+            <div class="wizard-header">
+              <h3>
+                 Invitation to Contribute <br>
+                 <small>Fill out this information to send a personal invitation.</small>
+              </h3>
+            </div>
+            <ul>
+              <li><a href="#recipient" data-toggle="tab">Contributor</a></li>
+              <!-- <li><a href="#campaign" data-toggle="tab">Campaign</a></li> -->
+              <!-- <li><a href="#address" data-toggle="tab">Address</a></li> -->
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane" id="recipient">
+                <div class="row">
+                  <h4 class="info-text"></h4>
+                  <div class="col-sm-4">
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Contributor Name <small></small></label>
+                      <%= f.text_field :contributor_name, class: "form-control", type: "text", :placeholder=>"Enter Contributor's Full Name" %>
+                    </div>
+                    <div class="form-group">
+                      <label>Contributor's Email <small></small></label>
+                      <%= f.email_field :contributor_email, :class => "form-control", :placeholder => "Enter Recipient's Email Address", :type=>"email" %>
+                    </div>
+                    <div class="form-group">
+                      <label>Personal Message</label>
+                      <%= f.text_area :contributor_message, class: "form-control", placeholder: "Enter a personal message" %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <div class="wizard-footer">
+              <div class="pull-right">
+                <input type='button' class='btn btn-next btn-fill btn-warning btn-wd btn-sm' name='next' value='Next' />
+                <%= f.submit 'Finish', :class=>'btn btn-finish btn-fill btn-warning btn-wd btn-sm', name: 'finish' %>
+              </div>
+              <div class="pull-left">
+                <input type='button' class='btn btn-previous btn-fill btn-default btn-wd btn-sm' name='previous' value='Previous' />
+              </div>
+              <div class="clearfix"></div>
+            </div>
+          <% end %>
+        </div>
+      </div> <!-- wizard container -->
+      <br>
+      <br>
+    </div>
+  </div>
+</div>
+

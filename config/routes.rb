@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     post 'assign_product', to: 'campaigns#assign_product'
     resources :comments, module: :campaigns
     resources :orders
+    resources :invites
   end
  devise_for :users, :controllers => {:registrations => 'registrations'}
   resources :users

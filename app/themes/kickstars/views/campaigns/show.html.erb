@@ -209,13 +209,16 @@
                             <%= image_tag attachment_url(@campaign_owner, :image, :fit, 300, 300) %>
                         </a>
                         <div class="media-body">
-                            <h4 class="rs pb10"><a href="#" class="be-fc-orange fw-b"><%= @campaign_owner.name %></a></h4>
+                            <h4 class="rs pb10"><%= @campaign_owner.name %></h4>
                             <p class="rs"></p>
                             <p class="rs fc-gray"></p>
                         </div>
                     </div>
                     <div class="author-action">
                         <a class="btn btn-red" href="mailto:<%= @campaign_owner.email %>"><span class="glyphicon glyphicon-envelope" style="padding-right:10px"></span>Contact me</a>
+                        <% if @user_is_campaign_owner %>
+                            <%= link_to 'Invite', campaign_invites_path(@campaign), class: 'btn btn-blue' %>
+                        <% end %>
                         <!-- <a class="btn btn-white" href="#">See full bio</a> -->
                     </div>
                 </div>

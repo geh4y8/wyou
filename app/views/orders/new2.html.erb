@@ -1,0 +1,142 @@
+<%= form_for [@campaign, @order], :html => {:id => "wizard", :class=> 'wizard'} do |f| %>
+    <div>
+        <h3>Shipping Information</h3>
+        <section>
+          <%= f.label :shipping_name, 'Shipping Name' %>
+          # <%= f.text_field :shipping_name, :class => '' %>
+          <%= f.label :shipping_street_address, 'Street Address' %>
+          <%= f.text_field :shipping_street_address, :class => '' %>
+          <%= f.label :shipping_city, 'City' %>
+          <%= f.text_field :shipping_city, :class=> '' %>
+          <br />
+          <%= f.label :shipping_state, 'State' %>
+          <br />
+          <%= f.select(:shipping_state, options_for_select(us_states, "AL")) %>
+          <br />
+          <%= f.label :shipping_zip, 'Zip Code' %>
+          <%= f.text_field :shipping_zip, :class=> '' %>
+        </section>
+        <h3>Review Order</h3>
+        <section>
+          <table class="table shop_table cart">
+            <thead>
+              <tr>
+                <th class="product-thumbnail hidden-xs">&nbsp;</th>
+                <th class="product-name">Product</th>
+                <th class="product-price text-center">Price</th>
+                <th class="product-quantity text-center">Quantity</th>
+                <th class="product-subtotal text-center hidden-xs">Total</th>
+              </tr>
+            </thead>
+            <tbody>
+          <% subtotal = 0 %>
+            <% @cart.each do |product_id, quantity| %>
+            <tr class="cart_item">
+              <td class="product-thumbnail hidden-xs">
+                <a href="#">
+                  <%= image_tag attachment_url(Product.find(product_id), :image,:fill, 100, 100)  %>
+                </a>
+              </td>
+              <td class="product-name">
+                <p><%= Product.find(product_id).name %></p>
+              </td>
+              <td class="product-price text-center">
+                <span class="amount"><%= number_to_currency Product.find(product_id).retail_price %></span>
+              </td>
+              <td class="product-quantity text-center">
+                <div class="quantity">
+                  <span class="amount"><%= quantity %> </span>
+                </div>
+              </td>
+              <td class="product-subtotal hidden-xs text-center">
+                <span class="amount"><%= number_to_currency Product.find(product_id).retail_price * quantity%></span>
+              </td>
+            </tr>
+            <% subtotal += Product.find(product_id).retail_price * quantity %>
+          <% end %>
+          <tr class="cart_item">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><strong>Subtotal:</strong></td>
+            <td><%= number_to_currency subtotal %></td>
+          </tr>
+          <tr class="cart_item">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><strong>Shipping:</strong></td>
+            <td><span class="amount">&#36;0.00</span></td>
+          </tr>
+          <tr class="cart_item">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><strong>Total:</strong></td>
+            <td><span class="amount"><%= number_to_currency subtotal %></span></td>
+          </tr>
+        </tbody>
+      </table>
+        </section>
+        <h3>Payment</h3>
+        <section>
+          <table class="table shop_table cart">
+            <thead>
+              <tr>
+                <th class="product-name">Available Funds</th>
+                <th>Order Total</th>
+                <th>Balance Remaining</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><%= number_to_currency @campaign.fund_amount %></td>
+                <td><%= number_to_currency subtotal %></td>
+                <td><%= number_to_currency (@campaign.fund_amount - subtotal) %></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <h3>Finish</h3>
+        <section>
+            <input id="acceptTerms" name="acceptTerms" type="checkbox" class="required"> <label for="acceptTerms">I agree with the Terms and Conditions.</label>
+        </section>
+        <%= f.hidden_field :order_total, :value => subtotal.to_i %>
+        <%= f.submit 'submit', :id=>"order-submit-btn", :style=>'display:none' %>
+    </div>
+<% end %>
+
+
+<script>
+// Initialize wizard
+var form = $("#wizard");
+form.validate({
+    errorPlacement: function errorPlacement(error, element) { element.before(error); },
+    rules: {
+        confirm: {
+            equalTo: "#password"
+        }
+    }
+});
+form.children("div").steps({
+    headerTag: "h3",
+    bodyTag: "section",
+    transitionEffect: "slideLeft",
+    onStepChanging: function (event, currentIndex, newIndex)
+    {
+        form.validate().settings.ignore = ":disabled,:hidden";
+        return form.valid();
+    },
+    onFinishing: function (event, currentIndex)
+    {
+        form.validate().settings.ignore = ":disabled";
+        return form.valid();
+    },
+    onFinished: function (event, currentIndex)
+    {
+        $('#order-submit-btn').trigger('click');
+        alert("Submitted!");
+    }
+});
+
+</script>

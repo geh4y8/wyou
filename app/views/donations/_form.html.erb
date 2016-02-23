@@ -62,7 +62,6 @@
     // image: "<%= asset_path 'wyoulogo.png' %>",
     locale: 'auto',
     token: function(token) {
-      console.log(token)
       $('#blabla').append($("<input type=\"hidden\" name=\"donation[card_token]\" />").val(token.id));
       $('#blabla').append($("<input type=\"hidden\" name=\"donation[email]\" />").val(token.email));
       $('#blabla').get(0).submit();

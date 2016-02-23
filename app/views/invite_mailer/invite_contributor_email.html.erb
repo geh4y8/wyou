@@ -1,0 +1,13 @@
+<h1>You have been invited to contribute to a campaign to help <%= @campaign.patient_name %>!</h1>
+
+<% if @invite.contributor_message %>
+  <h4>Personal Message:</h4>
+    <br />
+    <p><%= @invite.contributor_message %></p>
+<% end %>
+
+<h4> Click on the following link to create an account on w/you.  Remember to enter your special campaign code!</h4>
+
+<a href=<%= @url %>>Start Now</a>
+
+<h3>Your special campaign code is: <%= @campaign.campaign_code %></h3>
