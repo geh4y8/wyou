@@ -58,7 +58,7 @@
 
 <script>
   var handler = StripeCheckout.configure({
-    key: 'pk_test_qwiWOaSsD3hCv4YDIxNIJOjE',
+    key: '<%= Rails.configuration.stripe[:publishable_key] %>',
     // image: "<%= asset_path 'wyoulogo.png' %>",
     locale: 'auto',
     token: function(token) {
@@ -73,7 +73,7 @@
     var description_amount = 'Donation Amount: $' + $('#donation_amount_field').val();
     handler.open({
       name: 'w/you',
-      key: 'pk_test_qwiWOaSsD3hCv4YDIxNIJOjE',
+      key: '<%= Rails.configuration.stripe[:publishable_key] %>',
       description: description_amount,
       amount: $('#donation_donation_amount').val() * 100
     });
