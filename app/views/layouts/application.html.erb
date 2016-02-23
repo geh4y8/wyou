@@ -11,7 +11,7 @@
 
     <%= csrf_meta_tags %>
   </head>
-  <body class="<%= 'landing-page landing-page1' if @landing %>">
+  <body class="<%= 'landing-page landing-page1' if @landing %>"  style=<%= 'margin-top:0px;' if @landing %>>
 
     <header>
       <%= render 'layouts/messages' %>
