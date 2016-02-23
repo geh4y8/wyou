@@ -2,8 +2,10 @@
     <div class="grid_12 header-content">
         <div id="sys_header_right" class="header-right">
             <div class="account-panel">
-              <% if current_user.email == @campaign_owner.email %>
-                <%= link_to 'My Store', campaign_stores_path(@campaign), class: 'btn btn-blue' %>
+              <% if @campaign_owner %>
+                <% if current_user.email == @campaign.patient_email %>
+                    <%= link_to 'My Store', campaign_stores_path(@campaign), class: 'btn btn-blue' %>
+                <% end %>
               <% end %>
               <% if user_signed_in? %>
                 <%= link_to 'Edit account', edit_user_registration_path, :class=>'btn btn-red' %>

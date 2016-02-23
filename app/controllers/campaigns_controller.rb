@@ -24,6 +24,8 @@ class CampaignsController < ApplicationController
   def create
     @campaign = Campaign.new(campaign_params.merge(campaign_code: create_unique_code))
     if @campaign.save
+      current_user.update!(campaign_code: @campaign.campaign_code)
+      add_new_campaign
       CampaignMailer.new_campaign_email(@campaign).deliver_later
       redirect_to campaign_path(@campaign)
     else
@@ -63,7 +65,9 @@ class CampaignsController < ApplicationController
   def possible_campaigns
     add_new_campaign
     @current_campaigns = current_user.campaigns
-    if @current_campaigns.size == 1
+    if @current_campaigns.size == 0
+      redirect_to new_campaign_path
+    elsif @current_campaigns.size == 1
       redirect_to campaign_path(@current_campaigns.first.id)
     else
       render :possible_campaigns
