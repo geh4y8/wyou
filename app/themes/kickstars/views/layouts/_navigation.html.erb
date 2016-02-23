@@ -2,6 +2,9 @@
     <div class="grid_12 header-content">
         <div id="sys_header_right" class="header-right">
             <div class="account-panel">
+              <% if current_user.email == @campaign_owner.email %>
+                <%= link_to 'My Store', campaign_stores_path(@campaign), class: 'btn btn-blue' %>
+              <% end %>
               <% if user_signed_in? %>
                 <%= link_to 'Edit account', edit_user_registration_path, :class=>'btn btn-red' %>
                 <%= link_to 'Sign out', destroy_user_session_path, :class=>'btn btn-black', :method=>'delete' %>
@@ -29,12 +32,7 @@
                     <a href="#" class="nav-title">Discover</a>
                     <p class="rs nav-description">Great Projects</p>
                 </div> -->
-                <span class="sep"></span>
-                <div class="nav-item">
-                    <%= link_to 'Start', new_campaign_path, :class=>"nav-title" %>
-                   <!--  <a href="#" class="nav-title">Start</a> -->
-                    <p class="rs nav-description">Your Project</p>
-                </div>
+                <!-- <span class="sep"></span> -->
             </div>
         </div>
     </div>
