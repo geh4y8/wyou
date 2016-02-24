@@ -1,35 +1,87 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <!--      Wizard container        -->
+      <div class="wizard-container">
+        <div class="card wizard-card ct-wizard-blue" id="wizardProfile">
+          <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :role => 'form'}) do |f| %>
+            <%= devise_error_messages! %>
+            <div class="wizard-header">
+              <h3>
+                 New User Registration <br>
+                 <small>Create your account by filling in the following information.</small>
+              </h3>
+            </div>
+            <ul>
+              <li><a href="#sign_up_form" data-toggle="tab">Sign Up</a></li>
+              <!-- <li><a href="#campaign" data-toggle="tab">Campaign</a></li> -->
+              <!-- <li><a href="#address" data-toggle="tab">Address</a></li> -->
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane" id="sign_up_form">
+                <div class="row">
+                  <h4 class="info-text"> Let's start with the basics</h4>
+                  <div class="col-sm-3">
+                  </div>
+                  <div class="col-sm-7">
+                    <div class="form-group">
+                      <label>Name <small></small></label>
+                      <%= f.text_field :name, :autofocus => true, class: 'form-control' %>
+                    </div>
+                    <div class="form-group">
+                      <label>Email <small></small></label>
+                      <%= f.email_field :email, class: 'form-control' %>
+                    </div>
+                    <div class="form-group">
+                      <label>Password<small></small></label>
+                      <%= f.password_field :password, class: 'form-control' %>
+                    </div>
+                    <div class="form-group">
+                      <label>Password Confirmation <small></small></label>
+                      <%= f.password_field :password_confirmation, class: 'form-control' %>
+                    </div>
+                    <div class="form-group">
+                      <label>Campaign Code <small>(If you received one)</small></label>
+                      <%= f.text_field :campaign_code, class: 'form-control' %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="tab-pane" id="campaign">
+                <h4 class="info-text"></h4>
+                <div class="row">
+                  <div class="col-sm-2"></div>
+                  <div class="col-sm-8">
 
-<div class="authform">
-  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :role => 'form'}) do |f| %>
-    <h3>Sign up</h3>
-    <%= devise_error_messages! %>
-    <div class="form-group">
-      <%= f.label :name %>
-      <%= f.text_field :name, :autofocus => true, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%= f.label :campaign_code %>
-      <%= f.text_field :campaign_code, class: 'form-control' %>
-    </div>
-    <!-- <div class="form-group">
-        <%= f.label :image, 'Profile Photo', :class => "col-lg-2 control-label" %>
-        <div class="col-lg-10">
-          <%= f.attachment_field :image, :class =>"form-control" %>
+                  </div>
+                  <div class="col-sm-2"></div>
+                </div>
+              </div> -->
+            </div>
+            <div class="wizard-footer">
+              <div class="pull-right">
+                <input type='button' class='btn btn-next btn-fill btn-warning btn-wd btn-sm' name='next' value='Next' />
+                <%= hidden_field_tag :redirect_to, '/add_avatar' %>
+                <%= f.submit 'Sign up', :class => 'btn btn-finish btn-fill btn-warning btn-wd btn-sm', name: 'finish' %>
+              </div>
+              <div class="pull-left">
+                <input type='button' class='btn btn-previous btn-fill btn-default btn-wd btn-sm' name='previous' value='Previous' />
+              </div>
+              <div class="clearfix"></div>
+            </div>
+          <% end %>
         </div>
-      </div> -->
-     <%= hidden_field_tag :redirect_to, '/add_avatar' %>
-     <%= f.submit 'Sign up', :class => 'button right' %>
-  <% end %>
+      </div> <!-- wizard container -->
+      <br>
+      <br>
+    </div>
+  </div>
 </div>
+
+<script>
+$("form").on("keypress", function (e) {
+    if (e.keyCode == 13) {
+        return false;
+    }
+});
+</script>
