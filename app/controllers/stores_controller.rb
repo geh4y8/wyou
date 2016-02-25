@@ -5,9 +5,7 @@ class StoresController < ApplicationController
 
   def index
     @campaign = Campaign.friendly.find(params[:campaign_id])
-    if @campaign.products.first
-      @products = @campaign.products.all
-    end
+    @products = @campaign.category.products
     @cart = session[:cart]
     @cart_count = Store.products_in_cart(@cart)
     session[:campaign_id] = @campaign.id
