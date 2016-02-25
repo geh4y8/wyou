@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
 
   before_action :authenticate_user!
-  before_filter :set_order, :except => [:create, :index, :new]
+  before_filter :set_order, :except => [:create, :index, :new, :assign_shipped, :add_shipping_confirmation]
 
   def index
     @campaign = Campaign.friendly.find(params[:campaign_id])
@@ -33,12 +33,23 @@ class OrdersController < ApplicationController
     end
   end
 
+  def add_shipping_confirmation
+    @order = Order.find(params[:order_id])
+    render 'add_shipping_confirmation'
+  end
+
+  def assign_shipped
+    @order = Order.find(params[:order_id])
+    @order.update(shipped: true, shipping_confirmation: params[:order][:shipping_confirmation])
+    redirect_to '/admin/orders'
+  end
+
 private
   def set_order
     @order = Order.find(params[:id])
   end
 
   def order_params
-    params.require(:order).permit(:campaign_id, :shipping_name, :shipping_street_address, :shipping_city, :shipping_state, :shipping_zip, :order_total)
+    params.require(:order).permit(:campaign_id, :shipping_name, :shipping_street_address, :shipping_city, :shipping_state, :shipping_zip, :order_total, :order_id)
   end
 end

@@ -46,15 +46,18 @@
                                         <th>Items</th>
                                         <th>First Order</th>
                                         <th>Shipped</th>
+                                        <th>Shipping Confirmation</th>
                                     </thead>
                                     <tbody>
                                         <% @orders.each do |order| %>
-                                        <tr>
+                                        <% order.shipped ? class_name = 'success' : class_name = 'warning' %>
+                                        <tr class=<%= class_name %>>
                                             <td><%= order.id %></td>
                                             <td><%= order.campaign.patient_name %></td>
                                             <td><%= order.products.count %></td>
                                             <td><%= order.campaign.orders.count > 1 ? '' : 'yes' %></td>
-                                            <td><%= order.shipped ? 'yes' : '' %></td>
+                                            <td><%= order.shipped ? 'yes' : (link_to 'Set as shipped', campaign_order_add_shipping_confirmation_path(order.campaign, order)) %></td>
+                                            <td><%= order.shipping_confirmation %></td>
                                         </tr>
                                         <% end %>
                                     </tbody>

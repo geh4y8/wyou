@@ -37,7 +37,10 @@ Rails.application.routes.draw do
     get 'add_product', to: 'campaigns#add_product'
     post 'assign_product', to: 'campaigns#assign_product'
     resources :comments, module: :campaigns
-    resources :orders
+    resources :orders do
+      get 'add_shipping_confirmation', to: 'orders#add_shipping_confirmation'
+      post 'assign_shipped', to: 'orders#assign_shipped'
+    end
     resources :invites
   end
  devise_for :users, :controllers => {:registrations => 'registrations'}
