@@ -1,11 +1,8 @@
 <div class="wrapper">
     <div class="sidebar" data-color="azure">
-
       <div class="sidebar-wrapper">
             <div class="logo">
-                <a href="" class="simple-text">
-                    w/you
-                </a>
+                w/you
             </div>
 
             <ul class="nav">
@@ -15,13 +12,13 @@
                         <p>Orders</p>
                     <% end %>
                 </li>
-                <li class="active">
+                <li>
                     <%= link_to '/admin/products' do %>
                         <!-- <i class="pe-7s-user"></i> -->
                         <p>Products</p>
                     <% end %>
                 </li>
-                <li>
+                <li class="active">
                     <%= link_to '/admin/campaigns' do %>
                         <p>Campaigns</p>
                     <% end %>
@@ -36,11 +33,8 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="card">
-                            <%= link_to new_product_path do %>
+                            <%= link_to '/assign_category_options' do %>
                                 <button class="btn btn-blue">Add Product</button>
-                            <% end %>
-                            <%= link_to new_category_path do %>
-                                <button class="btn btn-blue">Add Category</button>
                             <% end %>
                         </div>
                     </div>
@@ -49,54 +43,43 @@
                     <div class="col-md-6">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Products</h4>
+                                <h4 class="title">Campaigns</h4>
                                 <p class="category"></p>
                             </div>
-                            <div class="content">
+                            <div class="content table-responsive table-full-width">
                                 <table class="table table-hover table-striped">
                                     <thead>
                                         <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Retail Price</th>
+                                        <th>Campaign Starter Name</th>
+                                        <th>Patient Name</th>
+                                        <th>Funds Available</th>
+                                        <th>Orders</th>
+                                        <th>Product Category</th>
                                     </thead>
                                     <tbody>
-                                        <% @products.each do |product| %>
-                                            <tr>
-                                                <td><%= product.id %></td>
-                                                <td><%= link_to product.name, product_path(product) %></td>
-                                                <td><%= product.retail_price %></td>
-                                            </tr>
+                                        <% @campaigns.each do |campaign| %>
+                                        <tr>
+                                            <td><%= campaign.id %></td>
+                                            <td><%= campaign.name %></td>
+                                            <td><%= campaign.patient_name %></td>
+                                            <td><%= campaign.fund_amount %></td>
+                                            <td><%= campaign.orders.count %></td>
+                                            <td>
+                                                <% if campaign.category %>
+                                                    <%= campaign.category.name %>
+                                                <% else %>
+                                                    <%= link_to 'Assign Category', campaign_assign_category_options_path(campaign) %>
+                                                <% end %>
+                                            </td>
+                                        </tr>
                                         <% end %>
                                     </tbody>
                                 </table>
+
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="card ">
-                            <div class="header">
-                                <h4 class="title">Categories</h4>
-                                <p class="category"></p>
-                            </div>
-                            <div class="content">
-                                <table class="table table-hover table-striped">
-                                    <thead>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                    </thead>
-                                    <tbody>
-                                        <% @categories.each do |category| %>
-                                            <tr>
-                                                <td><%= category.id %></td>
-                                                <td><%= link_to category.name, category_path(category) %></td>
-                                            </tr>
-                                        <% end %>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+</div>
 
                                 <div class="footer">
                                     <hr>
@@ -139,7 +122,7 @@
                     </ul>
                 </nav>
                 <p class="copyright pull-right">
-                    &copy; 2016, made with love for a better web
+                    &copy; 2016 , made with love for a better web
                 </p>
             </div>
         </footer>

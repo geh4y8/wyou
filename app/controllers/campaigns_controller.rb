@@ -2,7 +2,7 @@ class CampaignsController < ApplicationController
   theme 'kickstars'
 
   before_action :authenticate_user!, :except => :show
-  before_filter :set_campaign, :except => [:index, :new, :create, :add_product, :assign_product, :possible_campaigns]
+  before_filter :set_campaign, :except => [:index, :new, :create, :add_product, :assign_product, :possible_campaigns, :assign_category_options, :assign_category]
   # before_action :admin_only, :except => :show
 
   def index
@@ -73,6 +73,18 @@ class CampaignsController < ApplicationController
     else
       render :possible_campaigns
     end
+  end
+
+  def assign_category
+    @campaign = Campaign.friendly.find(params[:campaign_id])
+    @category = Category.find(params[:campaign][:category])
+    @campaign.update(category_id: @category.id)
+    redirect_to '/admin/campaigns'
+  end
+
+  def assign_category_options
+    @campaign = Campaign.friendly.find(params[:campaign_id])
+    render 'assign_category_options'
   end
 
   private

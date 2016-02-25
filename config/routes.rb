@@ -14,12 +14,15 @@ Rails.application.routes.draw do
   get '/recipients' => 'landing#recipients'
   get '/admin/orders' => 'admin#orders'
   get '/admin/products' => 'admin#products'
+  get '/admin/campaigns' => 'admin#campaigns'
 
-  resources :admin
-  post 'assign_products', to: 'categories#assign_products'
-  resources :categories do
 
+
+  resources :admin do
+    root to: 'admin#orders'
   end
+  post 'assign_products', to: 'categories#assign_products'
+  resources :categories
 
   # mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   # mount Upmin::Engine => '/admin'
@@ -29,6 +32,8 @@ Rails.application.routes.draw do
     resources :donations
     resources :supporters
     resources :stores
+    get 'assign_category_options' => 'campaigns#assign_category_options'
+    post 'assign_category' => 'campaigns#assign_category'
     get 'add_product', to: 'campaigns#add_product'
     post 'assign_product', to: 'campaigns#assign_product'
     resources :comments, module: :campaigns
