@@ -1,0 +1,41 @@
+<h3><%= @category.name %></h3>
+
+<% if @category.products.any? %>
+  <ul>
+    <% @category.products.each do |product|  %>
+      <li><%= link_to product.name, product_path(product) %></li>
+    <% end %>
+  </uL>
+  <br />
+  <h4>Add Product To Category</h4>
+  <div class="col-md-2">
+  <%= form_for @category, :url => { :controller =>'categories', :action => 'assign_products', :category_id => @category.id}, method: :post do |f| %>
+      <fieldset>
+        <div class="form-group">
+
+          <div class="col-lg-10">
+            <%= f.collection_select :products, Product.all, :id, :name, prompt: true %>
+          </div>
+        </div>
+        <br />
+        <%= f.submit 'submit', :class=>'btn btn-primary form-control' %>
+      </fieldset>
+    <% end %>
+  </div>
+<% else %>
+  <h3> This Category has no associated products </h3>
+    <div class="col-md-2">
+    <%= form_for @category, :url => { :controller =>'categories', :action => 'assign_products', :category_id => @category.id}, method: :post do |f| %>
+      <fieldset>
+        <div class="form-group">
+
+          <div class="col-lg-10">
+            <%= f.collection_select :products, Product.all, :id, :name, prompt: true %>
+          </div>
+        </div>
+        <br />
+        <%= f.submit 'submit', :class=>'btn btn-primary form-control' %>
+      </fieldset>
+    <% end %>
+  </div>
+<% end %>

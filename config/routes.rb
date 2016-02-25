@@ -12,8 +12,15 @@ Rails.application.routes.draw do
   get '/fetch_comments' => 'comments#from_product', as: 'fetch_comments'
   get '/faq' => 'faq#index'
   get '/recipients' => 'landing#recipients'
+  get '/admin/orders' => 'admin#orders'
+  get '/admin/products' => 'admin#products'
 
   resources :admin
+  post 'assign_products', to: 'categories#assign_products'
+  resources :categories do
+
+  end
+
   # mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   # mount Upmin::Engine => '/admin'
   root to: 'landing#index'

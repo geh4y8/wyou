@@ -4,6 +4,7 @@
 <p>Price: $<%= @product.retail_price %></p>
 <p><%= image_tag attachment_url(@product, :image, :fill, 200, 200) %><p>
 
+<%= link_to 'Edit', edit_product_path(@product) %>
 <!-- <div id="likes">
   <%= render partial: "likes" %>
 </div> -->
