@@ -57,7 +57,7 @@
                                         <tr>
                                             <td><%= campaign.id %></td>
                                             <td><%= campaign.name %></td>
-                                            <td><%= campaign.patient_name %></td>
+                                            <td><%= link_to "#{campaign.patient_name}", campaign_path(campaign) %></td>
                                             <td><%= campaign.fund_amount %></td>
                                             <td><%= campaign.orders.count %></td>
                                             <td>

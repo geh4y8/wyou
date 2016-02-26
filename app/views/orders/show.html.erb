@@ -1,0 +1,21 @@
+<h4>Products in Order</h4>
+<% @order.products.each do |product| %>
+  <ul class="col-sm-12">
+    <li>Name: <%= link_to product.name, product_path(product) %></li>
+    <li>Price: <%= number_to_currency(product.retail_price, unit: '$') %></li>
+    <li class="col-sm-1"><%= image_tag attachment_url(product, :image, :fill, 100, 100) %></li>
+  </ul>
+<% end %>
+<br />
+<h4>Shipping Address</h4>
+<ul>
+  <li><%= @order.shipping_name %></li>
+  <li><%= @order.shipping_street_address %></li>
+  <li><%= @order.shipping_city %>, <%= @order.shipping_state %> <%= @order.shipping_zip %></li>
+</ul>
+<br />
+
+<p>Shipped?: <%= @order.shipped? %></p>
+<% if @order.shipped? %>
+  <p>Shipping Confirmation: <%= @order.shipping_confirmation %> </p>
+<% end %>

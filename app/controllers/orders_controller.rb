@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
 
   before_action :authenticate_user!
-  before_filter :set_order, :except => [:create, :index, :new, :assign_shipped, :add_shipping_confirmation]
+  before_filter :set_order, :except => [:create, :index, :new, :assign_shipped, :add_shipping_confirmation, :show]
 
   def index
     @campaign = Campaign.friendly.find(params[:campaign_id])
@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
   end
 
   def show
-
+    @order = Order.find(params[:id])
   end
 
   def new

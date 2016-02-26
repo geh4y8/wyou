@@ -53,7 +53,7 @@
                                         <% order.shipped ? class_name = 'success' : class_name = 'warning' %>
                                         <tr class=<%= class_name %>>
                                             <td><%= order.id %></td>
-                                            <td><%= order.campaign.patient_name %></td>
+                                            <td><%= link_to "#{order.campaign.patient_name}", campaign_order_path(order.campaign, order) %></td>
                                             <td><%= order.products.count %></td>
                                             <td><%= order.campaign.orders.count > 1 ? '' : 'yes' %></td>
                                             <td><%= order.shipped ? 'yes' : (link_to 'Set as shipped', campaign_order_add_shipping_confirmation_path(order.campaign, order)) %></td>
