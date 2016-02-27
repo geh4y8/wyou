@@ -21,7 +21,7 @@ gem 'aws-sdk'
 gem 'refile-s3'
 gem 'administrate'
 gem 'wysiwyg-rails'
-
+gem 'puma'
 group :development, :test do
   gem 'byebug'
 end
