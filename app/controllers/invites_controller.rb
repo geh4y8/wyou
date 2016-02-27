@@ -14,7 +14,7 @@ class InvitesController < ApplicationController
     @campaign = Campaign.friendly.find(params[:campaign_id])
     @invite = @campaign.invites.new(invite_params)
     if @invite.save
-      InviteMailer.invite_contributor_email(@invite).deliver_later
+      InviteMailer.invite_contributor_email(@invite).deliver
       flash[:success] = "You have successfully invited #{@invite.contributor_name}"
       redirect_to campaign_path(@campaign)
     end
