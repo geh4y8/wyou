@@ -41,7 +41,9 @@ Rails.application.routes.draw do
       get 'add_shipping_confirmation', to: 'orders#add_shipping_confirmation'
       post 'assign_shipped', to: 'orders#assign_shipped'
     end
-    resources :invites
+    resources :invites do
+      root to: 'invites#new'
+    end
   end
  devise_for :users, :controllers => {:registrations => 'registrations'}
   resources :users
