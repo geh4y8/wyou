@@ -24,7 +24,7 @@ class DonationsController < ApplicationController
 
     Stripe::Charge.create customer: customer.id,
                           amount: @donation.donation_amount * 100,
-                          description: @campaign.name,
+                          description: "c-#{@campaign.id}",
                           currency: 'usd'
     if @donation.save
       if @campaign.update(:fund_amount => (@campaign.fund_amount + @donation.donation_amount))
