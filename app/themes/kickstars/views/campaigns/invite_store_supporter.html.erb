@@ -1,0 +1,4 @@
+<%= form_for @campaign, url: { action: :send_store_invite }, method: :post do |f| %>
+  <%= select_tag "supporters", options_for_select(@supporters.collect{ |s| [s.user.name, s.user.id] }.uniq) %>
+  <%= f.submit "Submit" %>
+<% end %>

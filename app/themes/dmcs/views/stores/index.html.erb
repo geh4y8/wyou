@@ -15,9 +15,11 @@
           <li>
             <%= link_to "Orders", campaign_orders_path(@campaign) %>
           </li>
-          <li>
-            <%= link_to "Add Supporter Access", campaign_invite_store_supporter_path(@campaign) %>
-          </li>
+          <% if @invitable %>
+            <li>
+              <%= link_to "Add Supporter Access", campaign_invite_store_supporter_path(@campaign) %>
+            </li>
+          <% end %>
           <li>
             <%= link_to "Logout", destroy_user_session_path, :method => :delete, class: "offcanvas-user-account-link" %>
           </li>
