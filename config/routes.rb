@@ -32,6 +32,9 @@ Rails.application.routes.draw do
     resources :donations
     resources :supporters
     resources :stores
+    get 'invite_store_supporter' => 'campaigns#invite_store_supporter'
+    post 'send_store_invite' => 'campaigns#send_store_invite'
+    get 'send_store_invite' => 'campaigns#send_store_invite'
     get 'assign_category_options' => 'campaigns#assign_category_options'
     post 'assign_category' => 'campaigns#assign_category'
     get 'add_product', to: 'campaigns#add_product'

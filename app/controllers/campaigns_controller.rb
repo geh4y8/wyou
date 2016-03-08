@@ -2,7 +2,7 @@ class CampaignsController < ApplicationController
   theme 'kickstars'
 
   before_action :authenticate_user!, :except => :show
-  before_filter :set_campaign, :except => [:index, :new, :create, :add_product, :assign_product, :possible_campaigns, :assign_category_options, :assign_category]
+  before_filter :set_campaign, :except => [:index, :new, :create, :add_product, :assign_product, :possible_campaigns, :assign_category_options, :assign_category, :invite_store_supporter, :send_store_invite]
   # before_action :admin_only, :except => :show
 
   def index
@@ -85,6 +85,20 @@ class CampaignsController < ApplicationController
   def assign_category_options
     @campaign = Campaign.friendly.find(params[:campaign_id])
     render 'assign_category_options'
+  end
+
+  def invite_store_supporter
+    @campaign = Campaign.friendly.find(params[:campaign_id])
+    @supporters = @campaign.supporters
+    render 'invite_store_supporter'
+  end
+
+  def send_store_invite
+    @campaign = Campaign.friendly.find(params[:campaign_id])
+    @supporter = @campaign.supporters.where(user_id: params[:supporters])
+    @campaign.store_supporters.create(user_id: params[:supporters], campaign_id: params[:campaign_id])
+    CampaignMailer.invite_store_supporter(@campaign, User.find(params[:supporters])).deliver_later
+    redirect_to campaign_stores_path(@campaign)
   end
 
   private

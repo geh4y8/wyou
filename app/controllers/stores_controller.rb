@@ -8,6 +8,7 @@ class StoresController < ApplicationController
     @products = @campaign.category.products
     @cart = session[:cart]
     @cart_count = Store.products_in_cart(@cart)
+    @invitable = @campaign.store_supporters.count < 4
     session[:campaign_id] = @campaign.id
   end
 

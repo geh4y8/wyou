@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :likes
   has_many :supporters
   has_many :campaigns, through: :supporters
+  has_many :store_supporters
   attachment :image
   acts_as_voter
 

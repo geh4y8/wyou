@@ -10,6 +10,8 @@ class Campaign < ActiveRecord::Base
   has_many :comments, as: :commentable
   has_many :orders
   has_many :invites
+  has_many :store_supporters
+  has_many :users, :through => :store_supporters
   attachment :image
 
   def goal_percentage(campaign)
