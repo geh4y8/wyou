@@ -1,0 +1,28 @@
+<h1> Thank you for your recent order <%= @campaign.patient_name %></h1>
+
+<h3>Here is the tracking number for your order: <%= @order.shipping_confirmation %></h3>
+
+<% if @order.additional_notes.present? %>
+  <h3>We also wanted to let you know the following: <%= @order.additional_notes %></h3>
+<% end %>
+
+
+<h2> Here are the details of your order: </h2>
+
+<% @order.products.each do |product| %>
+  <ul>
+    <li>Product Name: <%= product.name %></li>
+    <li>Product Price: <%= product.retail_price %></li>
+    <li></li>
+  </ul>
+  <%= image_tag(attachment_url(product, :image), :mime_type => "image/png",
+                                :encoding => "base64") %>
+<% end %>
+
+<h2> We will ship the order to the following address </h2>
+
+<p><%= @order.shipping_name %></p>
+<p><%= @order.shipping_street_address %></p>
+<p><%= @order.shipping_city %>, <%= @order.shipping_state %> <%= @order.shipping_zip %></p>
+
+<h3> Please contact us if you have any questions! </h3>
