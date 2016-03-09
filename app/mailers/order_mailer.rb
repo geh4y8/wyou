@@ -9,4 +9,14 @@ class OrderMailer < ApplicationMailer
       to: "#{@campaign.patient_email}",
       subject: "[w/you] Order Confirmation")
   end
+
+  def order_shipment_confirmation_email(order)
+    @order = order
+    @campaign = @order.campaign
+
+    mail(
+      to: "#{@campaign.patient_email}",
+      subject: "[w/you] Your order has shipped!"
+    )
+  end
 end

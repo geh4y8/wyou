@@ -1,11 +1,16 @@
 <div class="panel-body">
 
-  <%= form_for @order, :url =>{action: "assign_shipped"}, :method =>:post, :html => {:class=> 'form-horizontal'} do |f| %>
+  <%= form_for @order, :url =>{ action: "assign_shipped" }, :method =>:post, :html => { :class=> 'form-horizontal' } do |f| %>
     <fieldset>
       <div class="form-group">
 
         <div class="col-lg-10">
+          <label>Tracking Number:</label>
           <%= f.text_field :shipping_confirmation %>
+        </div>
+        <div class="col-lg-10">
+          <label>Additional Notes (customer facing):</label>
+          <%= f.text_area :additional_notes %>
         </div>
       </div>
 

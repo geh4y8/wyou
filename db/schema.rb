@@ -116,6 +116,7 @@ ActiveRecord::Schema.define(version: 20160307183652) do
     t.integer  "campaign_id"
     t.boolean  "shipped"
     t.string   "shipping_confirmation"
+    t.text     "additional_notes"
   end
 
   add_index "orders", ["campaign_id"], name: "index_orders_on_campaign_id", using: :btree

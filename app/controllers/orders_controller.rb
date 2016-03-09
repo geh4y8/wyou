@@ -40,7 +40,8 @@ class OrdersController < ApplicationController
 
   def assign_shipped
     @order = Order.find(params[:order_id])
-    @order.update(shipped: true, shipping_confirmation: params[:order][:shipping_confirmation])
+    @order.update(shipped: true, shipping_confirmation: params[:order][:shipping_confirmation], additional_notes: params[:order][:additional_notes])
+    OrderMailer.order_shipment_confirmation_email(@order).deliver_later
     redirect_to '/admin/orders'
   end
 
@@ -50,6 +51,6 @@ private
   end
 
   def order_params
-    params.require(:order).permit(:campaign_id, :shipping_name, :shipping_street_address, :shipping_city, :shipping_state, :shipping_zip, :order_total, :order_id)
+    params.require(:order).permit(:campaign_id, :shipping_name, :shipping_street_address, :shipping_city, :shipping_state, :shipping_zip, :order_total, :order_id, :additional_notes)
   end
 end
