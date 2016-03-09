@@ -59,7 +59,7 @@
                         </div>
                     </div><!--end: .top-project-info -->
                     <div class="bottom-project-info clearfix">
-                        <div class="project-progress sys_circle_progress" data-percent="<%= @results %>">
+                        <div class="project-progress sys_circle_progress" data-percent="<%= @results > 100 ? 100 : @results %>">
                             <div class="sys_holder_sector"></div>
                         </div>
                         <div class="group-fee clearfix">
