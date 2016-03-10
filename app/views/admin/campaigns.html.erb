@@ -58,7 +58,7 @@
                                             <td><%= campaign.id %></td>
                                             <td><%= campaign.name %></td>
                                             <td><%= link_to "#{campaign.patient_name}", campaign_path(campaign) %></td>
-                                            <td><%= campaign.fund_amount %></td>
+                                            <td><%= link_to "#{campaign.fund_amount}", admin_campaigns_donations_path(campaign_id: campaign.id) %></td>
                                             <td><%= campaign.orders.count %></td>
                                             <td>
                                                 <% if campaign.category %>

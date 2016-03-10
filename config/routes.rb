@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get '/admin/orders' => 'admin#orders'
   get '/admin/products' => 'admin#products'
   get '/admin/campaigns' => 'admin#campaigns'
+  get '/admin/campaigns/donations' => 'admin#donations'
 
 
 
