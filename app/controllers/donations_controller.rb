@@ -27,7 +27,7 @@ class DonationsController < ApplicationController
                           description: "c-#{@campaign.id}",
                           currency: 'usd'
     if @donation.save
-      if @campaign.update(:fund_amount => (@campaign.fund_amount + @donation.donation_amount))
+      if @campaign.update(:fund_amount => (@campaign.fund_amount + (@donation.donation_amount * 0.7)))
         if @campaign.supporters.where(:user_id => current_user.id).empty?
           @campaign.supporters.new(:user_id => current_user.id).save
         end

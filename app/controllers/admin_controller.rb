@@ -21,6 +21,12 @@ class AdminController < ApplicationController
     render 'campaigns'
   end
 
+  def donations
+    @campaign = Campaign.find(params[:campaign_id])
+    @donations = @campaign.donations
+    render 'donations'
+  end
+
   def assign_category_options
     render 'assign_category_options'
   end
