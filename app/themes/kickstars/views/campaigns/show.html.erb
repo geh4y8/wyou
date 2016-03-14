@@ -69,7 +69,7 @@
                             </div>
                             <div class="sep"></div>
                             <div class="fee-item">
-                                <p class="rs lbl">Pledged</p>
+                                <p class="rs lbl">Contributions</p>
                                 <span class="val">$<%= @campaign.fund_amount %></span>
                             </div>
                             <div class="sep"></div>
@@ -190,9 +190,8 @@
                         <span class="val"><span class="glyphicon glyphicon-circle-arrow-down" style="padding-right:10px"></span><span class="fw-b">Funding ends: </span>Feb 30, 2016</span>
                     </div>
                     <div class="btn btn-wyoublue btn-buck-project lbl" style="font-size:20px; color:white;">
-                        <%= link_to "Donate", new_campaign_donation_path(@campaign), :style=>"color:white;" %>
+                        <%= link_to "Contribute", new_campaign_donation_path(@campaign), :style=>"color:white;" %>
                         <span class="glyphicon glyphicon-heart-empty"></span>
-
                     </div>
                     <!-- <span class="desc">$20 minimum pledge</span> -->
                         <!-- <span class="lbl">Donate</span>
