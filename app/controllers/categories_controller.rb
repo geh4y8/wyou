@@ -47,6 +47,13 @@ before_action :authenticate_user!
     redirect_to '/admin/products'
   end
 
+  def remove_product
+    @category = Category.find(params[:category_id])
+    @product = Product.find(params[:format])
+    @category.products.delete(@product)
+    redirect_to :back
+  end
+
   private
 
   def set_category

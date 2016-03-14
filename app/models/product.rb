@@ -7,6 +7,7 @@ class Product < ActiveRecord::Base
   has_many :likes
   belongs_to :user
   has_many :comments, as: :commentable
+  has_many :sizes
   has_and_belongs_to_many :orders
   acts_as_votable
 end

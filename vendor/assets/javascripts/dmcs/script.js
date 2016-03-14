@@ -500,6 +500,8 @@
 			$(document).on('click','[data-rel=quickViewModal]',function(e){
 				e.stopPropagation();
 				e.preventDefault();
+				$('#selectSizeOptions').find('option').remove().end()
+				$('#selectSizeOptions').append('<option>Select a Size</option>')
 				var campaignId = $(this).data('campaignid');
 				var productId = $(this).data('productid');
 				var productimage = $('#image'+productId).attr('src');
@@ -507,6 +509,9 @@
 				var longDescription = $(this).data('productlongdescription');
 				var price = $(this).data('productprice');
 				var name = $(this).data('productname');
+				var sizes = $(this).data('sizes');
+				var selectedOption = $('#selectSizeOptions option:nth-child(1)').text();
+				console.log(sizes)
 				$('.product-image-modal').attr('src', productimage);
 				$('.product-description-modal').empty();
 				$('.product-description-modal').append(description);
@@ -515,11 +520,23 @@
 				$('.product-name-modal').text(name);
 				$('.product-price-modal').text(price);
 				$('.add-to-cart-modal-button').attr('href', '/cart/' + productId);
+				// $('.add-to-cart-modal-button').attr('href', '/cart/' + productId + '/' + selectedOption);
 				$('#comments-load').attr('href', '/fetch_comments?campaign_id=' + campaignId + '&product_id=' + productId);
 				$('#comments-load')[0].click();
 				if($('.modal.product-quickview').length){
 					$('.modal.product-quickview').modal('show');
 				}
+
+				var mySelect = $('#selectSizeOptions');
+				$.each(sizes, function(i, val) {
+				    mySelect.append(
+				        $('<option></option>').val(val).text(val)
+				    );
+				});
+				$('#selectSizeOptions').change(function(){
+					selectedOption = $('#selectSizeOptions').find(":selected").text();
+					// $('.add-to-cart-modal-button').attr('href', '/cart/' + productId + '/' + selectedOption);
+				});
 
 			});
 		},

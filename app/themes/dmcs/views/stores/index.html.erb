@@ -134,14 +134,16 @@
       </div>
     </header>
     <div class="heading-container heading-resize heading-button" style="max-height:400px;">
-      <div class="heading-background heading-parallax bg-4">
+      <div class="">
         <div class="container">
           <div class="row">
             <div class="col-md-12">
               <div class="heading-wrap">
                 <div class="page-title">
-                  <!-- <h1>Welcome To Your</h1><br />
-                  <h1>Personal Store</h1> -->
+                  <h1></h1><br />
+                  <br />
+                  <br />
+                  <h3>Based on the information provided, here are options, from which you can choose to best meet your needs.</h3>
                   <!-- <span class="subtitle">Women</span>
                   <a class="btn btn-white-outline heading-button-btn" href="#" title="Buy Now">Buy Now</a> -->
                 </div>
@@ -238,7 +240,7 @@
                                   </div>
                                   <div class="footer" style="margin-top:170px">
                                       <div class="social-links text-center">
-                                        <a href="#" data-rel="quickViewModal" data-productdescription='<%= h raw product.description %>' data-productlongdescription= '<%= h raw product.long_description %>' data-productprice='<%= number_to_currency product.retail_price %>' data-productname='<%= product.name %>' data-productid='<%= product.id %>' data-campaignid='<%= @campaign.id %>' class="fr-view"><i class="fa fa-plus"></i></a>
+                                        <a href="#" data-rel="quickViewModal" data-productdescription='<%= h raw product.description %>' data-productlongdescription= '<%= h raw product.long_description %>' data-productprice='<%= number_to_currency product.retail_price %>' data-productname='<%= product.name %>' data-productid='<%= product.id %>' data-campaignid='<%= @campaign.id %>' data-sizes='<%= product.sizes.all.pluck(:size).to_a %>' class="fr-view"><i class="fa fa-plus"></i></a>
                                           <!-- <a href="http://creative-tim.com" class="twitter"><i class="fa fa-twitter fa-fw"></i></a> -->
                                       </div>
                                   </div>
@@ -591,29 +593,14 @@
                                     </td>
                                   </tr>
                                   <tr> -->
-                                    <!-- <td><label>Size</label></td>
+                                    <td><label>Size</label></td>
                                     <td>
                                       <div class="select-option swatch-wrapper selected">
-                                        <a href="#" title="Extra Large" class="swatch-anchor">
-                                          <img src="images/sizes/XL.jpg" alt="thumbnail" width="35" height="35"/>
-                                        </a>
+                                        <select id="selectSizeOptions">
+                                        </select>
+
                                       </div>
-                                      <div class="select-option swatch-wrapper">
-                                        <a href="#" title="Extra Extra Large" class="swatch-anchor">
-                                          <img src="images/sizes/XXL.jpg" alt="thumbnail" width="35" height="35"/>
-                                        </a>
-                                      </div>
-                                      <div class="select-option swatch-wrapper">
-                                        <a href="#" title="Medium" class="swatch-anchor">
-                                          <img src="images/sizes/M.jpg" alt="thumbnail" width="35" height="35"/>
-                                        </a>
-                                      </div>
-                                      <div class="select-option swatch-wrapper">
-                                        <a href="#" title="Small" class="swatch-anchor">
-                                          <img src="images/sizes/S.jpg" alt="thumbnail" width="35" height="35"/>
-                                        </a>
-                                      </div>
-                                    </td> -->
+                                    </td>
                                   </tr>
                                 </tbody>
                               </table>

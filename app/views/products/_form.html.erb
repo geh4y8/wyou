@@ -29,6 +29,12 @@
         </div>
       </div>
       <div class="form-group">
+        <%= f.label :sizes, 'Sizes', :class => "col-lg-2 control-label" %>
+        <div class="col-lg-10">
+          <%= f.select :sizes, [ ["XXS", "xxs"], ["XS", "xs"], ["S", "s"], ["M", "m"], ["L", "large"], ["XL", "xl"], ["XXL", "xxl"], ["XXXL", "xxxl"] ], {prompt: "Select Available Sizes"}, {:multiple => true, class: "input-lg"} %>
+        </div>
+      </div>
+      <div class="form-group">
         <%= f.label :image, 'Product Image', :class => "col-lg-2 control-label" %>
         <div class="col-lg-10">
           <%= f.attachment_field :image, :class =>"form-control" %>

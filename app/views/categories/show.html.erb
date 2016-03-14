@@ -3,7 +3,7 @@
 <% if @category.products.any? %>
   <ul>
     <% @category.products.each do |product|  %>
-      <li><%= link_to product.name, product_path(product) %></li>
+      <li><%= link_to product.name, product_path(product) %> <%= link_to 'remove', category_remove_product_category_path(@category, product.id) %></li>
     <% end %>
   </uL>
   <br />

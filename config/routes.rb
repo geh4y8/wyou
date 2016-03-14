@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get '/admin/products' => 'admin#products'
   get '/admin/campaigns' => 'admin#campaigns'
   get '/admin/campaigns/donations' => 'admin#donations'
+  get '/remove_product_category' => 'categories#remove_product'
 
 
 
@@ -23,7 +24,9 @@ Rails.application.routes.draw do
     root to: 'admin#orders'
   end
   post 'assign_products', to: 'categories#assign_products'
-  resources :categories
+  resources :categories do
+    get 'remove_product_category' => 'categories#remove_product'
+  end
 
   # mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   # mount Upmin::Engine => '/admin'

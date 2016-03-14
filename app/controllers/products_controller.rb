@@ -13,8 +13,12 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(product_params)
+    @product = Product.new(product_params.except(:sizes))
     if @product.save
+      params[:product][:sizes].shift
+      params[:product][:sizes].each do |size|
+        @product.sizes.create(size: size)
+      end
       redirect_to '/admin/products'
     else
       render :new
@@ -59,6 +63,6 @@ private
   end
 
   def product_params
-    params.require(:product).permit(:name, :description, :long_description, :retail_price, :image, :remove_image, :campaign_id)
+    params.require(:product).permit(:name, :description, :long_description, :retail_price, :image, :remove_image, :campaign_id, :sizes)
   end
 end
