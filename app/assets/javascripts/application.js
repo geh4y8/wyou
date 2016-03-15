@@ -30,6 +30,7 @@
 //= require template/sb-admin-2
 //= require jquery.steps.min
 //= require jquery.validate.min
+//= require jquery.validate-additional-methods
 //= require froala_editor.min
 //= require landing-page
 //= require jquery.bootstrap.wizard.js

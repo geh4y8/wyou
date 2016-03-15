@@ -25,3 +25,4 @@
 //= require wizard
 //= require jquery.steps.min
 //= require jquery.validate.min
+//= require jquery.validate-additional-methods

@@ -91,9 +91,8 @@ function validateFirstStep(){
     rules: {
       "campaign[patient_name]": "required",
       "campaign[patient_phone]": {
-        required: true,
-        minlength: 10,
-        maxlength: 10
+        phoneUS: true,
+        required: true
       },
       "campaign[patient_email]": {
         required: true,
