@@ -5,7 +5,7 @@ class DonationMailer < ApplicationMailer
     @campaign = campaign
     @user = user
     @donation_amount = donation_amount
-    @url = "wyoutest1.herokuapp.com/#{@campaign.id}"
+    @url = "wyoutestdeploy2.herokuapp.com/#{@campaign.id}"
     mail(
       to: "#{@user.email}",
       subject: "[w/you] Donation Receipt")
@@ -15,7 +15,7 @@ class DonationMailer < ApplicationMailer
     @campaign = campaign
     @user = user
     @donation_amount = donation_amount
-    @url = "wyoutest1.herokuapp.com/#{@campaign.id}"
+    @url = "wyoutestdeploy2.herokuapp.com/#{@campaign.id}"
     mail(
       to: @campaign.patient_email,
       subject: "[w/you] Donation Received!")

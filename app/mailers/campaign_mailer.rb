@@ -3,7 +3,7 @@ class CampaignMailer < ApplicationMailer
 
   def new_campaign_email(campaign)
     @campaign = campaign
-    @url = "wyoutest1.herokuapp.com/#{@campaign.id}"
+    @url = "wyoutestdeploy2.herokuapp.com/#{@campaign.id}"
     mail(
       to: "#{@campaign.owner_email}",
       subject: "[w/you] New Campaign Created!")
@@ -12,7 +12,7 @@ class CampaignMailer < ApplicationMailer
   def invite_store_supporter(campaign, user)
     @campaign = campaign
     @user = user
-    @url = "wyoutest1.herokuapp.com/#{@campaign.id}/stores"
+    @url = "wyoutestdeploy2.herokuapp.com/#{@campaign.id}/stores"
     mail(
       to: user.email,
       subject: "[w/you] You have been invited!")
