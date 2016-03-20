@@ -2,17 +2,8 @@
     <div class="grid_12 header-content">
         <div id="sys_header_right" class="header-right">
             <div class="account-panel">
-              <% if @campaign_owner %>
-                <% if current_user.email == @campaign.patient_email %>
-                    <%= link_to 'My Store', campaign_stores_path(@campaign), class: 'btn btn-blue' %>
-                <% end %>
-              <% end %>
-              <% if user_signed_in? %>
-                <%= link_to 'Edit account', edit_user_registration_path, :class=>'btn btn-red' %>
-                <%= link_to 'Sign out', destroy_user_session_path, :class=>'btn btn-black', :method=>'delete' %>
-              <% else %>
-                <%= link_to 'Sign in', new_user_session_path(redirect_to: request.path), :class=>'btn btn-red' %>
-                <%= link_to 'Sign up', new_user_registration_path(redirect_to: request.path), :class=>'btn btn-black' %>
+              <% if current_user.email == @campaign.patient_email %>
+                        <%= link_to 'My Store', campaign_stores_path(@campaign), class: 'btn btn-blue' %>
               <% end %>
             </div>
             <!-- <div class="form-search">

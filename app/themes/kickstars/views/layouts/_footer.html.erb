@@ -1,6 +1,16 @@
-<!-- <footer id="footer">
+<footer id="footer">
+
         <div class="container_12 main-footer">
-            <div class="grid_3 about-us">
+            <div class="pull-right">
+                  <% if user_signed_in? %>
+                    <%= link_to 'Edit account', edit_user_registration_path, :class=>'btn btn-red' %>
+                    <%= link_to 'Sign out', destroy_user_session_path, :class=>'btn btn-black', :method=>'delete' %>
+                  <% else %>
+                    <%= link_to 'Sign in', new_user_session_path(redirect_to: request.path), :class=>'btn btn-red' %>
+                    <%= link_to 'Sign up', new_user_registration_path(redirect_to: request.path), :class=>'btn btn-black' %>
+                  <% end %>
+              </div>
+            <!-- <div class="grid_3 about-us">
                 <h3 class="rs title">About</h3>
                 <p class="rs description">Donec rutrum elit ac arcu bibendum rhoncus in vitae turpis. Quisque fermentum gravida eros non faucibus. Curabitur fermentum, arcu sed cursus commodo.</p>
                 <p class="rs email"><a class="fc-default  be-fc-orange" href="mailto:info@megadrupal.com">info@megadrupal.com</a></p>
@@ -63,7 +73,7 @@
                     <p class="rs ta-c fc-gray-dark site-copyright">HTML by <a href="http://megadrupal.com" title="Drupal Developers" target="_blank">MegaDrupal</a>. Designed by <a href="http://bestwebsoft.com/" title="Web development company" target="_blank">BestWebSoft</a>.</p>
                 </div>
                 <div class="clear"></div>
-            </div>
+            </div> -->
         </div>
     </footer>
     <div class="clear">
