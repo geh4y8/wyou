@@ -108,37 +108,39 @@
                         <% subtotal = 0 %>
                         <% if @cart %>
                           <% @cart.each do |product_id, quantity | %>
-                            <td class="product-remove hidden-xs">
-                              <a href="/cart/removeItem/<%= product_id %>" class="remove" title="Remove this item">&times;</a>
-                            </td>
-                            <td class="product-thumbnail hidden-xs">
-                              <a href="#">
-                                <%= image_tag attachment_url(Product.find(product_id), :image) %>
-                                <!-- <img width="100" height="150" src="images/product/product-1.jpg" alt="Product-1"/> -->
-                              </a>
-                            </td>
-                            <td class="product-name">
-                              <a href="#"><%= Product.find(product_id).name %></a>
-                              <dl class="variation">
-                                <dt class="variation-Color">Color:</dt>
-                                <dd class="variation-Color"><p>Green</p></dd>
-                                <dt class="variation-Size">Size:</dt>
-                                <dd class="variation-Size"><p>Extra Large</p></dd>
-                              </dl>
-                            </td>
-                            <td class="product-price text-center">
-                              <span class="amount"><%= number_to_currency Product.find(product_id).retail_price %></span>
-                            </td>
-                            <td class="product-quantity text-center">
-                              <div class="quantity">
-                                <input type="number" step="1" min="0" name="quantity" value="<%= quantity %>" title="Qty" class="input-text qty text" size="4"/>
-                              </div>
-                            </td>
-                            <td class="product-subtotal hidden-xs text-center">
-                              <span class="amount"><%= number_to_currency Product.find(product_id).retail_price * quantity%></span>
-                            </td>
-                          </tr>
-                          <% subtotal += Product.find(product_id).retail_price * quantity %>
+                            <% if quantity.is_a? Integer %>
+                              <td class="product-remove hidden-xs">
+                                <a href="/cart/removeItem/<%= product_id %>" class="remove" title="Remove this item">&times;</a>
+                              </td>
+                              <td class="product-thumbnail hidden-xs">
+                                <a href="#">
+                                  <%= image_tag attachment_url(Product.find(product_id), :image) %>
+                                  <!-- <img width="100" height="150" src="images/product/product-1.jpg" alt="Product-1"/> -->
+                                </a>
+                              </td>
+                              <td class="product-name">
+                                <a href="#"><%= Product.find(product_id).name %></a>
+                                <dl class="variation">
+                                  <dt class="variation-Color">Color:</dt>
+                                  <dd class="variation-Color"><p>Green</p></dd>
+                                  <dt class="variation-Size">Size:</dt>
+                                  <dd class="variation-Size"><p><%= @cart[product_id + ':size'] %></p></dd>
+                                </dl>
+                              </td>
+                              <td class="product-price text-center">
+                                <span class="amount"><%= number_to_currency Product.find(product_id).retail_price %></span>
+                              </td>
+                              <td class="product-quantity text-center">
+                                <div class="quantity">
+                                  <input type="number" step="1" min="0" name="quantity" value="<%= quantity %>" title="Qty" class="input-text qty text" size="4"/>
+                                </div>
+                              </td>
+                              <td class="product-subtotal hidden-xs text-center">
+                                <span class="amount"><%= number_to_currency Product.find(product_id).retail_price * quantity%></span>
+                              </td>
+                            </tr>
+                            <% subtotal += Product.find(product_id).retail_price * quantity %>
+                          <% end %>
                         <% end %>
                       <% end %>
 

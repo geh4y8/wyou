@@ -2,6 +2,8 @@ class Order < ActiveRecord::Base
 
   belongs_to :campaign
   has_and_belongs_to_many :products
+  has_and_belongs_to_many :sizes
+
 
   def current_step
     current_step || steps.first

@@ -24,7 +24,10 @@ class OrdersController < ApplicationController
     @order = @campaign.orders.new(order_params.except(:order_total))
     if @order.save
       @cart.each do |product_id, quantity|
-        @order.products << Product.find(product_id)
+        if quantity.is_a? Integer
+          @order.products << Product.find(product_id)
+          @order.sizes << (Product.find(product_id).sizes.where(size: @cart[product_id + ':size']).first)
+        end
       end
       OrderMailer.order_confirmation_email(@order).deliver_later
       if @campaign.update!(:fund_amount => (@campaign.fund_amount - params[:order][:order_total].to_i))

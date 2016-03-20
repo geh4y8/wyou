@@ -6,6 +6,7 @@
   <ul>
     <li>Product Name: <%= product.name %></li>
     <li>Product Price: <%= product.retail_price %></li>
+    <li>Product Size: <%= @order.sizes.where(product_id: product.id).first.size %></li>
     <li></li>
   </ul>
   <%= image_tag(attachment_url(product, :image), :mime_type => "image/png",
