@@ -33,6 +33,7 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'devise_invitable'
 gem 'pg'
+gem 'rails_email_preview', '~> 0.2.29'
 # gem 'upmin-admin'
 group :development do
   gem 'better_errors'
