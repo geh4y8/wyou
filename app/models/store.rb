@@ -6,7 +6,9 @@ class Store < ActiveRecord::Base
     total = 0
     if cart
       cart.each do |product, amount|
-        total += amount
+        if amount.is_a? Integer
+          total += amount
+        end
       end
     end
     return total
