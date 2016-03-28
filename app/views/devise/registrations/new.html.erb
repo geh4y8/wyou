@@ -14,11 +14,27 @@
             </div>
 
             <ul>
+              <li style="width: 49% !important"><a href="#user_type" data-toggle="tab">Choose Type</a></li>
               <li><a href="#sign_up_form" data-toggle="tab">Sign Up</a></li>
-              <!-- <li><a href="#campaign" data-toggle="tab">Campaign</a></li> -->
-              <!-- <li><a href="#address" data-toggle="tab">Address</a></li> -->
             </ul>
             <div class="tab-content">
+              <div class="tab-pane" id="user_type">
+                <div class="row">
+                  <h4 class="info-text">  </h4>
+                  <div class='col-sm-3'>
+                  </div>
+                  <div class="col-sm-7">
+                    <div class="form-group">
+                      <label>I am a campaign supporter</label>
+                      <%= f.radio_button :is_patient, false %>
+                    </div>
+                    <div class="form-group">
+                      <label>I am a campaign recipient</label>
+                       <%= f.radio_button :is_patient, true %>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <div class="tab-pane" id="sign_up_form">
                 <div class="row">
                   <h4 class="info-text"> Let's start with the basics</h4>

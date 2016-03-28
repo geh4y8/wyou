@@ -19,13 +19,16 @@
           <%= form_for current_user, :html => {:class=> 'clearfix'} do |f| %>
             <div class="wizard-header">
               <h3>
-                 Add a profile photo <br>
+                 Additional Information <br>
                  <small></small>
               </h3>
             </div>
             <ul>
               <li><a href="#photo" data-toggle="tab">Photo</a></li>
-              <!-- <li><a href="#campaign" data-toggle="tab">Campaign</a></li> -->
+              <% if current_user.is_patient? %>
+                <li><a href="#patient_questions" data-toggle="tab">Account Questions</a></li>
+                <li><a href="#patient_questions2" data-toggle="tab">Further Questions</a></li>
+              <% end %>
               <!-- <li><a href="#address" data-toggle="tab">Address</a></li>
             </ul> -->
             <div class="tab-content">
@@ -43,6 +46,83 @@
                   </div>
                 </div>
               </div>
+              <% if current_user.is_patient? %>
+                <div class="tab-pane" id="patient_questions">
+                  <div class="row">
+                    <div class="col-sm-3">
+                    </div>
+                    <div class="col-sm-7">
+                    <div class="form-group">
+                      <label>Will someone else be managing your account on your behalf?</label>
+                      <label>Name (if yes)<small></small></label>
+                      <%= f.text_field :managed_name, class: 'form-control' %>
+                      <label>Email (if yes) <small></small></label>
+                      <%= f.email_field :managed_email, class: 'form-control' %>
+                    </div>
+                    <div class="form-group">
+                      <label>How would you like to be addressed in our communications?<small></small></label>
+                      <%= f.text_field :preferred_name, class: 'form-control', :required => true %>
+                    </div>
+                    <div class="form-group">
+                      <label>What is your Date of Birth?<small></small></label>
+                      <%= f.date_field :dob, class: 'form-control', :required => true %>
+                    </div>
+                    <div class="form-group">
+                      <label>What is your zip code? <small></small></label>
+                      <%= f.text_field :zip_code, class: 'form-control', :required => true %>
+                    </div>
+                    <div class="form-group">
+                      <label>What is your Gender? <small></small></label>
+                      <%= f.text_field :gender, class: 'form-control', :required => true %>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+                <div class="tab-pane" id="patient_questions2">
+                  <div class="row">
+                    <div class="col-sm-3">
+                    </div>
+                    <div class="col-sm-7">
+                    <div class="form-group">
+                      <label>Symptoms or conditions you want us to know about in order to provide the most relevant options in your store:<small></small></label>
+                      <%= f.text_area :symptoms, class: 'form-control' %>
+                    </div>
+                    <div class="form-group">
+                      <label>Diagnosis, if known:<small></small></label>
+                      <%= f.text_area :diagnosis, class: 'form-control' %>
+                    </div>
+                    <div class="form-group">
+                      <label>Treatment plan, if determined:<small></small></label>
+                      <%= f.text_area :treatment_plan, class: 'form-control' %>
+                    </div>
+                    <div class="form-group">
+                      <label>Treatment schedule, if known:<small></small></label>
+                      <%= f.text_area :treatment_schedule, class: 'form-control' %>
+                    </div>
+                    <div class="form-group">
+                      <label>How quickly do you need your items by?<small></small></label>
+                      <%= f.date_field :item_needed_by, class: 'form-control' %>
+                    </div>
+                    <div class="form-group">
+                      <label>What sizes do you normally wear?<small></small></label>
+                      <%= f.text_area :normal_size, class: 'form-control' %>
+                    </div>
+                    <div class="form-group">
+                      <label>Would you like to see plus size options?<small></small></label>
+                      <%= f.check_box :plus_size, class: 'form-control' %>
+                    </div>
+                    <div class="form-group">
+                      <label>Would you like to see petite size options?<small></small></label>
+                      <%= f.check_box :petite_size, class: 'form-control' %>
+                    </div>
+                    <div class="form-group">
+                      <label>Anything else you want us to know that would allow us to best serve your needs?<small></small></label>
+                      <%= f.text_area :treatment_plan, class: 'form-control' %>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+              <% end %>
             </div>
             <div class="wizard-footer">
               <div class="pull-right">

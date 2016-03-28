@@ -26,8 +26,8 @@ class ApplicationController < ActionController::Base
 
   protected
     def configure_permitted_parameters
-      devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :email, :password, :image, :image_id, :remove_image, :campaign_code) }
-      devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:name, :email, :current_password, :password, :image, :image_id, :remove_image) }
+      devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :email, :password, :image, :image_id, :remove_image, :campaign_code, :is_patient) }
+      devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:name, :email, :current_password, :password, :image, :image_id, :remove_image, :is_patient, :managed_account, :managed_name, :managed_email, :preferred_name, :zip_code, :gender, :symptoms, :diagnosis, :treatment_plan, :treatment_schedule, :item_needed_by, :normal_size, :plus_size, :petite_size, :other_notes, :dob) }
     end
 
 

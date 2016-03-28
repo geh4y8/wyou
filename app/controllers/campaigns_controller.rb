@@ -28,6 +28,7 @@ class CampaignsController < ApplicationController
       current_user.update!(campaign_code: @campaign.campaign_code)
       add_new_campaign
       CampaignMailer.new_campaign_email(@campaign).deliver_later
+      CampaignMailer.new_campaign_recipient_email(@campaign).deliver_later
       redirect_to campaign_path(@campaign)
     else
       render :new

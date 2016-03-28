@@ -17,4 +17,12 @@ class CampaignMailer < ApplicationMailer
       to: user.email,
       subject: "[w/you] You have been invited!")
   end
+
+  def new_campaign_recipient_email(campaign)
+    @campaign = campaign
+    @url = "wyoutestdeploy2.herokuapp.com/users/sign_up"
+    mail(
+      to: @campaign.patient_email,
+      subject: "[w/you] Someone has created a campaign for you!")
+  end
 end

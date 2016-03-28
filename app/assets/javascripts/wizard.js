@@ -22,7 +22,7 @@ $(document).ready(function(){
                $width = 50;
            }
 
-           navigation.find('li').css('width',$width + '%');
+           navigation.find('li').css('width',$width - 1 + '%');
 
         },
         onNext: function(tab, navigation, index){
