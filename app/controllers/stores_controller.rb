@@ -5,7 +5,11 @@ class StoresController < ApplicationController
 
   def index
     @campaign = Campaign.friendly.find(params[:campaign_id])
-    @products = @campaign.category.products
+    if @campaign.category
+      @products = @campaign.category.products
+    else
+      @products = nil
+    end
     @cart = session[:cart]
     @cart_count = Store.products_in_cart(@cart)
     @invitable = @campaign.store_supporters.count < 4

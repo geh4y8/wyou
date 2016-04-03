@@ -135,28 +135,53 @@
         </div>
       </div>
     </header>
-    <div class="heading-container heading-resize heading-button" style="max-height:400px;">
-      <div class="">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="heading-wrap">
-                <div class="page-title">
-                  <h1></h1><br />
-                  <br />
-                  <br />
+    <% if @products %>
+      <div class="heading-container heading-resize heading-button" style="max-height:400px;">
+        <div class="">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="heading-wrap">
+                  <div class="page-title">
+                    <h1></h1><br />
+                    <br />
+                    <br />
 
-                  <h3 style="color: #17375e">Based on the information provided, here are options, from which you can choose to best meet your needs.</h3>
-                  <h4 style="color: #17375e" class="pull-right">Availabale Funds: <%= @campaign.fund_amount %></h4>
-                  <!-- <span class="subtitle">Women</span>
-                  <a class="btn btn-white-outline heading-button-btn" href="#" title="Buy Now">Buy Now</a> -->
+                    <h3 style="color: #17375e; font-weight: 700; font-family: 'Montserrat', Helvetica, Arial, sans-serif;">Based on the information provided, here are options, from which you can choose to best meet your needs.</h3>
+                    <h4 style="color: #17375e; font-weight: 700; font-family: 'Montserrat', Helvetica, Arial, sans-serif;" class="pull-right">Availabale Funds: <%= @campaign.fund_amount %></h4>
+                    <!-- <span class="subtitle">Women</span>
+                    <a class="btn btn-white-outline heading-button-btn" href="#" title="Buy Now">Buy Now</a> -->
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    <% else %>
+      <div class="heading-container heading-resize heading-button" style="max-height:400px;">
+        <div class="">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="heading-wrap">
+                  <div class="page-title">
+                    <h1></h1><br />
+                    <br />
+                    <br />
+
+                    <h3 style="color: #17375e; font-weight: 700; font-family: 'Montserrat', Helvetica, Arial, sans-serif;">You currently do not have any products in your store.  Please contact your medstylist for assistance.</h3>
+                    <h4 style="color: #17375e" class="pull-right"></h4>
+                    <!-- <span class="subtitle">Women</span>
+                    <a class="btn btn-white-outline heading-button-btn" href="#" title="Buy Now">Buy Now</a> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
     <!-- <div class="shop-toolbar">
       <div class="container">
         <div class="row">
