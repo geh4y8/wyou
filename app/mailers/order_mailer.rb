@@ -4,7 +4,7 @@ class OrderMailer < ApplicationMailer
   def order_confirmation_email(order)
     @order = order
     @campaign = @order.campaign
-    @url = "wyou.co/#{@campaign.id}/orders/#{@order.id}"
+    @url = "wyou.co/campaigns/#{@campaign.id}/orders/#{@order.id}"
     mail(
       to: "#{@campaign.patient_email}",
       subject: "[w/you] Order Confirmation")

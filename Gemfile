@@ -23,12 +23,14 @@ gem 'administrate'
 gem 'wysiwyg-rails'
 gem 'puma'
 gem 'newrelic_rpm'
+
 group :development, :test do
   gem 'byebug'
 end
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'pry-rails'
 end
 gem 'bootstrap-sass'
 gem 'devise'

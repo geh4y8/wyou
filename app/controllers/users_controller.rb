@@ -21,10 +21,10 @@ class UsersController < ApplicationController
       if @user.campaigns.empty?
         redirect_to attach_to_campaign_path
       else
-        redirect_to users_path, :notice => "User updated."
+        redirect_to user_path(@user), :notice => "User updated."
       end
     else
-      redirect_to users_path, :alert => "Unable to update user."
+      redirect_to user_path(@user), :alert => "Unable to update user."
     end
   end
 
