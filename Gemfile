@@ -22,6 +22,7 @@ gem 'refile-s3'
 gem 'administrate'
 gem 'wysiwyg-rails'
 gem 'puma'
+gem 'newrelic_rpm'
 group :development, :test do
   gem 'byebug'
 end
