@@ -26,6 +26,7 @@ gem 'newrelic_rpm'
 
 group :development, :test do
   gem 'byebug'
+   gem 'rspec-rails', '~> 3.0'
 end
 group :development do
   gem 'web-console', '~> 2.0'
