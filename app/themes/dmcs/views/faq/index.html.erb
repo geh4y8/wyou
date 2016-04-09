@@ -2,21 +2,33 @@
 <div class="offcanvas open">
   <div class="offcanvas-wrap">
     <div class="offcanvas-user clearfix">
-      <%= link_to campaign_stores_path(@campaign.id), class: "offcanvas-user-wishlist-link" do %>
-        <i class="fa fa-heart-o"></i> My Store
-      <% end %>
-      <%= link_to destroy_user_session_path, :method => :delete, class: "offcanvas-user-account-link" do %>
-        <i class="fa fa-user"></i> Logout
+      <% if @campaign %>
+        <%= link_to campaign_stores_path(@campaign.id), class: "offcanvas-user-wishlist-link" do %>
+          <i class="fa fa-heart-o"></i> My Store
+        <% end %>
+        <%= link_to destroy_user_session_path, :method => :delete, class: "offcanvas-user-account-link" do %>
+          <i class="fa fa-user"></i> Logout
+        <% end %>
+      <% else %>
+        <%= link_to '/' do %>
+          Home
+        <% end %>
       <% end %>
     </div>
     <nav class="offcanvas-navbar">
       <ul class="offcanvas-nav">
-        <li class="menu-item-has-children dropdown">
-          <%= link_to "My Campaign", campaign_path(@campaign) %>
-        </li>
-        <li>
-          <%= link_to "Orders", campaign_orders_path(@campaign) %>
-        </li>
+        <% if @campaign %>
+          <li class="menu-item-has-children dropdown">
+            <%= link_to "My Campaign", campaign_path(@campaign) %>
+          </li>
+          <li>
+            <%= link_to "Orders", campaign_orders_path(@campaign) %>
+          </li>
+        <% else %>
+          <li class="menu-item-has-children dropdown">
+            <%= link_to "Home", '/' %>
+          </li>
+        <% end %>
       </ul>
     </nav>
   </div>
@@ -38,23 +50,31 @@
                       <span class="icon-bar bar-middle"></span>
                       <span class="icon-bar bar-bottom"></span>
                     </button>
-                    <%= link_to campaign_path(@campaign), class: "navbar-brand" do %>
-                      <%= image_tag 'dmcs/wyoulogo.png', :class=>'logo logo-fixed logo-transparent' %>
+                    <% if @campaign %>
+                      <%= link_to campaign_path(@campaign), class: "navbar-brand" do %>
+                        <%= image_tag 'dmcs/wyoulogo.png', :class=>'logo logo-fixed logo-transparent' %>
+                      <% end %>
                     <% end %>
                   </div>
                   <nav class="collapse navbar-collapse primary-navbar-collapse">
                     <ul class="nav navbar-nav primary-nav">
-                      <li class="menu-item-has-children dropdown">
-                        <%= link_to "My Campaign", campaign_path(@campaign) %>
-                      </li>
-                      <li>
-                        <%= link_to "Orders", campaign_orders_path(@campaign) %>
-                      </li>
-                      <li>
-                        <%= link_to campaign_stores_path(@campaign.id), class: "offcanvas-user-wishlist-link" do %>
-                           My Store
-                        <% end %>
-                      </li>
+                      <% if @campaign %>
+                        <li class="menu-item-has-children dropdown">
+                          <%= link_to "My Campaign", campaign_path(@campaign) %>
+                        </li>
+                        <li>
+                          <%= link_to "Orders", campaign_orders_path(@campaign) %>
+                        </li>
+                        <li>
+                          <%= link_to campaign_stores_path(@campaign.id), class: "offcanvas-user-wishlist-link" do %>
+                             My Store
+                          <% end %>
+                        </li>
+                      <% else %>
+                        <li class="menu-item-has-children dropdown">
+                          <%= link_to "Home", '/' %>
+                        </li>
+                      <% end %>
                     </ul>
                   </nav>
                 </div>
@@ -100,25 +120,6 @@
                           answer them and will instead kindly direct the recipient of our services to put any such
                           questions to one or more of their medical provider(s) instead.
                           </p>
-                        </div>
-                      </div>
-                      <div class="toggle toggle_default toggle_color_default">
-                        <div class="toggle_title">
-                          <h4>What will you do with any of my medical records that I provide consent for w/you™ to receive?</h4>
-                          <i class="toggle_icon"></i>
-                        </div>
-                        <div class="toggle_content">
-                          <p>First and most importantly, the only medical records we would receive or have access to
-                          are any for which a person has explicitly and specifically provided consent through a
-                          duly executed release of information (ROI) form that is available on our site.  If you do
-                          decide to give permission by executing an ROI for w/you, LLC™ to obtain or review
-                          certain portions of your medical records from your relevant health-care providers to
-                          enhance our understanding of your situation, we will securely maintain any such
-                          information.  Our goal is to respect your privacy while also seeking to be as fully aware
-                          of your physical needs as possible so that you do not have to continually provide the
-                          same information or “start from square one” each time you may need to utilize our
-                          services.  In addition, at any time you may send us a written request instructing us to
-                          destroy any medical records or information you have provided consent for us to receive.</p>
                         </div>
                       </div>
                       <div class="toggle toggle_default toggle_color_default">

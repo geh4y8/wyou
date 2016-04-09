@@ -2,7 +2,7 @@ class FaqController < ApplicationController
   theme 'dmcs'
 
   def index
-    @campaign = Campaign.find(session[:campaign_id])
+    @campaign = Campaign.find(session[:campaign_id]) if current_user
   end
 
 end
