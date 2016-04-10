@@ -21,7 +21,7 @@ class DonationsController < ApplicationController
     @donation = @campaign.donations.new(donation_params.except(:email))
     # customer = Stripe::Customer.create email: donation_params[:email],
     #                                    card: @donation.card_token
-
+    Stripe.api_key = 'sk_live_AjCUxoljRRRtpCUX8uBjprSC'
     Stripe::Charge.create({#customer: customer.id,
                           amount: (@donation.donation_amount * 0.8 * 100).to_i,
                           description: "c-#{@campaign.id}",
