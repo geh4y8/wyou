@@ -26,7 +26,7 @@ class DonationsController < ApplicationController
                           amount: (@donation.donation_amount * 0.8 * 100).to_i,
                           description: "c-#{@campaign.id}",
                           currency: 'usd',
-                          source: @donation.card_token,#'rt_8F0GoPFT2j5EQhnYdIjoHbtzWKgy8MceYnsnBJw4Po61A5sj',
+                          source: @donation.card_token,
                           application_fee: (@donation.donation_amount * 0.2 * 100).to_i
                           }, {:stripe_account => ENV['STRIPE_ACCOUNT']})
 
