@@ -19,15 +19,19 @@ class DonationsController < ApplicationController
   def create
     @campaign = Campaign.friendly.find(params[:campaign_id])
     @donation = @campaign.donations.new(donation_params.except(:email))
-    customer = Stripe::Customer.create email: donation_params[:email],
-                                       card: @donation.card_token
+    # customer = Stripe::Customer.create email: donation_params[:email],
+    #                                    card: @donation.card_token
 
-    Stripe::Charge.create customer: customer.id,
-                          amount: @donation.donation_amount * 100,
+    Stripe::Charge.create({#customer: customer.id,
+                          amount: (@donation.donation_amount * 0.8 * 100).to_i,
                           description: "c-#{@campaign.id}",
-                          currency: 'usd'
+                          currency: 'usd',
+                          source: @donation.card_token,#'rt_8F0GoPFT2j5EQhnYdIjoHbtzWKgy8MceYnsnBJw4Po61A5sj',
+                          application_fee: (@donation.donation_amount * 0.2 * 100).to_i
+                          }, {:stripe_account => ENV['STRIPE_ACCOUNT']})
+
     if @donation.save
-      if @campaign.update(:fund_amount => (@campaign.fund_amount + (@donation.donation_amount * 0.7)))
+      if @campaign.update(:fund_amount => (@campaign.fund_amount + (@donation.donation_amount * 0.8)))
         if @campaign.supporters.where(:user_id => current_user.id).empty?
           @campaign.supporters.new(:user_id => current_user.id).save
         end
