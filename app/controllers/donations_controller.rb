@@ -37,7 +37,11 @@ class DonationsController < ApplicationController
         end
         DonationMailer.new_donation_email(@campaign, current_user, @donation.donation_amount).deliver_later
         DonationMailer.confirm_donation_email(@campaign, current_user, @donation.donation_amount).deliver_later
-        redirect_to campaign_path(@donation.campaign)
+        if @campaign.private?
+          redirect_to campaign_stores_path(@campaign)
+        else
+          redirect_to campaign_path(@donation.campaign)
+        end
       end
     else
       render :new

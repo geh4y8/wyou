@@ -29,7 +29,11 @@ class CampaignsController < ApplicationController
       add_new_campaign
       CampaignMailer.new_campaign_email(@campaign).deliver_later
       CampaignMailer.new_campaign_recipient_email(@campaign).deliver_later
-      redirect_to campaign_path(@campaign)
+      unless @campaign.private?
+        redirect_to campaign_path(@campaign)
+      else
+        redirect_to campaign_stores_path(@campaign)
+      end
     else
       render :new
     end
@@ -125,6 +129,6 @@ class CampaignsController < ApplicationController
   end
 
   def campaign_params
-    params.require(:campaign).permit(:name, :fund_goal, :patient_name, :patient_email, :patient_phone, :relationship, :owner_name, :self_purchase, :owner_email, :inform_patient_date, :product_id, :campaign_id, :image, :remove_image, :campaign_description, :provide_description)
+    params.require(:campaign).permit(:name, :fund_goal, :patient_name, :patient_email, :patient_phone, :relationship, :owner_name, :self_purchase, :owner_email, :inform_patient_date, :product_id, :campaign_id, :image, :remove_image, :campaign_description, :provide_description, :private)
   end
 end

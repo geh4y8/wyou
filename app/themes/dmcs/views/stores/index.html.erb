@@ -6,19 +6,23 @@
       </div>
       <nav class="offcanvas-navbar">
         <ul class="offcanvas-nav">
-          <li class="menu-item-has-children dropdown">
-            <%= link_to "My Campaign", campaign_path(@campaign) %>
-          </li>
+          <% unless @campaign.private? %>
+            <li class="menu-item-has-children dropdown">
+              <%= link_to "My Campaign", campaign_path(@campaign) %>
+            </li>
+          <% end %>
           <li class="menu-item-has-children dropdown">
             <%= link_to "FAQ", faq_path %>
           </li>
           <li>
             <%= link_to "Orders", campaign_orders_path(@campaign) %>
           </li>
-          <% if @invitable %>
-            <li>
-              <%= link_to "Add Supporter Access", campaign_invite_store_supporter_path(@campaign) %>
-            </li>
+          <% unless @campaign.private? %>
+            <% if @invitable %>
+              <li>
+                <%= link_to "Add Supporter Access", campaign_invite_store_supporter_path(@campaign) %>
+              </li>
+            <% end %>
           <% end %>
           <li>
             <%= link_to "Logout", destroy_user_session_path, :method => :delete, class: "offcanvas-user-account-link" %>
@@ -56,20 +60,23 @@
                         <%= image_tag 'dmcs/wyoulogo.png', :class=>'logo' %>
                       </a>
                       <ul class="nav navbar-nav primary-nav">
-
-                        <li class="menu-item-has-children dropdown">
-                          <%= link_to "My Campaign", campaign_path(@campaign) %>
-                        </li>
+                        <% unless @campaign.private? %>
+                          <li class="menu-item-has-children dropdown">
+                            <%= link_to "My Campaign", campaign_path(@campaign) %>
+                          </li>
+                        <% end %>
                         <li class="menu-item-has-children dropdown">
                           <%= link_to "FAQ", faq_path %>
                         </li>
                         <li>
                           <%= link_to "Orders", campaign_orders_path(@campaign) %>
                         </li>
-                        <% if @invitable %>
-                          <li>
-                            <%= link_to "Invite Supporter", campaign_invite_store_supporter_path(@campaign) %>
-                          </li>
+                        <% unless @campaign.private? %>
+                          <% if @invitable %>
+                            <li>
+                              <%= link_to "Invite Supporter", campaign_invite_store_supporter_path(@campaign) %>
+                            </li>
+                          <% end %>
                         <% end %>
                         <li class="navbar-minicart navbar-minicart-nav">
                           <a class="minicart-link" href="#">
@@ -149,6 +156,13 @@
 
                     <h4 style="color: #17375e; font-weight: 700; font-family: 'Montserrat', Helvetica, Arial, sans-serif;">Based on the information provided, here are options, from which you can choose to best meet your needs.</h4>
                     <h4 style="color: #17375e; font-weight: 700; font-family: 'Montserrat', Helvetica, Arial, sans-serif;" class="pull-right">Availabale Funds: <%= @campaign.fund_amount %></h4>
+                    <% if @campaign.private? %>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <%= link_to "Add Funds", new_campaign_donation_path(@campaign), :style=>"color:#17375e;", class: "button pull-right"%>
+                        </div>
+                      </div>
+                    <% end %>
                     <!-- <span class="subtitle">Women</span>
                     <a class="btn btn-white-outline heading-button-btn" href="#" title="Buy Now">Buy Now</a> -->
                   </div>
@@ -172,7 +186,16 @@
 
                     <h3 style="color: #17375e; font-weight: 700; font-family: 'Montserrat', Helvetica, Arial, sans-serif;">You currently do not have any products in your store.  Please contact your medstylist for assistance.</h3>
                     <h4 style="color: #17375e" class="pull-right"></h4>
+                    <% if @campaign.private? %>
+                      <h4 style="color: #17375e; font-weight: 700; font-family: 'Montserrat', Helvetica, Arial, sans-serif;" class="pull-right">Availabale Funds: <%= @campaign.fund_amount %></h4>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <%= link_to "Add Funds", new_campaign_donation_path(@campaign), :style=>"color:#17375e;", class: "button pull-right"%>
+                        </div>
+                      </div>
+                    <% end %>
                     <!-- <span class="subtitle">Women</span>
+                    <
                     <a class="btn btn-white-outline heading-button-btn" href="#" title="Buy Now">Buy Now</a> -->
                   </div>
                 </div>

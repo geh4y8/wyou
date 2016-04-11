@@ -18,9 +18,11 @@
     <nav class="offcanvas-navbar">
       <ul class="offcanvas-nav">
         <% if @campaign %>
-          <li class="menu-item-has-children dropdown">
-            <%= link_to "My Campaign", campaign_path(@campaign) %>
-          </li>
+          <% unless @campaign.private? %>
+            <li class="menu-item-has-children dropdown">
+              <%= link_to "My Campaign", campaign_path(@campaign) %>
+            </li>
+          <% end %>
           <li>
             <%= link_to "Orders", campaign_orders_path(@campaign) %>
           </li>
