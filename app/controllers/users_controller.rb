@@ -18,7 +18,9 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(secure_params)
-      if @user.campaigns.empty?
+      if @user.campaign_code.present?
+        redirect_to campaign_path(Campaign.find_by(campaign_code: @user.campaign_code))
+      elsif @user.campaigns.empty?
         redirect_to attach_to_campaign_path
       else
         redirect_to user_path(@user), :notice => "User updated."
@@ -58,7 +60,7 @@ class UsersController < ApplicationController
   end
 
   def secure_params
-    params.require(:user).permit(:role, :image, :remove_image, :image_id, :managed_account, :managed_name, :managed_email, :preferred_name, :zip_code, :gender, :symptoms, :diagnosis, :treatment_plan, :treatment_schedule, :item_needed_by, :normal_size, :plus_size, :petite_size, :other_notes, :dob)
+    params.require(:user).permit(:role, :campaign_code, :image, :remove_image, :image_id, :managed_account, :managed_name, :managed_email, :preferred_name, :zip_code, :gender, :symptoms, :diagnosis, :treatment_plan, :treatment_schedule, :item_needed_by, :normal_size, :plus_size, :petite_size, :other_notes, :dob)
   end
 
 end
