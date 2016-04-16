@@ -1,6 +1,29 @@
 
 <!-- <body class="landing-page landing-page1"> -->
-<nav class="navbar navbar-top" role="navigation" style="background-color:white;">
+<nav class="navbar navbar-top visible-xs visible-sm visible-md" role="navigation" style="background-color: white;">
+    <div class='container'>
+        <div class="logo row">
+            <%= image_tag 'wyoulogo.png', style: "max-height:50px;", class: 'pull-left' %>
+        <!-- </div> -->
+        <!-- <div class="nav navbar-nav navbar-right" style="background-color: black;"> -->
+            <% if user_signed_in? %>
+                <!-- <li> -->
+                    <%= link_to "Logout", destroy_user_session_path, method: "delete", class: 'pull-right', style: 'margin-right:20px;' %>
+                <!-- </li> -->
+            <% else %>
+                <!-- <li> -->
+                     <%= link_to "Create or Access a Campaign", new_user_registration_path, class: 'pull-right' %>
+                    <%= link_to "Login", new_user_session_path , style: "margin-left:10px;padding-top:30px;", class: 'hidden-sm hidden-md'%>
+                    <%= link_to "Login", new_user_session_path , class: 'visible-sm visible-md pull-right', style: 'padding-right:20px;'%>
+                <!-- </li> -->
+                <!-- <li> -->
+
+                <!-- </li> -->
+            <% end %>
+        </div>
+    </div>
+</nav>
+<nav class="navbar navbar-top hidden-xs hidden-sm hidden-md" role="navigation" style="background-color:white;">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
