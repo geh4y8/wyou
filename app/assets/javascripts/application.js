@@ -41,6 +41,7 @@
 //= require bootstrap-select
 //= require light-bootstrap-dashboard
 //= require light-bootstrap-demo
+//= require select2
 //= require_tree .
 
 $(function(){
