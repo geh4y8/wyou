@@ -23,7 +23,7 @@ class DonationsController < ApplicationController
     #                                    card: @donation.card_token
 
     Stripe::Charge.create({#customer: customer.id,
-                          amount: (@donation.donation_amount * 0.8 * 100).to_i,
+                          amount: (@donation.donation_amount * 100).to_i,
                           description: "c-#{@campaign.id}",
                           currency: 'usd',
                           source: @donation.card_token,
