@@ -9,4 +9,8 @@ class RegistrationsController < Devise::RegistrationsController
   #   binding.pry
   #   redirect_to campaign_path(campaign)
   # end
+
+  def sign_up_params
+    params.require(:user).permit(:name, :email, :password, :image, :image_id, :remove_image, :campaign_code, :is_patient)
+  end
 end
