@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     campaign = User.find(resource.id).campaigns.first
-    if campaign.private?
+    if campaign && campaign.private?
       campaign_stores_path(campaign)
     else
       campaign_path(campaign)
