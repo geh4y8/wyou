@@ -26,6 +26,8 @@ gem 'newrelic_rpm'
 gem 'omniauth'
 gem 'oauth2'
 gem "select2-rails"
+gem 'pry-rails'
+gem 'pry'
 group :development, :test do
   gem 'byebug'
    gem 'rspec-rails', '~> 3.0'
@@ -33,7 +35,6 @@ end
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
-  gem 'pry-rails'
 end
 gem 'bootstrap-sass'
 gem 'devise'

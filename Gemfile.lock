@@ -344,6 +344,7 @@ DEPENDENCIES
   oauth2
   omniauth
   pg
+  pry
   pry-rails
   puma
   quiet_assets
