@@ -20,10 +20,8 @@ class UsersController < ApplicationController
     if @user.update_attributes(secure_params)
       if @user.campaign_code.present?
         redirect_to campaign_path(Campaign.find_by(campaign_code: @user.campaign_code))
-      elsif @user.campaigns.empty?
+      else @user.campaigns.empty?
         redirect_to attach_to_campaign_path
-      else
-        redirect_to user_path(@user), :notice => "User updated."
       end
     else
       redirect_to user_path(@user), :alert => "Unable to update user."
