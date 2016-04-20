@@ -17,7 +17,7 @@ class DonationsController < ApplicationController
   end
 
   def create
-    if params[:special] == true
+    if params[:donation][:special] == "true"
       @campaign = Campaign.friendly.find(params[:campaign_id])
       @donation = @campaign.donations.new(donation_params.except(:email))
 
@@ -32,8 +32,6 @@ class DonationsController < ApplicationController
         if @campaign.supporters.where(:user_id => current_user.id).empty?
           @campaign.supporters.new(:user_id => current_user.id).save
         end
-        DonationMailer.new_donation_email(@campaign, current_user, @donation.donation_amount).deliver_later
-        DonationMailer.confirm_donation_email(@campaign, current_user, @donation.donation_amount).deliver_later
         if @campaign.private?
           redirect_to campaign_stores_path(@campaign)
         else
@@ -42,8 +40,6 @@ class DonationsController < ApplicationController
       else
         render :new
       end
-
-
     else
       @campaign = Campaign.friendly.find(params[:campaign_id])
       @donation = @campaign.donations.new(donation_params.except(:email))
