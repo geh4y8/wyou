@@ -6,47 +6,94 @@
       <!--      Wizard container        -->
       <div class="wizard-container">
         <div class="card wizard-card ct-wizard-blue" id="wizardProfile">
-          <%= form_for [@campaign, @donation], :html =>{:id => 'blabla'} do |f| %>
-            <%= f.hidden_field :user_id, :value => current_user.id %>
-            <script src="https://checkout.stripe.com/checkout.js"></script>
-            <div class="wizard-header">
-              <h3>
-                 Donate to <%= @campaign.patient_name %><br>
-                 <small></small>
-              </h3>
-            </div>
-            <ul>
-              <li><a href="#recipient" data-toggle="tab"></a></li>
-              <!-- <li><a href="#campaign" data-toggle="tab">Campaign</a></li> -->
-              <!-- <li><a href="#address" data-toggle="tab">Address</a></li> -->
-            </ul>
-            <div class="tab-content">
-              <div class="tab-pane" id="recipient">
-                <br />
-                <br />
-                <div class="row">
-                  <div class="col-sm-3">
-                  </div>
-                  <div class="col-sm-6">
-                    <div class="form-group">
-                      <label>Contribution Amount <small></small></label>
-                      <%= f.text_field :donation_amount, id: "donation_amount_field", class: "form-control", type: "text", placeholder: "Enter Contribution Amount" %>
+          <% if params[:special] %>
+            <%= form_for [@campaign, @donation], :html =>{:id => 'blabla'} do |f| %>
+              <%= f.hidden_field :user_id, :value => current_user.id %>
+              <%= f.hidden_field :special, :value => true %>
+              <script src="https://checkout.stripe.com/checkout.js"></script>
+              <div class="wizard-header">
+                <h3>
+                   Donate to <%= @campaign.patient_name %><br>
+                   <small></small>
+                </h3>
+              </div>
+              <ul>
+                <li><a href="#recipient" data-toggle="tab"></a></li>
+                <!-- <li><a href="#campaign" data-toggle="tab">Campaign</a></li> -->
+                <!-- <li><a href="#address" data-toggle="tab">Address</a></li> -->
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane" id="recipient">
+                  <br />
+                  <br />
+                  <div class="row">
+                    <div class="col-sm-3">
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Contribution Amount <small></small></label>
+                        <%= f.text_field :donation_amount, id: "donation_amount_field", class: "form-control", type: "text", placeholder: "$50.00", disabled: true %>
+                        <%= f.hidden_field :donation_amount, :value => '50' %>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="wizard-footer">
-              <div class="pull-right">
-                <input type='button' class='btn btn-next btn-fill btn-warning btn-wd btn-sm' name='next' value='Next' />
-                <input type='button' class='btn btn-finish btn-fill btn-warning btn-wd btn-sm' id="customButton" value="Donate"/>
-                <%= f.submit 'Finish', :class=>'btn btn-finish btn-fill btn-warning btn-wd btn-sm hidden', name: 'finish' %>
+              <div class="wizard-footer">
+                <div class="pull-right">
+                  <input type='button' class='btn btn-next btn-fill btn-warning btn-wd btn-sm' name='next' value='Next' />
+                  <input type='button' class='btn btn-finish btn-fill btn-warning btn-wd btn-sm' id="customButton" value="Donate"/>
+                  <%= f.submit 'Finish', :class=>'btn btn-finish btn-fill btn-warning btn-wd btn-sm hidden', name: 'finish' %>
+                </div>
+                <div class="pull-left">
+                  <input type='button' class='btn btn-previous btn-fill btn-default btn-wd btn-sm' name='previous' value='Previous' />
+                </div>
+                <div class="clearfix"></div>
               </div>
-              <div class="pull-left">
-                <input type='button' class='btn btn-previous btn-fill btn-default btn-wd btn-sm' name='previous' value='Previous' />
+            <% end %>
+          <% else %>
+            <%= form_for [@campaign, @donation], :html =>{:id => 'blabla'} do |f| %>
+              <%= f.hidden_field :user_id, :value => current_user.id %>
+              <script src="https://checkout.stripe.com/checkout.js"></script>
+              <div class="wizard-header">
+                <h3>
+                   Donate to <%= @campaign.patient_name %><br>
+                   <small></small>
+                </h3>
               </div>
-              <div class="clearfix"></div>
-            </div>
+              <ul>
+                <li><a href="#recipient" data-toggle="tab"></a></li>
+                <!-- <li><a href="#campaign" data-toggle="tab">Campaign</a></li> -->
+                <!-- <li><a href="#address" data-toggle="tab">Address</a></li> -->
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane" id="recipient">
+                  <br />
+                  <br />
+                  <div class="row">
+                    <div class="col-sm-3">
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Contribution Amount <small></small></label>
+                        <%= f.text_field :donation_amount, id: "donation_amount_field", class: "form-control", type: "text", placeholder: "Enter Contribution Amount" %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="wizard-footer">
+                <div class="pull-right">
+                  <input type='button' class='btn btn-next btn-fill btn-warning btn-wd btn-sm' name='next' value='Next' />
+                  <input type='button' class='btn btn-finish btn-fill btn-warning btn-wd btn-sm' id="customButton" value="Donate"/>
+                  <%= f.submit 'Finish', :class=>'btn btn-finish btn-fill btn-warning btn-wd btn-sm hidden', name: 'finish' %>
+                </div>
+                <div class="pull-left">
+                  <input type='button' class='btn btn-previous btn-fill btn-default btn-wd btn-sm' name='previous' value='Previous' />
+                </div>
+                <div class="clearfix"></div>
+              </div>
+            <% end %>
           <% end %>
         </div>
       </div> <!-- wizard container -->

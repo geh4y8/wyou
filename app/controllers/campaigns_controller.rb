@@ -16,6 +16,7 @@ class CampaignsController < ApplicationController
   def show
     @campaign_owner = User.where('email = :email', { email: @campaign.owner_email}).first
     @user_is_campaign_owner = @campaign.owner_email == current_user.email ? true : false
+    @special_not_available = @campaign.donations.any?{|donation| donation.special == true}
     @user = current_user
     @results = @campaign.goal_percentage(@campaign)
     @supporter_results = @campaign.supporters_image_count(@campaign)

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160410233431) do
+ActiveRecord::Schema.define(version: 20160420021017) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 20160410233431) do
     t.integer "user_id",         null: false
     t.integer "donation_amount"
     t.string  "card_token"
+    t.boolean "special"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
