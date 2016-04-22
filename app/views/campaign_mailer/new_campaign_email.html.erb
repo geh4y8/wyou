@@ -511,7 +511,8 @@ Click the button below to go to your campaign.<br>
                     <tbody>
                         <tr>
                             <td align="center" valign="middle" class="themezyButtonContent" style="font-family: Arial; font-size: 16px; padding: 16px 28px;">
-                              <%= link_to "Go to this campaign", campaign_url(@campaign, anchor: dom_id(@campaign)), style: "font-weight: normal;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;", class: "themezyButton " %>
+                              <%= link_to "Go to this campaign", @url, style: "font-weight: normal;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;", class: "themezyButton " %>
+                              <%# link_to "Go to this campaign", campaign_url(@campaign, anchor: dom_id(@campaign)), style: "font-weight: normal;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;", class: "themezyButton " %>
                                 <!-- <a class="themezyButton " title="Get your trial version" href="#" target="_blank" style="font-weight: normal;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;">Go To Campaign</a> -->
                             </td>
                         </tr>

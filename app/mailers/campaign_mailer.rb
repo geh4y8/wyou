@@ -25,4 +25,11 @@ class CampaignMailer < ApplicationMailer
       to: @campaign.patient_email,
       subject: "[w/you] Someone has created a campaign for you!")
   end
+
+  def additional_patient_information_email(user)
+    @user = user
+    mail(
+      to: 'annie@wyou.co',
+      subject: "[w/you] Campaign recipient additional information received!")
+  end
 end

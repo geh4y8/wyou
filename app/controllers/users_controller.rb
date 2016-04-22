@@ -18,6 +18,9 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(secure_params)
+      if @user.is_patient?
+        CampaignMailer.additional_patient_information_email(@user).deliver_later
+      end
       if @user.campaign_code.present?
         redirect_to campaign_path(Campaign.find_by(campaign_code: @user.campaign_code))
       else @user.campaigns.empty?
