@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(secure_params)
-      if @user.is_patient?
+      if @user.is_patient == true
         CampaignMailer.additional_patient_information_email(@user).deliver_later
       end
       if @user.campaign_code.present?
