@@ -38,14 +38,17 @@
                     <!-- <div class="logo"> -->
                     <div class="logo">
                         <%= image_tag 'wyoulogo.png', style: "max-height:50px;" %>
+
                         <!-- <img src="/landing-page/assets/img/new_logo.png" alt="Creative Tim Logo"> -->
                     </div>
+
                 <!-- </div> -->
             <!-- </a> -->
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="example">
             <ul class="nav navbar-nav navbar-right">
+                <div class="pull-left" style="margin-top:18px;">To learn more about w/you, please watch our crowdfunding video <a href="https://vimeo.com/user35399035/httpvimeocomwyou" target="_blank">here</a></div>
                 <% if user_signed_in? %>
                     <li>
                         <%= link_to "Logout", destroy_user_session_path, method: "delete" %>
