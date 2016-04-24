@@ -52,6 +52,7 @@
                                             <th>Funds Available</th>
                                             <th>Orders</th>
                                             <th>Product Category</th>
+                                            <th></th>
                                         </thead>
                                         <tbody>
                                             <% @campaigns.each do |campaign| %>
@@ -68,6 +69,7 @@
                                                         <%= link_to 'Assign Category', campaign_assign_category_options_path(campaign) %>
                                                     <% end %>
                                                 </td>
+                                                <td><%= link_to "Delete", campaign_path(campaign), method: :delete, data: { confirm: 'Are you sure?' }%></td>
                                             </tr>
                                             <% end %>
                                         </tbody>

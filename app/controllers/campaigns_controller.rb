@@ -54,7 +54,8 @@ class CampaignsController < ApplicationController
 
   def destroy
     @campaign.destroy
-    redirect_to campaigns_path
+    flash[:message] = 'Campaign Deleted'
+    redirect_to '/admin/campaigns'
   end
 
   def add_product
