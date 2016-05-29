@@ -61,7 +61,7 @@ class UsersController < ApplicationController
   end
 
   def secure_params
-    params.require(:user).permit(:role, :is_patient, :campaign_code, :image, :remove_image, :image_id, :managed_account, :managed_name, :managed_email, :preferred_name, :zip_code, :gender, :symptoms, :diagnosis, :treatment_plan, :treatment_schedule, :item_needed_by, :normal_size, :plus_size, :petite_size, :other_notes, :dob)
+    params.require(:user).permit(:role, :is_patient, :campaign_code, :image, :remove_image, :image_id, :managed_account, :managed_name, :managed_email, :preferred_name, :zip_code, :gender, :symptoms, :diagnosis, :treatment_plan, :treatment_schedule, :item_needed_by, :normal_size, :plus_size, :petite_size, :other_notes, :dob, :favorite_brand)
   end
 
 end
