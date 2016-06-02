@@ -1,0 +1,422 @@
+
+<!-- <body class="landing-page landing-page1"> -->
+<nav class="navbar navbar-top visible-xs visible-sm visible-md" role="navigation" style="background-color: white;">
+    <div class='container'>
+        <div class="logo row">
+            <%= image_tag 'wyoulogo.png', style: "max-height:50px;", class: 'pull-left' %>
+        <!-- </div> -->
+        <!-- <div class="nav navbar-nav navbar-right" style="background-color: black;"> -->
+            <% if user_signed_in? %>
+                <!-- <li> -->
+                    <%= link_to "Logout", destroy_user_session_path, method: "delete", class: 'pull-right', style: 'margin-right:20px;' %>
+                <!-- </li> -->
+            <% else %>
+                <!-- <li> -->
+                     <%= link_to "Create or Access a Campaign", new_user_registration_path, class: 'pull-right' %>
+                    <%= link_to "Login", new_user_session_path , style: "margin-left:10px;padding-top:30px;", class: 'hidden-sm hidden-md'%>
+                    <%= link_to "Login", new_user_session_path , class: 'visible-sm visible-md pull-right', style: 'padding-right:20px;'%>
+                <!-- </li> -->
+                <!-- <li> -->
+
+                <!-- </li> -->
+            <% end %>
+        </div>
+    </div>
+</nav>
+<nav class="navbar navbar-top hidden-xs hidden-sm hidden-md" role="navigation" style="background-color:white;">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button id="menu-toggle" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example" style="background-color: #17375e;">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar bar1"></span>
+            <span class="icon-bar bar2"></span>
+            <span class="icon-bar bar3"></span>
+            </button>
+            <!-- <a href="http://www.creative-tim.com"> -->
+                <!-- <div class="logo-container"> -->
+                    <!-- <div class="logo"> -->
+                    <div class="logo">
+                        <%= image_tag 'wyoulogo.png', style: "max-height:50px;" %>
+
+                        <!-- <img src="/landing-page/assets/img/new_logo.png" alt="Creative Tim Logo"> -->
+                    </div>
+
+                <!-- </div> -->
+            <!-- </a> -->
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="example">
+            <ul class="nav navbar-nav navbar-right">
+                <div class="pull-left" style="margin-top:18px;">To learn more about w/you, please watch our crowdfunding video <a href="https://vimeo.com/user35399035/httpvimeocomwyou" target="_blank">here</a></div>
+                <% if user_signed_in? %>
+                    <li>
+                        <%= link_to "Logout", destroy_user_session_path, method: "delete" %>
+                    </li>
+                <% else %>
+                    <li>
+                        <%= link_to "Login", new_user_session_path %>
+                    </li>
+                    <li>
+                        <%= link_to "Create or Access a Campaign", new_user_registration_path %>
+                    </li>
+                <% end %>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</nav>
+    <div class="wrapper">
+        <div class="parallax filter-gradient " data-color="blue">
+            <div class="parallax-background">
+                <%= image_tag('wyoupackage.jpg') %>
+                <!-- <img class="parallax-background-image" src="assets/img/template/bg3.jpg"> -->
+            </div>
+            <div class= "container visible-lg">
+                <div class="row">
+
+                    <div class="col-md-4 ">
+                        <div class="description">
+                            <h2 style="color: #17375e; margin-left: -90px;">What is w/you?</h2>
+                            <br>
+                            <h5 style="color: #17375e; margin-left: -90px;">w/you helps people facing medical situations find the right clothing, footwear, and accessories to meet their changing physical needs and stylistic preferences.
+
+                    We also offer an easy way for loved ones to provide tangible and meaningful support to such individuals through contributing toward the purchase of these items. </h5>
+                            <h5 style="color: #17375e; margin-left: -90px; font-size: 15px">
+                                To help focus our efforts, we are offering our services to those fighting breast cancer.  We are excited to soon open this service to those with any illness, so please add your email <button id="open-popup">here</button> to stay in the loop!
+                            </h5>
+                        </div>
+                        <!-- <div class="buttons">
+                            <button class="btn btn-fill btn-neutral">
+                            <i class="fa fa-apple"></i> Appstore
+                            </button>
+                            <button class="btn btn-simple btn-neutral">
+                            <i class="fa fa-android"></i>
+                            </button>
+                            <button class="btn btn-simple btn-neutral">
+                            <i class="fa fa-windows"></i>
+                            </button>
+                        </div> -->
+                    </div>
+                    <!-- <div class="col-md-5 col-md-offset-1 hidden-xs"> -->
+                        <!-- <div class="parallax-image"> -->
+                            <%# image_tag('iphone-cover.png', class: "phone", style: "margin-top:20px") %>
+                            <!-- <img class="phone" src="assets/img/template/iphone3.png" style="margin-top: 20px"/> -->
+                        <!-- </div> -->
+                    <!-- </div> -->
+                </div>
+            </div>
+        </div>
+        <div class="section section-gray section-clients hidden-lg">
+            <div class="container text-center">
+                <h4 class="header-text">What is w/you?</h4>
+                <p>
+                    w/you helps people facing medical situations find the right clothing, footwear, and accessories to meet their changing physical needs and stylistic preferences.
+
+                    We also offer an easy way for loved ones to provide tangible and meaningful support to such individuals through contributing toward the purchase of these items. <br>
+                </p>
+                <p>
+                    To help focus our efforts, we are offering our services to those fighting breast cancer.  We are excited to soon open this service to those with any illness, so please add your email <button id="open-popup">here</button> to stay in the loop!
+                </p>
+                <!-- <div class="logos">
+                    <ul class="list-unstyled">
+                        <li ><img src="assets/img/logos/adobe.png"/></li>
+                        <li ><img src="assets/img/logos/zendesk.png"/></li>
+                        <li ><img src="assets/img/logos/ebay.png"/></i>
+                        <li ><img src="assets/img/logos/evernote.png"/></li>
+                        <li ><img src="assets/img/logos/airbnb.png"/></li>
+                        <li ><img src="assets/img/logos/zappos.png"/></li>
+                    </ul>
+                </div> -->
+            </div>
+        </div>
+        <div class="section section-features">
+                <div class="container">
+                    <h4 class="header-text text-center">How It Works</h4>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="card card-blue">
+                                <div class="icon">
+                                    <!-- <i class="fa fa-users"></i> -->
+                                    <%= image_tag 'Cash-128.png' %>
+                                </div>
+                                <div class="text">
+                                    <h4>Step 1</h4>
+                                    <p>Campaign is created on your behalf to provide funds with which you can purchase clothing, footwear, and accessories.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card card-blue">
+                                <div class="icon">
+                                    <%= image_tag 'User-Group-128.png' %>
+                                </div>
+                                <h4>Step 2</h4>
+                                <p>You will be notified of the campaign and provided the option of inviting three others to help you select which items to purchase with your campaign funds.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card card-blue">
+                                <div class="icon">
+                                    <%= image_tag 'Men-Shirt-03-128.png' %>
+                                </div>
+                                <h4>Step 3</h4>
+                                <p>You will be assigned a MedStylist who will provide you with carefully selected options.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card card-blue">
+                                <div class="icon">
+                                    <%= image_tag 'Sales-Order-128.png' %>
+                                </div>
+                                <h4>Step 4</h4>
+                                <p>You use your campaign funds to purchase your selected items.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="section section-presentation" style="margin-top:0px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="description">
+                            <h4 class="header-text">For Recipients</h4>
+                            <p>If you are in need of different clothing, footwear, or accessories due to a change in your physical condition, there are two ways you can receive our services to help you find items suitable for your situation.  You can register on our site and order our services on your own, or a campaign can be started on your behalf by which your loved ones can pool contributions that you can then use to help pay for our services and the items that you select from among a variety of options we will have carefully curated in an effort to best meet your needs.
+                            <p>
+                        </div>
+                        <a href="/users/sign_up" id="Demo3" class="btn btn-fill btn-info" data-button="info">Get Started</a>
+                    </div>
+                    <div class="col-md-5 col-md-offset-1 hidden-xs">
+                        <%# image_tag 'wyoupackage.jpg' %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section loved-ones">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 hidden-xs">
+                        <%= image_tag "campaign_screenshot1.png", class: 'campaign-screenshot' %>
+                    </div>
+                    <div class="col-md-5 col-md-offset-1">
+                        <div class="description">
+                            <h4 class="header-text">For Loved Ones</h4>
+                            <p>Create a campaign by which you and others can contribute to allow a loved one going through a medical situation find and purchase clothing, footwear, and accessories to meet their changing physical needs and stylistic preferences.</p>
+                        </div>
+                        <a href="/users/sign_up" id="Demo3" class="btn btn-fill btn-info" data-button="info">Get Started</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- <div class="section section-demo">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div id="description-carousel" class="carousel fade" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="item">
+                                    <img src="assets/img/template/examples/home_33.jpg" alt="">
+                                </div>
+                                <div class="item active">
+                                    <img src="assets/img/template/examples/home_22.jpg" alt="">
+                                </div>
+                                <div class="item">
+                                    <img src="assets/img/template/examples/home_11.jpg" alt="">
+                                </div>
+                            </div>
+                            <ol class="carousel-indicators carousel-indicators-blue">
+                                <li data-target="#description-carousel" data-slide-to="0" class=""></li>
+                                <li data-target="#description-carousel" data-slide-to="1" class="active"></li>
+                                <li data-target="#description-carousel" data-slide-to="2" class=""></li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-md-offset-1">
+                        <h4 class="header-text">Easy to integrate</h4>
+                        <p>
+                            With all the apps that users love! Make it easy for users to share, like, post and tweet their favourite things from the app. Be sure to let users know they continue to remain connected while using your app!
+                        </p>
+                        <a href="http://www.creative-tim.com/product/awesome-landing-page" id="Demo3" class="btn btn-fill btn-info" data-button="info">Get Free Demo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section section-features">
+            <div class="container">
+                <h4 class="header-text text-center">Features</h4>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card card-blue">
+                            <div class="icon">
+                                <i class="pe-7s-note2"></i>
+                            </div>
+                            <div class="text">
+                                <h4>Online Customers Management</h4>
+                                <p>All appointments sync with your Google calendar so your availability is always up to date. See your schedule at a glance from any device.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-blue">
+                            <div class="icon">
+                                <i class="pe-7s-bell"></i>
+                            </div>
+                            <h4>Smart Notifications on hands</h4>
+                            <p>Automatic text and email reminders make sure customers always remember their upcoming appointments.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-blue">
+                            <div class="icon">
+                                <i class="pe-7s-graph1"></i>
+                            </div>
+                            <h4>Know your business better now</h4>
+                            <p>Take payments and run your business on the go, in your store and then see how it all adds up with analytics.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <div class="section section-testimonial">
+            <div class="container">
+                <h4 class="header-text text-center">What people are saying</h4>
+                <div id="carousel-example-generic" class="carousel fade" data-ride="carousel">
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item">
+                            <!-- <div class="mask">
+                                <img src="assets/img/faces/face-4.jpg">
+                            </div> -->
+                            <div class="carousel-testimonial-caption">
+                                <!-- <p>Jay Z, Producer</p> -->
+                                <h3>"This service could work well for people with any disability or medical condition."</h3>
+                            </div>
+                        </div>
+                        <div class="item active">
+                            <!-- <div class="mask">
+                                <img src="assets/img/faces/face-3.jpg">
+                            </div> -->
+                            <div class="carousel-testimonial-caption">
+                                <!-- <p>Drake, Artist</p> -->
+                                <h3>"What a kind and valuable idea for those in desperate need of a service such as this."</h3>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <!-- <div class="mask">
+                                <img src="assets/img/faces/face-2.jpg">
+                            </div> -->
+                            <div class="carousel-testimonial-caption">
+                                <!-- <p>Rick Ross, Musician</p> -->
+                                <h3>"This could really improve the quality of life for thousands of people living with disease."</h3>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <!-- <div class="mask">
+                                <img src="assets/img/faces/face-2.jpg">
+                            </div> -->
+                            <div class="carousel-testimonial-caption">
+                                <!-- <p>Rick Ross, Musician</p> -->
+                                <h3>"As a retired R.N., there is a need for this concept."</h3>
+                            </div>
+                        </div>
+                        <!-- <div class="item"> -->
+                            <!-- <div class="mask">
+                                <img src="assets/img/faces/face-2.jpg">
+                            </div> -->
+                            <!-- <div class="carousel-testimonial-caption"> -->
+                                <!-- <p>Rick Ross, Musician</p> -->
+                                <!-- h3>"I like the idea of having a team of people ‘w/you’ to make you feel like you are not alone at a time that is so devastating in your life."</h3>
+                            </div>
+                        </div> -->
+                        <div class="item">
+                            <!-- <div class="mask">
+                                <img src="assets/img/faces/face-2.jpg">
+                            </div> -->
+                            <div class="carousel-testimonial-caption">
+                                <!-- <p>Rick Ross, Musician</p> -->
+                                <h3>"I think this is a great service and will be used by many."</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <ol class="carousel-indicators carousel-indicators-blue">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+                        <!-- <li data-target="#carousel-example-generic" data-slide-to="5"></li> -->
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="section section-no-padding"  style="background-color: #17375e;">
+            <div class="parallax" data-color="blue">
+                <!-- <div class="parallax-background" style="max-height: 50px; max-width: 50px;"> -->
+
+                        <%# image_tag 'wyoulogo.png', class: "parallax-background-image" %>
+
+                    <!-- <img class ="parallax-background-image" src="assets/img/template/bg3.jpg"/> -->
+                <!-- </div> -->
+                <div class="info">
+                    <h1>Get Started Now</h1>
+                    <p></p>
+                    <a href="/users/sign_up" class="btn btn-neutral btn-lg btn-fill">Create A New Campaign</a>
+                </div>
+            </div>
+        </div>
+        <!-- <footer class="footer">
+            <div class="container">
+                <nav class="pull-left">
+                    <ul>
+                        <li>
+                            <a href="#">
+                            Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                            Company
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                            Portfolio
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                            Blog
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="social-area pull-right">
+                    <a class="btn btn-social btn-facebook btn-simple">
+                    <i class="fa fa-facebook-square"></i>
+                    </a>
+                    <a class="btn btn-social btn-twitter btn-simple">
+                    <i class="fa fa-twitter"></i>
+                    </a>
+                    <a class="btn btn-social btn-pinterest btn-simple">
+                    <i class="fa fa-pinterest"></i>
+                    </a>
+                </div>
+                <div class="copyright">
+                    &copy; 2016 w/you
+                </div>
+            </div>
+        </footer> -->
+    </div>
+
+<!-- </body> -->
+<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script>
+<script>
+    function showMailingPopUp() {
+        require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us13.list-manage.com","uuid":"ba3ada976605159e70702ff20","lid":"1cad3764fc"}) })
+        document.cookie = "MCEvilPopupClosed=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+    }
+document.getElementById("open-popup").onclick = function() {showMailingPopUp()};
+</script>
