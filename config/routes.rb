@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   mount RailsEmailPreview::Engine, at: 'emails'
+  get '/beta' => 'landing#landing_2'
   get '/cart' => 'cart#index'
   get '/cart/clear' => 'cart#clearCart'
   get '/cart/:id' => 'cart#add'
