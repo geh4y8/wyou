@@ -4,6 +4,10 @@ class LandingController < ApplicationController
     @landing = true
   end
 
+  def landing_2
+    @landing = true
+  end
+
   def recipients
     render 'recipients'
   end
