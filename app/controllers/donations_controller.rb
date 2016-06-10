@@ -51,11 +51,11 @@ class DonationsController < ApplicationController
                             description: "c-#{@campaign.id}",
                             currency: 'usd',
                             source: @donation.card_token,
-                            application_fee: (@donation.donation_amount * 0.171 * 100 - 30).to_i
+                            application_fee: (@donation.donation_amount * 0.021 * 100 - 30).to_i
                             }, {:stripe_account => ENV['STRIPE_ACCOUNT']})
 
       if @donation.save
-        if @campaign.update(:fund_amount => (@campaign.fund_amount + (@donation.donation_amount * 0.8)))
+        if @campaign.update(:fund_amount => (@campaign.fund_amount + (@donation.donation_amount * 0.95)))
           if @campaign.supporters.where(:user_id => current_user.id).empty?
             @campaign.supporters.new(:user_id => current_user.id).save
           end
