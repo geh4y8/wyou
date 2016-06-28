@@ -65,4 +65,5 @@ Rails.application.routes.draw do
     # resources :like, module: :products
     resources :comments, module: :products
   end
+   get "*any", via: :all, to: "errors#not_found"
 end
