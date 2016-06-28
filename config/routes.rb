@@ -65,5 +65,6 @@ Rails.application.routes.draw do
     # resources :like, module: :products
     resources :comments, module: :products
   end
-   get "*any", via: :all, to: "errors#not_found"
+   match "/404", :to => "errors#not_found", :via => :all
+   match "/500", :to => "errors#not_found", :via => :all
 end
