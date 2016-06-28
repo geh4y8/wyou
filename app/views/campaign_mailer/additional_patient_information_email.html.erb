@@ -4,21 +4,21 @@ ID: <%= @user.id %> <br />
 Name: <%= @user.name %> <br />
 Preferred Name: <%= @user.preferred_name %> <br />
 Email: <%= @user.email %> <br />
-Date of Birth: <%= @user.dob %> <br />
+Date of Birth: <%= @user.try(:dob) %> <br />
 Managed Account?: <%= @user.managed_account? %> <br />
-Managed Account Name: <%= @user.managed_name %> <br />
-Managed Account Email: <%= @user.managed_account_email %> <br />
-Zip Code: <%= @user.zip_code %> <br />
-Gender: <%= @user.gender %> <br />
-Symptoms: <%= @user.symptoms %> <br />
-Diagnosis: <%= @user.diagnosis %> <br />
-Treatment Plan: <%= @user.treatment_plan %> <br />
-Treatment Schedule: <%= @user.treatment_schedule %> <br />
-Items Needed by Date: <%= @user.item_needed_by %> <br />
-Normal Size: <%= @user.normal_size %> <br />
+Managed Account Name: <%= @user.try(:managed_name) %> <br />
+Managed Account Email: <%= @user.try(:managed_account_email) %> <br />
+Zip Code: <%= @user.try(:zip_code) %> <br />
+Gender: <%= @user.try(:gender) %> <br />
+Symptoms: <%= @user.try(:symptoms) %> <br />
+Diagnosis: <%= @user.try(:diagnosis) %> <br />
+Treatment Plan: <%= @user.try(:treatment_plan) %> <br />
+Treatment Schedule: <%= @user.try(:treatment_schedule) %> <br />
+Items Needed by Date: <%= @user.try(:item_needed_by) %> <br />
+Normal Size: <%= @user.try(:normal_size) %> <br />
 Plus Size: <%= @user.plus_size? %> <br />
 Petite Size: <%= @user.petite_size? %> <br /><br /><br />
-Other Notes: <%= @user.other_notes %> <br />
+Other Notes: <%= @user.try(:other_notes) %> <br />
 
 
 
