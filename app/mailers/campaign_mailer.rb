@@ -20,7 +20,7 @@ class CampaignMailer < ApplicationMailer
 
   def new_campaign_recipient_email(campaign)
     @campaign = campaign
-    @url = "wyou.co/users/sign_up"
+    @url = "wyou.co/users/sign_up?campaign_code=#{@campaign.campaign_code}&name=#{@campaign.patient_name}&email=#{@campaign.patient_email}"
     mail(
       to: @campaign.patient_email,
       subject: "[w/you] Someone has created a campaign for you!")

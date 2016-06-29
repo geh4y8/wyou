@@ -43,11 +43,11 @@
                   <div class="col-sm-7">
                     <div class="form-group">
                       <label>Name <small></small></label>
-                      <%= f.text_field :name, :autofocus => true, class: 'form-control', :required => true %>
+                      <%= f.text_field :name, :autofocus => true, class: 'form-control', value: params[:name], :required => true %>
                     </div>
                     <div class="form-group">
                       <label>Email <small></small></label>
-                      <%= f.email_field :email, class: 'form-control', :required => true %>
+                      <%= f.email_field :email, class: 'form-control', value: params[:email], :required => true %>
                     </div>
                     <div class="form-group">
                       <label>Password<small></small></label>
@@ -59,7 +59,7 @@
                     </div>
                     <div class="form-group">
                       <label>Campaign Code <small>(If you received one)</small></label>
-                      <%= f.text_field :campaign_code, class: 'form-control' %>
+                      <%= f.text_field :campaign_code, class: 'form-control', value: params[:campaign_code] %>
                     </div>
                   </div>
                 </div>
