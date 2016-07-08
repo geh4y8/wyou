@@ -12,6 +12,7 @@
                 <!-- </li> -->
             <% else %>
                 <!-- <li> -->
+                <li class="pull-right hidden-xs" style="list-style-type: none; padding-left:20px;"><a href="mailto:questions@wyou.co" target="_blank">Questions?</a></li>
                      <%= link_to "Create or Access a Campaign", new_user_registration_path, class: 'pull-right' %>
                     <%= link_to "Login", new_user_session_path , style: "margin-left:10px;padding-top:30px;", class: 'hidden-sm hidden-md'%>
                     <%= link_to "Login", new_user_session_path , class: 'visible-sm visible-md pull-right', style: 'padding-right:20px;'%>
@@ -20,11 +21,12 @@
 
                 <!-- </li> -->
             <% end %>
+            <li class="pull-right visible-xs" style="list-style-type: none; padding-right:20px;"><a href="mailto:questions@wyou.co" target="_blank">Questions?</a></li>
         </div>
     </div>
 </nav>
 <nav class="navbar navbar-top hidden-xs hidden-sm hidden-md" role="navigation" style="background-color:white;">
-    <div class="container">
+    <!-- <div class="container"> -->
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <button id="menu-toggle" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example" style="background-color: #17375e;">
@@ -61,10 +63,11 @@
                         <%= link_to "Create or Access a Campaign", new_user_registration_path %>
                     </li>
                 <% end %>
+                <li class="pull-right"><a href="mailto:questions@wyou.co" target="_blank">Questions?</a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
-    </div>
+    <!-- </div> -->
 </nav>
     <div class="wrapper">
         <div class="parallax filter-gradient hidden-xs hidden-sm" data-color="blue">
