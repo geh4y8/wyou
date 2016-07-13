@@ -22,7 +22,11 @@ class UsersController < ApplicationController
         CampaignMailer.additional_patient_information_email(@user).deliver_later
       end
       if @user.campaign_code.present?
-        redirect_to campaign_path(Campaign.find_by(campaign_code: @user.campaign_code))
+        if Campaign.find_by(campaign_code: @user.campaign_code).private?
+          redirect_to campaign_path(Campaign.find_by(campaign_code: @user.campaign_code))
+        else
+          redirect_to attach_to_campaign_path
+        end
       else @user.campaigns.empty?
         redirect_to attach_to_campaign_path
       end
