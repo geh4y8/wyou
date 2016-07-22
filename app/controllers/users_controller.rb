@@ -13,9 +13,9 @@ class UsersController < ApplicationController
     if @current_campaigns.size == 1
       campaign = User.find(@user.id).campaigns.first
       if campaign && campaign.private?
-        campaign_stores_path(campaign)
+        redirect_to campaign_stores_path(campaign)
       else
-        campaign_path(campaign)
+        redirect_to campaign_path(campaign)
       end
     else
       render 'possible_campaigns'
