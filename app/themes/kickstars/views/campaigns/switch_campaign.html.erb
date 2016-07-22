@@ -1,0 +1,17 @@
+<div style="margin-left: 30px; padding-bottom: 50px;">
+  <% if @current_campaigns.size > 1 %>
+  <h4>Switch Campaign</h4>
+    <ul>
+      <% @current_campaigns.each do |campaign| %>
+        <% campaign = Campaign.find(campaign.campaign_id) %>
+        <li><%= link_to campaign.patient_name, campaign_path(campaign)  %></li>
+      <% end %>
+    </ul>
+<% end %>
+
+<h4>Join an existing campaign</h4>
+  <%= form_for @campaign, url: { action: :join_existing_campaign }, method: :post do |f| %>
+    <%= text_field_tag 'campaign_code', nil, placeholder: 'Enter the campaign code here'  %>
+    <%= f.submit "Submit", class: 'btn-sm btn-blue' %>
+  <% end %>
+</div>

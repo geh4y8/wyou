@@ -1,0 +1,10 @@
+<h3>Which campaign would you like to navigate to?</h3>
+
+<ul>
+<% @current_campaigns.each do |campaign|  %>
+  <% campaign = Campaign.find(campaign.campaign_id) %>
+  <%= link_to campaign do %><li><strong>Campaign Name</strong>: <%= campaign.name %></li>
+  <% end %>
+  <br />
+<% end %>
+</ul>
