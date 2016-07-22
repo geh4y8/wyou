@@ -73,13 +73,18 @@ class CampaignsController < ApplicationController
   def possible_campaigns
     add_new_campaign
     @current_campaigns = current_user.campaigns
-    if @current_campaigns.size == 0
+    if @current_campaigns.count == 0
       redirect_to new_campaign_path
-    elsif @current_campaigns.size == 1
+    elsif @current_campaigns.count == 1
       redirect_to campaign_path(@current_campaigns.first.id)
     else
       render :possible_campaigns
     end
+  end
+
+  def possible_campaigns2(current_campaigns)
+    @current_campaigns = current_campaigns
+    # render :possible_campaigns2
   end
 
   def assign_category
