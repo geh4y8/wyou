@@ -2,6 +2,7 @@
 
 <ul>
 <% @current_campaigns.each do |campaign|  %>
+  <% campaign = Campaign.find(campaign.campaign_id) %>
   <%= link_to campaign do %><li><strong>Campaign Name</strong>: <%= campaign.name %>  <strong>Fund Goal</strong>: <%= campaign.fund_goal %></li>
   <% end %>
   <br />

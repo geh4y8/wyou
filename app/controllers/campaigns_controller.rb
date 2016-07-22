@@ -2,7 +2,7 @@ class CampaignsController < ApplicationController
   theme 'kickstars'
 
   before_action :authenticate_user!, :except => :show
-  before_filter :set_campaign, :except => [:index, :new, :create, :add_product, :assign_product, :possible_campaigns, :assign_category_options, :assign_category, :invite_store_supporter, :send_store_invite]
+  before_filter :set_campaign, :except => [:index, :new, :create, :add_product, :assign_product, :possible_campaigns, :assign_category_options, :assign_category, :invite_store_supporter, :send_store_invite, :possible_campaigns2, :switch_campaign, :join_existing_campaign]
   # before_action :admin_only, :except => :show
 
   def index
@@ -106,6 +106,25 @@ class CampaignsController < ApplicationController
     @campaign.store_supporters.create(user_id: params[:supporters], campaign_id: params[:campaign_id])
     CampaignMailer.invite_store_supporter(@campaign, User.find(params[:supporters])).deliver_later
     redirect_to campaign_stores_path(@campaign)
+  end
+
+  def switch_campaign
+    @user = current_user
+    @campaign = Campaign.friendly.find(params[:campaign_id])
+    @current_campaigns = Supporter.where(user_id: @user.id)
+    render 'switch_campaign'
+  end
+
+  def join_existing_campaign
+    if @campaign = Campaign.find_by(campaign_code: params[:campaign_code])
+      if !@campaign.supporters.where(user_id: current_user.id).present?
+        @campaign.supporters.create!(user_id: current_user.id)
+      end
+      redirect_to campaign_path(@campaign)
+    else
+      flash[:message] = "We couldn't find a campaign matching that code, please try again."
+      redirect_to :back
+    end
   end
 
   private

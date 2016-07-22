@@ -8,6 +8,19 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+
+    @current_campaigns = Supporter.where(user_id: @user.id)
+    if @current_campaigns.size == 1
+      campaign = User.find(@user.id).campaigns.first
+      if campaign && campaign.private?
+        campaign_stores_path(campaign)
+      else
+        campaign_path(campaign)
+      end
+    else
+      render 'possible_campaigns'
+      # possible_campaigns_path(current_campaigns: @current_campaigns)
+    end
     unless current_user.admin?
       unless @user == current_user
         redirect_to :back, :alert => "Access denied."

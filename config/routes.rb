@@ -46,6 +46,8 @@ Rails.application.routes.draw do
     post 'assign_category' => 'campaigns#assign_category'
     get 'add_product', to: 'campaigns#add_product'
     post 'assign_product', to: 'campaigns#assign_product'
+    get 'switch_campaign', to: 'campaigns#switch_campaign'
+    post 'join_existing_campaign', to: 'campaigns#join_existing_campaign'
     resources :comments, module: :campaigns
     resources :orders do
       get 'add_shipping_confirmation', to: 'orders#add_shipping_confirmation'

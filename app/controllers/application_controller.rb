@@ -10,12 +10,25 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    campaign = User.find(resource.id).campaigns.first
-    if campaign && campaign.private?
-      campaign_stores_path(campaign)
-    else
-      campaign_path(campaign)
-    end
+    user = User.find(resource.id)
+    # select_campaign_choice(user)
+    # campaign = User.find(resource.id).campaigns.first
+    # if campaign && campaign.private?
+    #   campaign_stores_path(campaign)
+    # else
+    #   campaign_path(campaign)
+    # end
+    # @current_campaigns = Supporter.where(user_id: user.id)
+    # if @current_campaigns.size == 1
+    #   campaign = User.find(user.id).campaigns.first
+    #   if campaign && campaign.private?
+    #     campaign_stores_path(campaign)
+    #   else
+    #     campaign_path(campaign)
+    #   end
+    # else
+    #   possible_campaigns_path(current_campaigns: @current_campaigns) and return
+    # end
   end
 
   def after_sign_up_path_for(resource)
