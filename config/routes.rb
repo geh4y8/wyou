@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get '/admin/campaigns/donations' => 'admin#donations'
   get '/remove_product_category' => 'categories#remove_product'
   get '/connect/confirm' => 'stripe#confirm'
+  get '/possible_campaigns' => 'campaigns#possible_campaigns2'
 
 
 
