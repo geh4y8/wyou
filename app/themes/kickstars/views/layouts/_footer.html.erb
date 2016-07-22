@@ -3,7 +3,7 @@
         <div class="container_12 main-footer">
             <div class="grid-2 pull-right">
                   <% if user_signed_in? %>
-                    <%= link_to 'Edit account', edit_user_registration_path, :class=>'btn btn-red' %>
+                    <%= link_to 'Edit User Info', edit_user_registration_path, :class=>'btn btn-red' %>
                     <br />
                     <br />
                     <%= link_to 'Sign out', destroy_user_session_path, :class=>'btn btn-black', :method=>'delete' %>

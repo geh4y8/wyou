@@ -13,7 +13,7 @@
               <script src="https://checkout.stripe.com/checkout.js"></script>
               <div class="wizard-header">
                 <h3>
-                   Donate to <%= @campaign.patient_name %><br>
+                   Make a Deposit for <%= @campaign.patient_name %><br>
                    <small></small>
                 </h3>
               </div>
@@ -31,7 +31,7 @@
                     </div>
                     <div class="col-sm-6">
                       <div class="form-group">
-                        <label>Contribution Amount <small></small></label>
+                        <label>Deposit Amount <small></small></label>
                         <%= f.text_field :donation_amount, id: "donation_amount_field", class: "form-control", type: "text", placeholder: "$50.00", disabled: true %>
                         <%= f.hidden_field :donation_amount, :value => '50' %>
                       </div>
@@ -57,7 +57,7 @@
               <script src="https://checkout.stripe.com/checkout.js"></script>
               <div class="wizard-header">
                 <h3>
-                   Donate to <%= @campaign.patient_name %><br>
+                   Make a Deposit for <%= @campaign.patient_name %><br>
                    <small></small>
                 </h3>
               </div>
@@ -75,23 +75,23 @@
                     </div>
                     <div class="col-sm-6">
                       <div class="form-group">
-                        <label>Contribution Amount <small></small></label>
-                        <%= f.text_field :donation_amount, id: "donation_amount_field", class: "form-control", type: "text", placeholder: "Enter Contribution Amount" %>
+                        <label>Deposit Amount <small></small></label>
+                        <%= f.text_field :donation_amount, id: "donation_amount_field", class: "form-control", type: "text", placeholder: "Enter Deposit Amount" %>
                       </div>
                     </div>
                   </div>
                   <br />
                   <div class="row">
                     <div class="col-sm-10-offset-1">
-                      *Out of every contribution made to a campaign, a 5 percent MedStylist fee is assessed
+                      *Out of every deposit made to a campaign, a 5 percent MedStylist fee is assessed
 
                       that covers all of our services in helping the recipient find suitable clothing, footwear, or
 
                       accessories for their medical situation as well as all costs associated with standard
 
-                      shipping (3-5 business days) and handling.  For example, for every $100 contributed,
+                      shipping (3-5 business days) and handling.  For example, for every $100 deposited,
 
-                      $95 goes into the recipient’s campaign account for them to use to purchase items they
+                      $95 goes into the recipient’s account for them to use to purchase items they
 
                       select with our assistance, and $20 goes for our MedStylist fee.  Additional charges will
 
@@ -105,7 +105,7 @@
               <div class="wizard-footer">
                 <div class="pull-right">
                   <input type='button' class='btn btn-next btn-fill btn-warning btn-wd btn-sm' name='next' value='Next' />
-                  <input type='button' class='btn btn-finish btn-fill btn-warning btn-wd btn-sm' id="customButton" value="Donate"/>
+                  <input type='button' class='btn btn-finish btn-fill btn-warning btn-wd btn-sm' id="customButton" value="Deposit"/>
                   <%= f.submit 'Finish', :class=>'btn btn-finish btn-fill btn-warning btn-wd btn-sm hidden', name: 'finish' %>
                 </div>
                 <div class="pull-left">
@@ -137,7 +137,7 @@
 
   $('#customButton').on('click', function(e) {
     // Open Checkout with further options
-    var description_amount = 'Donation Amount: $' + $('#donation_amount_field').val();
+    var description_amount = 'Deposit Amount: $' + $('#donation_amount_field').val();
     handler.open({
       name: 'w/you',
       key: '<%= Rails.configuration.stripe[:publishable_key] %>',

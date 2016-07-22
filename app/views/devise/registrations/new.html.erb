@@ -9,13 +9,13 @@
             <div class="wizard-header">
               <h3>
                  New User Registration <br>
-                 <small>Create your account by filling in the following information.</small>
+                 <small>Register as a new user by filling in the following information.</small>
               </h3>
             </div>
 
             <ul>
-              <li style="width: 49% !important"><a href="#user_type" data-toggle="tab">Choose Type</a></li>
-              <li><a href="#sign_up_form" data-toggle="tab">Sign Up</a></li>
+              <li class="hidden" style="width: 49% !important"><a href="#user_type" data-toggle="tab">Choose Type</a></li>
+              <li class="hidden"><a href="#sign_up_form" data-toggle="tab">Sign Up</a></li>
             </ul>
             <div class="tab-content">
               <div class="tab-pane" id="user_type">
@@ -25,12 +25,12 @@
                   </div>
                   <div class="col-sm-7">
                     <div class="form-group">
-                      <label>I am a campaign supporter</label>
-                      <%= f.radio_button :is_patient, false %>
+                      <label style="font-size: 1.5rem;">I am making a deposit for someone else     </label>
+                      <%= f.radio_button :is_patient, false, style: 'margin-left: 10px;' %>
                     </div>
                     <div class="form-group">
-                      <label>I am a campaign recipient</label>
-                       <%= f.radio_button :is_patient, true %>
+                      <label style="font-size: 1.5rem;">I am an account recipient    </label>
+                       <%= f.radio_button :is_patient, true, style: 'margin-left: 20px;' %>
                     </div>
                   </div>
                 </div>

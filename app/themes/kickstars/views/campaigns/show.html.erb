@@ -69,7 +69,7 @@
                             </div>
                             <div class="sep"></div>
                             <div class="fee-item">
-                                <p class="rs lbl">Contributions</p>
+                                <p class="rs lbl">Deposits</p>
                                 <span class="val">$<%= @campaign.fund_amount %></span>
                             </div>
                             <div class="sep"></div>
@@ -191,7 +191,7 @@
                     </div>
                     <div class="row">
                         <%= link_to new_campaign_donation_path(@campaign), class: "btn btn-wyoublue btn-buck-project lbl", :style=>"font-size:20px; color:white;" do %>
-                            Contribute <span class="glyphicon glyphicon-heart-empty"></span>
+                            Make A Deposit <span class="glyphicon glyphicon-heart-empty"></span>
                         <% end %>
                     </div>
 
@@ -204,7 +204,7 @@
             </div>
             <div class="project-author">
                 <div class="box-gray">
-                    <h3 class="title-box">Campaign Organizer: </h3>
+                    <h3 class="title-box">Account Created By: </h3>
                     <div class="media">
                         <a href="#" class="thumb-left">
                             <%= image_tag attachment_url(@campaign_owner, :image, :fit, 300, 300) %>

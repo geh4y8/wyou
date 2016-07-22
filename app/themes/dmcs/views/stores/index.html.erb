@@ -155,7 +155,7 @@
                     <br />
 
                     <h4 style="color: #17375e; font-weight: 700; font-family: 'Montserrat', Helvetica, Arial, sans-serif;">Based on the information provided, here are options, from which you can choose to best meet your needs.</h4>
-                    <h4 style="color: #17375e; font-weight: 700; font-family: 'Montserrat', Helvetica, Arial, sans-serif;" class="pull-right">Availabale Funds: <%= @campaign.fund_amount %></h4>
+                    <h4 style="color: #17375e; font-weight: 700; font-family: 'Montserrat', Helvetica, Arial, sans-serif;" class="pull-right">Available Funds: <%= @campaign.fund_amount %></h4>
                     <% if @campaign.private? %>
                       <div class="row">
                         <div class="col-md-12">
@@ -187,7 +187,7 @@
                     <h3 style="color: #17375e; font-weight: 700; font-family: 'Montserrat', Helvetica, Arial, sans-serif;">You currently do not have any products in your store.  Please contact your medstylist for assistance.</h3>
                     <h4 style="color: #17375e" class="pull-right"></h4>
                     <% if @campaign.private? %>
-                      <h4 style="color: #17375e; font-weight: 700; font-family: 'Montserrat', Helvetica, Arial, sans-serif;" class="pull-right">Availabale Funds: <%= @campaign.fund_amount %></h4>
+                      <h4 style="color: #17375e; font-weight: 700; font-family: 'Montserrat', Helvetica, Arial, sans-serif;" class="pull-right">Available Funds: <%= @campaign.fund_amount %></h4>
                       <div class="row">
                         <div class="col-md-12">
                           <%= link_to "Add Funds", new_campaign_donation_path(@campaign), :style=>"color:#17375e;", class: "button pull-right"%>

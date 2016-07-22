@@ -14,10 +14,10 @@
               </h3>
             </div>
             <ul>
-              <li><a href="#photo" data-toggle="tab">Photo</a></li>
+              <li class="hidden"><a href="#photo" data-toggle="tab">Photo</a></li>
               <% if current_user.is_patient? %>
-                <li><a href="#patient_questions" data-toggle="tab">Account Questions</a></li>
-                <li><a href="#patient_questions2" data-toggle="tab">Further Questions</a></li>
+                <li class="hidden"><a href="#patient_questions" data-toggle="tab">Account Questions</a></li>
+                <li class="hidden"><a href="#patient_questions2" data-toggle="tab">Further Questions</a></li>
               <% end %>
               <!-- <li><a href="#address" data-toggle="tab">Address</a></li>
             </ul> -->

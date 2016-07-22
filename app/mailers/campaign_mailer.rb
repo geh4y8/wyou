@@ -6,7 +6,7 @@ class CampaignMailer < ApplicationMailer
     @url = "wyou.co/campaigns/#{@campaign.id}"
     mail(
       to: "#{@campaign.owner_email}",
-      subject: "[w/you] New Campaign Created!")
+      subject: "[w/you] New Account Created!")
   end
 
   def invite_store_supporter(campaign, user)
@@ -23,13 +23,13 @@ class CampaignMailer < ApplicationMailer
     @url = "wyou.co/users/sign_up?campaign_code=#{@campaign.campaign_code}&name=#{@campaign.patient_name}&email=#{@campaign.patient_email}"
     mail(
       to: @campaign.patient_email,
-      subject: "[w/you] Someone has created a campaign for you!")
+      subject: "[w/you] Someone has created an Account for you!")
   end
 
   def additional_patient_information_email(user)
     @user = user
     mail(
       to: 'annie@wyou.co',
-      subject: "[w/you] Campaign recipient additional information received!")
+      subject: "[w/you] Account recipient additional information received!")
   end
 end
