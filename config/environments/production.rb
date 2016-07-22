@@ -82,7 +82,7 @@ Rails.application.configure do
     password: ENV['SENDGRID_PASSWORD']
   }
   # ActionMailer Config
-  config.action_mailer.default_url_options = { :host => 'dxrn0537r7wh8.cloudfront.net' }
+  config.action_mailer.default_url_options = { :host => 'wyou.co' }
   config.action_mailer.asset_host = 'http://dxrn0537r7wh8.cloudfront.net'
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
