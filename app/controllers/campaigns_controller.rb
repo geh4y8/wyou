@@ -30,10 +30,12 @@ class CampaignsController < ApplicationController
       add_new_campaign
       CampaignMailer.new_campaign_email(@campaign).deliver_later
       CampaignMailer.new_campaign_recipient_email(@campaign).deliver_later
-      unless @campaign.private?
+      if current_user.is_patient? && @campaign.private?
+        redirect_to campaign_stores_path(@campaign)
+      elsif !@campaign.private? && !current_user.is_patient?
         redirect_to campaign_path(@campaign)
       else
-        redirect_to campaign_stores_path(@campaign)
+        render 'campaign_created', locals: { campaign: @campaign }
       end
     else
       render :new

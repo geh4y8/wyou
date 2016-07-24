@@ -307,7 +307,7 @@ a.fc-gray-dark,.fc-gray-dark{color: #999}
     border-color: #45911b;
     color: #FFF;
     padding: 10px 20px;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
     font-family: 'Open Sans', sans-serif;
 	font-weight: 700;
     background: #5bb327; /* Old browsers */
