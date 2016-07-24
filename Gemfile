@@ -23,11 +23,11 @@ gem 'administrate'
 gem 'wysiwyg-rails'
 gem 'puma'
 gem 'newrelic_rpm'
-gem 'omniauth'
-gem 'oauth2'
 gem "select2-rails"
 gem 'pry-rails'
 gem 'pry'
+gem 'omniauth'
+gem 'nexmo'
 group :development, :test do
   gem 'byebug'
    gem 'rspec-rails', '~> 3.0'

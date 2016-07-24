@@ -30,6 +30,9 @@ class CampaignsController < ApplicationController
       add_new_campaign
       CampaignMailer.new_campaign_email(@campaign).deliver_later
       CampaignMailer.new_campaign_recipient_email(@campaign).deliver_later
+      client = Nexmo::Client.new
+      client.send_message(from: '12765973538', to: '1' + @campaign.patient_phone, text:
+        "#{@campaign.owner_name} has created a campaign on w/you for you!  Go to your account: wyou.co/users/sign_up?campaign_code=#{@campaign.campaign_code}&name=#{@campaign.patient_name}&email=#{@campaign.patient_email}" )
       if current_user.is_patient? && @campaign.private?
         redirect_to campaign_stores_path(@campaign)
       elsif !@campaign.private? && !current_user.is_patient?
