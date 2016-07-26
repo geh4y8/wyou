@@ -14,29 +14,31 @@
               </h3>
             </div>
             <ul>
-              <li class="hidden"><a href="#photo" data-toggle="tab">Photo</a></li>
-              <% if current_user.is_patient? %>
+              <% if !current_user.is_patient? %>
+                <li class="hidden"><a href="#photo" data-toggle="tab">Photo</a></li>
+              <% else %>
                 <li class="hidden"><a href="#patient_questions" data-toggle="tab">Account Questions</a></li>
                 <li class="hidden"><a href="#patient_questions2" data-toggle="tab">Further Questions</a></li>
               <% end %>
               <!-- <li><a href="#address" data-toggle="tab">Address</a></li>
             </ul> -->
             <div class="tab-content">
-              <div class="tab-pane" id="photo">
-                <div class="row">
-                  <h4 class="info-text"></h4>
-                  <div class="col-sm-4 col-sm-offset-1">
-                    <div class="picture-container">
-                      <div class="picture">
-                        <%= image_tag 'kickstars/your_face_here.jpg', class: "picture-src", id: "wizardPicturePreview", title: "" %>
-                        <%= f.attachment_field :image, id: "wizard-picture" %>
+              <% if !current_user.is_patient? %>
+                <div class="tab-pane" id="photo">
+                  <div class="row">
+                    <h4 class="info-text"></h4>
+                    <div class="col-sm-4 col-sm-offset-1">
+                      <div class="picture-container">
+                        <div class="picture">
+                          <%= image_tag 'kickstars/your_face_here.jpg', class: "picture-src", id: "wizardPicturePreview", title: "" %>
+                          <%= f.attachment_field :image, id: "wizard-picture" %>
+                        </div>
+                        <h6>Choose Picture</h6>
                       </div>
-                      <h6>Choose Picture</h6>
                     </div>
                   </div>
                 </div>
-              </div>
-              <% if current_user.is_patient? %>
+              <% else %>
                 <div class="tab-pane" id="patient_questions">
                   <div class="row">
                     <div class="col-sm-3">
