@@ -8,6 +8,12 @@
 
                 <ul class="nav">
                     <li>
+                        <%= link_to '/admin' do %>
+                            <!-- <i class="pe-7s-graph"></i> -->
+                        <p>Dashboard</p>
+                    <% end %>
+                    </li>
+                    <li>
                         <%= link_to '/admin/orders' do %>
                             <!-- <i class="pe-7s-graph"></i> -->
                             <p>Orders</p>
@@ -21,7 +27,7 @@
                     </li>
                     <li class="active">
                         <%= link_to '/admin/campaigns' do %>
-                            <p>Campaigns</p>
+                            <p>Accounts</p>
                         <% end %>
                     </li>
                 </ul>
@@ -37,17 +43,17 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="card">
                                 <div class="header">
-                                    <h4 class="title">Campaigns</h4>
+                                    <h4 class="title">Accounts</h4>
                                     <p class="category"></p>
                                 </div>
                                 <div class="content table-responsive table-full-width">
                                     <table class="table table-hover table-striped">
                                         <thead>
                                             <th>ID</th>
-                                            <th>Campaign Starter Name</th>
+                                            <th>Account Starter Name</th>
                                             <th>Patient Name</th>
                                             <th>Funds Available</th>
                                             <th>Orders</th>

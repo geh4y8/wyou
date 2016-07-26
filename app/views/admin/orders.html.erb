@@ -9,6 +9,12 @@
                 </div>
 
                 <ul class="nav">
+                    <li>
+                        <%= link_to '/admin' do %>
+                            <!-- <i class="pe-7s-graph"></i> -->
+                        <p>Dashboard</p>
+                    <% end %>
+                    </li>
                     <li class="active">
                         <%= link_to '/admin/orders' do %>
                             <!-- <i class="pe-7s-graph"></i> -->
@@ -23,7 +29,7 @@
                     </li>
                     <li>
                         <%= link_to '/admin/campaigns' do %>
-                            <p>Campaigns</p>
+                            <p>Accounts</p>
                         <% end %>
                     </li>
                 </ul>
@@ -33,7 +39,7 @@
             <div class="content">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="card">
                                 <div class="header">
                                     <h4 class="title">Latest Orders</h4>

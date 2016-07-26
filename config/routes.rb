@@ -25,7 +25,7 @@ Rails.application.routes.draw do
 
 
   resources :admin do
-    root to: 'admin#orders'
+    root to: 'admin#dashboard'
   end
   post 'assign_products', to: 'categories#assign_products'
   resources :categories do

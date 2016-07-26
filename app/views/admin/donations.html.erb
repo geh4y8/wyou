@@ -10,6 +10,12 @@
 
                 <ul class="nav">
                     <li>
+                        <%= link_to '/admin' do %>
+                            <!-- <i class="pe-7s-graph"></i> -->
+                        <p>Dashboard</p>
+                    <% end %>
+                    </li>
+                    <li>
                         <%= link_to '/admin/orders' do %>
                             <!-- <i class="pe-7s-graph"></i> -->
                             <p>Orders</p>
@@ -23,7 +29,7 @@
                     </li>
                     <li>
                         <%= link_to '/admin/campaigns' do %>
-                            <p>Campaigns</p>
+                            <p>Accounts</p>
                         <% end %>
                     </li>
                 </ul>
@@ -52,8 +58,8 @@
                                             <tr>
                                                 <td><%= donation.id %></td>
                                                 <td><%= donation.user.name %></td>
-                                                <td><%= donation.donation_amount * 0.8 %></td>
-                                                <td><%= donation.donation_amount * 0.2 %></td>
+                                                <td><%= donation.donation_amount * 0.95 %></td>
+                                                <td><%= donation.donation_amount * 0.05 %></td>
                                             </tr>
                                             <% end %>
                                         </tbody>

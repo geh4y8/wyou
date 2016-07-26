@@ -1,5 +1,6 @@
 class AdminController < ApplicationController
   before_action :authenticate_user!, :except => :show
+  theme :admin_dashboard
 
   def index
     @orders = Order.last(5).reverse
@@ -29,5 +30,9 @@ class AdminController < ApplicationController
 
   def assign_category_options
     render 'assign_category_options'
+  end
+
+  def dashboard
+
   end
 end
