@@ -28,6 +28,11 @@ class AdminController < ApplicationController
     render 'donations'
   end
 
+  def users
+    @users = User.all
+    render 'users'
+  end
+
   def assign_category_options
     render 'assign_category_options'
   end

@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get '/admin/orders' => 'admin#orders'
   get '/admin/products' => 'admin#products'
   get '/admin/campaigns' => 'admin#campaigns'
+  get '/admin/users' => 'admin#users'
   get '/admin/campaigns/donations' => 'admin#donations'
   get '/remove_product_category' => 'categories#remove_product'
   get '/connect/confirm' => 'stripe#confirm'
