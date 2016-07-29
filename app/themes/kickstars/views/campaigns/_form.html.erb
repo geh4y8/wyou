@@ -76,9 +76,10 @@
                       <%= f.text_field :fund_goal, :class => "form-control" %>
                     </div>
                     <div class="form-group">
-                      <label>Description <small>(required)</small></label>
-                      <%= f.text_area :campaign_description, :class=> "form-control", style: 'height: 215px;', :placeholder => "Please write a general description of why these services are needed for the recipient.  For example: Close family and friends, Catherine starts her chemo treatments next Friday and eventually will have a double mastectomy (her surgery date is TBD). I’d like her to be comfortable throughout her treatment and have what she needs to accommodate the rather dramatic physical changes she will undergo.  Also, because chemo and surgery will give rise to different needs for her, I have set an initial goal to collectively provide Catherine with at least $650 for her to use to meet those needs, but anything you can provide will be greatly appreciated." %>
+                      <label>Description <small>(required)</small><%= image_tag 'help.png', size:'20', style: 'margin-left:10px;', id: 'help_tag_description', data:{backdrop: 'static'} %></label>
+                      <%= f.text_area :campaign_description, :class=> "form-control", style: 'height: 215px;', :placeholder => "" %>
                     </div>
+
                     <!-- <div class="form-group">
                       <label>Provide Description <small>(required)</small></label>
                       <%# f.text_area :provide_description, :class=> "form-control", :placeholder => "How will this help?" %>
@@ -107,11 +108,16 @@
   </div>
 </div>
 
+
+
 <script>
 $("form").on("keypress", function (e) {
     if (e.keyCode == 13) {
         return false;
     }
+});
+$('#help_tag_description').click(function(){
+  $('#myModal').appendTo("body").modal('show');
 });
 </script>
 

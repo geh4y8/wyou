@@ -45,5 +45,24 @@
 <%= yield %>
 <%= render 'layouts/footer' %>
 </div>
+
+<div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Please write a general description of why these services are needed for the recipient.</h4>
+                            <h6>For example:</h6>
+                          </div>
+                          <div class="modal-body">
+                              Close family and friends, Catherine starts her chemo treatments next Friday and eventually will have a double mastectomy (her surgery date is TBD). I’d like her to be comfortable throughout her treatment and have what she needs to accommodate the rather dramatic physical changes she will undergo.  Also, because chemo and surgery will give rise to different needs for her, I have set an initial goal to collectively provide Catherine with at least $650 for her to use to meet those needs, but anything you can provide will be greatly appreciated.
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
 </body>
 </html>
