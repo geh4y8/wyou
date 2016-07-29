@@ -51,16 +51,18 @@
                       <label>Relationship to Recipient <small></small></label>
                       <%= f.text_field :relationship, :class => "form-control", :placeholder => "What is your relationship to the recipient?" %>
                     </div>
-                    <div class="form-group">
-                      <div class="row">
-                        <div class="col-md-2">
-                          <%= f.check_box :private, :class => "form-control" %>
-                        </div>
-                        <div class="col-md-10">
-                          I would like to create a private store where I can make the deposits myself.
+                    <% if current_user.is_patient? %>
+                      <div class="form-group">
+                        <div class="row">
+                          <div class="col-md-2">
+                            <%= f.check_box :private, :class => "form-control" %>
+                          </div>
+                          <div class="col-md-10">
+                            I would like to create a private store where I can make the deposits myself.
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    <% end %>
                   </div>
                 </div>
               </div>
