@@ -7,6 +7,7 @@ class InvitesController < ApplicationController
 
   def new
     @campaign = Campaign.friendly.find(params[:campaign_id])
+    @url = "wyou.co/users/sign_up?campaign_code=#{@campaign.campaign_code}"
     @invite = @campaign.invites.new
   end
 
