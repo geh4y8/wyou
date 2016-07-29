@@ -3,15 +3,15 @@
         <div class="container_12 main-footer">
             <div class="grid-2 pull-right">
                   <% if user_signed_in? %>
-                    <%= link_to 'Edit User Info', edit_user_registration_path, :class=>'btn btn-red' %>
+                    <%= link_to 'Edit User Info', edit_user_registration_path, :class=>'btn btn-blue' %>
                     <br />
                     <br />
-                    <%= link_to 'Sign out', destroy_user_session_path, :class=>'btn btn-black', :method=>'delete' %>
+                    <%= link_to 'Sign out', destroy_user_session_path, :class=>'btn btn-blue', :method=>'delete' %>
                   <% else %>
-                    <%= link_to 'Sign in', new_user_session_path(redirect_to: request.path), :class=>'btn btn-red' %>
+                    <%= link_to 'Sign in', new_user_session_path(redirect_to: request.path), :class=>'btn btn-blue' %>
                     <br />
                     <br />
-                    <%= link_to 'Sign up', new_user_registration_path(redirect_to: request.path), :class=>'btn btn-black' %>
+                    <%= link_to 'Sign up', new_user_registration_path(redirect_to: request.path), :class=>'btn btn-blue' %>
                   <% end %>
               </div>
             <!-- div class="grid_3 about-us">
