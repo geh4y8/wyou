@@ -6,7 +6,7 @@
                         <%= link_to 'My Store', campaign_stores_path(@campaign), class: 'btn btn-blue' %>
               <% end %>
               <% if request.path.split('/').last != "switch_campaign" && @campaign.id.present? %>
-                <%= link_to 'Switch Campaign', campaign_switch_campaign_path(@campaign.id), class: 'btn btn-green' %>
+                <%= link_to 'Switch Campaign', campaign_switch_campaign_path(@campaign.id), class: 'btn btn-blue' %>
               <% end %>
             </div>
             <!-- <div class="form-search">
