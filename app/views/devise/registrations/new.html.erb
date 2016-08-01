@@ -6,10 +6,10 @@
       <div class="wizard-container">
         <div class="card wizard-card ct-wizard-blue" id="wizardNewUser">
           <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :role => 'form'}) do |f| %>
-            <div class="wizard-header hidden">
+            <div class="wizard-header">
               <h3>
-                 New User Registration <br>
-                 <small>Register as a new user by filling in the following information.</small>
+                 Please Choose An Option Below <br>
+                 <!-- <small>Register as a new user by filling in the following information.</small> -->
               </h3>
             </div>
 
@@ -23,27 +23,35 @@
                   <h4 class="info-text">  </h4>
                   <!-- <div class='col-sm-3'>
                   </div> -->
-                  <div class="col-sm-8 col-sm-offset-2">
+                  <div class="col-sm-8 col-sm-offset-2 btn-group" data-toggle="buttons">
+                    <div class="form-group">
+                      <label class="btn btn-primary" style="background-color: #17375e; color: white;">I’m Creating an Account <br /> for Someone Else
+                      <!-- <input type='button' id='create-account-for-someone-else' class='btn-blue btn-default btn-wd btn-lg' style="background-color: #17375e; color: white; width: 100px;" value='I’m Creating an Account for Someone Else' /> -->
+                      <%= f.radio_button :is_patient, false, style: 'margin-left: 10px;', class: 'hidden' %></label>
+                    </div>
+                    <div class="form-group">
+                      <label class="btn btn-primary" style="background-color: #17375e; color: white;">I’m Making a Deposit <br />into Someone Else’s Account
+                      <!-- <input type='button' id='make-deposit-into-someones-account' class='btn-blue btn-default btn-wd btn-lg' style="background-color: #17375e; color: white; width: 450px;" value='I’m Making a Deposit into Someone Else’s Account' /> -->
+                      <%= f.radio_button :is_patient, false, style: 'margin-left: 10px;', class: 'hidden' %></label>
+                    </div>
+                    <div class="form-group">
+                      <label class="btn btn-primary" style="background-color: #40e0d0; color: white;">I’m Accessing an Account <br />Created for Me
+                      <!-- <input type='button' id='access-account-created-for-me' class='btn-blue btn-default btn-wd btn-lg' style="background-color: #40e0d0; color: white; width: 450px;" value='I’m Accessing an Account Created for Me' /> -->
+                      <%= f.radio_button :is_patient, true, style: 'margin-left: 20px;', class: 'hidden' %></label>
+                    </div>
+                    <div class="form-group">
+                      <label class="btn btn-primary" style="background-color: #40e0d0; color: white;">I’m Creating an Account <br /> for Myself
+                      <!-- <input type='button' id='create-account-for-myself' class='btn-blue btn-default btn-wd btn-lg' style="background-color: #40e0d0; color: white; width: 450px;" value='I’m Creating an Account for Myself' /> -->
+                      <%= f.radio_button :is_patient, true, style: 'margin-left: 20px;', class: 'hidden' %></label>
+                    </div>
                     <!-- <div class="form-group">
-                      <input type='button' id='create-account-for-someone-else' class='btn-blue btn-default btn-wd btn-lg' style="background-color: #17375e; color: white; width: 100px;" value='I’m Creating an Account for Someone Else' />
+                      <label style="font-size: 1.5rem;" class="btn btn-primary active">I am making a deposit<br /> for someone else
+                      <%= f.radio_button :is_patient, false, style: 'margin-left: 10px;', class: 'hidden' %></label>
                     </div>
                     <div class="form-group">
-                      <input type='button' id='make-deposit-into-someones-account' class='btn-blue btn-default btn-wd btn-lg' style="background-color: #17375e; color: white; width: 450px;" value='I’m Making a Deposit into Someone Else’s Account' />
-                    </div>
-                    <div class="form-group">
-                      <input type='button' id='access-account-created-for-me' class='btn-blue btn-default btn-wd btn-lg' style="background-color: #40e0d0; color: white; width: 450px;" value='I’m Accessing an Account Created for Me' />
-                    </div>
-                    <div class="form-group">
-                      <input type='button' id='create-account-for-myself' class='btn-blue btn-default btn-wd btn-lg' style="background-color: #40e0d0; color: white; width: 450px;" value='I’m Creating an Account for Myself' />
+                      <label style="font-size: 1.5rem;" class="btn btn-primary">I am an account <br /> recipient
+                       <%= f.radio_button :is_patient, true, style: 'margin-left: 20px;', class: 'hidden' %></label>
                     </div> -->
-                    <div class="form-group">
-                      <label style="font-size: 1.5rem;">I am making a deposit for someone else     </label>
-                      <%= f.radio_button :is_patient, false, style: 'margin-left: 10px;' %>
-                    </div>
-                    <div class="form-group">
-                      <label style="font-size: 1.5rem;">I am an account recipient    </label>
-                       <%= f.radio_button :is_patient, true, style: 'margin-left: 20px;' %>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -70,7 +78,7 @@
                       <%= f.password_field :password_confirmation, class: 'form-control', :required => true %>
                     </div>
                     <div class="form-group" id="campaign_code_field">
-                      <label>Campaign Code <!-- <small>(Only if you already received one)</small> --></label>
+                      <label>Campaign Code <small>(Only if you already received one)</small></label>
                       <%= f.text_field :campaign_code, class: 'form-control', value: params[:campaign_code] %>
                     </div>
                   </div>
@@ -124,6 +132,9 @@ $(document).ready(function(){
         required: true,
         minlength: 8,
         equalTo: "#user_password"
+      },
+      "user[is_patient]": {
+        required: true
       }
     },
     messages: {
