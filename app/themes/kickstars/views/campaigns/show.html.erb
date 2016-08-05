@@ -252,7 +252,6 @@
 
 $('#help_tag').click(function(){
     var image = "<%= asset_path('wyougiftbox.jpg') %>";
-    console.log('hello')
     $('[data-toggle="tooltip"]').tooltip( { placement: 'bottom', template: '<div class="row"><p id="tooltip-paragraph" style="padding: 15px; margin-top: 30px; background-color: #2b2d3d; color: white;">Anyone registered to make deposits to a w/you account can also provide for the items a recipient selects for purchase to be delivered in a special w/you gift box for a $50 fee. The box is glossy, highly durable, and reusable; capped off with a custom satin ribbon, navy tissue, and a personalized gift enclosure, it makes for a lovely presentation and especially nice means of delivery.</p></div><div><img class="row" style="margin-top: 350px; margin-left: 10px;" src="'+image+ '"></div>', html: 'true', trigger: 'manual'}).tooltip('toggle');
 });
 </script>

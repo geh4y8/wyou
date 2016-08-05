@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160529212744) do
+ActiveRecord::Schema.define(version: 20160805182010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20160529212744) do
     t.string   "campaign_code"
     t.integer  "category_id"
     t.boolean  "private",              default: false
+    t.boolean  "donation_alerts"
   end
 
   add_index "campaigns", ["campaign_code"], name: "index_campaigns_on_campaign_code", unique: true, using: :btree
@@ -232,6 +233,8 @@ ActiveRecord::Schema.define(version: 20160529212744) do
     t.text     "other_notes"
     t.date     "dob"
     t.string   "favorite_brand"
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
