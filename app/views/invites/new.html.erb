@@ -38,7 +38,19 @@
                       <label>Personal Message</label>
                       <%= f.text_area :contributor_message, class: "form-control", placeholder: "Enter a personal message" %>
                     </div>
+                    <!-- <div class="form-group">
+                      hello
+                      <div id="facebook-send-button" class="btn btn-blue" data-href="<%= @url %>"></div>
+                    </div> -->
                   </div>
+                  <div class="row">
+                    <div class="col-sm-4">
+                    </div>
+                    <div class="col-sm-8">
+                      <p>You may optionally include this link in your own email invitations: <strong>http://www.wyou.co/users/sign_up?campaign_code=<%= @campaign.campaign_code %></strong></p>
+                    </div>
+                  </div>
+                  <br />
                 </div>
               </div>
             <div class="wizard-footer">
