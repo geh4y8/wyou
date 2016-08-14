@@ -218,18 +218,18 @@
                     <div class="author-action">
                         <a class="btn btn-blue" href="mailto:<%= @campaign_owner.email %>"><span class="glyphicon glyphicon-envelope" style="padding-right:10px"></span>Contact me</a>
                         <% if @user_is_campaign_owner %>
-                            <%= link_to 'Invite', campaign_invites_path(@campaign), class: 'btn btn-blue' %>
+                            <%= link_to 'Invite Others', campaign_invites_path(@campaign), class: 'btn btn-blue' %>
                         <% end %>
                         <!-- <a class="btn btn-white" href="#">See full bio</a> -->
                     </div>
-                    <br />
-                    <% if @user_is_campaign_owner && !@special_not_available %>
-                        <%= link_to new_campaign_donation_path(@campaign, special: true), class: "btn btn-blue", :style=>"font-size:15px; color:white;" do %>
-                            $50 Gift Box Donation
-                        <% end %>
-                        <%= image_tag 'help.png', size:'20', style: 'margin-left:10px;', id: 'help_tag', data: { toggle:"tooltip", placement:"bottom", content: '#{image_tag("wyoulogo.png")}', title:"Anyone registered to make deposits to a w/you account can also provide for the items a recipient selects for purchase to be delivered in a special w/you gift box for a $50 fee. The box is glossy, highly durable, and reusable; capped off with a custom satin ribbon, navy tissue, and a personalized gift enclosure, it makes for a lovely presentation and especially nice means of delivery." } %>
-                    <% end %>
-                    <br />
+                    <!-- <br /> -->
+                    <%# if @user_is_campaign_owner && !@special_not_available %>
+                        <%# link_to new_campaign_donation_path(@campaign, special: true), class: "btn btn-blue", :style=>"font-size:15px; color:white;" do %>
+                            <!-- $50 Gift Box Donation -->
+                        <%# end %>
+                        <%# image_tag 'help.png', size:'20', style: 'margin-left:10px;', id: 'help_tag', data: { toggle:"tooltip", placement:"bottom", content: '#{image_tag("wyoulogo.png")}', title:"Anyone registered to make deposits to a w/you account can also provide for the items a recipient selects for purchase to be delivered in a special w/you gift box for a $50 fee. The box is glossy, highly durable, and reusable; capped off with a custom satin ribbon, navy tissue, and a personalized gift enclosure, it makes for a lovely presentation and especially nice means of delivery." } %>
+                    <%# end %>
+                    <!-- <br /> -->
                     <div class="author-action">
                         <div class="social-sharing">
 
