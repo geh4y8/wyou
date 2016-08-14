@@ -6,6 +6,7 @@
 //
 
 //= require admin_dashboard/jquery-1.10.2
+//= require jquery_ujs
 //= require admin_dashboard/bootstrap.min
 //= require admin_dashboard/bootstrap-checkbox-radio
 //= require admin_dashboard/chartist.min
