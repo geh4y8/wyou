@@ -30,22 +30,22 @@
                         <!-- <input type='button' id='create-account-for-someone-else' class='btn-blue btn-default btn-wd btn-lg' style="background-color: #17375e; color: white; width: 100px;" value='I’m Creating an Account for Someone Else' /> -->
                         <%= f.radio_button :is_patient, false, style: 'margin-left: 10px;', class: 'hidden' %></label>
                       </div>
+                      <div class="form-group">
+                      <label class="btn btn-primary" style="background-color: #40e0d0; color: white;">I’m Creating an Account <br /> for Myself
+                      <!-- <input type='button' id='create-account-for-myself' class='btn-blue btn-default btn-wd btn-lg' style="background-color: #40e0d0; color: white; width: 450px;" value='I’m Creating an Account for Myself' /> -->
+                      <%= f.radio_button :is_patient, true, style: 'margin-left: 20px;', class: 'hidden' %></label>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
 
                     <div class="form-group">
                       <label class="btn btn-primary" style="background-color: #17375e; color: white;">I’m Making a Deposit <br />into Someone's Account
                       <!-- <input type='button' id='make-deposit-into-someones-account' class='btn-blue btn-default btn-wd btn-lg' style="background-color: #17375e; color: white; width: 450px;" value='I’m Making a Deposit into Someone Else’s Account' /> -->
                       <%= f.radio_button :is_patient, false, style: 'margin-left: 10px;', class: 'hidden' %></label>
                     </div>
-                  </div>
-                  <div class="col-sm-6">
                     <div class="form-group">
                       <label class="btn btn-primary" style="background-color: #40e0d0; color: white;">I’m Accessing an<br /> Account Created for Me
                       <!-- <input type='button' id='access-account-created-for-me' class='btn-blue btn-default btn-wd btn-lg' style="background-color: #40e0d0; color: white; width: 450px;" value='I’m Accessing an Account Created for Me' /> -->
-                      <%= f.radio_button :is_patient, true, style: 'margin-left: 20px;', class: 'hidden' %></label>
-                    </div>
-                    <div class="form-group">
-                      <label class="btn btn-primary" style="background-color: #40e0d0; color: white;">I’m Creating an Account <br /> for Myself
-                      <!-- <input type='button' id='create-account-for-myself' class='btn-blue btn-default btn-wd btn-lg' style="background-color: #40e0d0; color: white; width: 450px;" value='I’m Creating an Account for Myself' /> -->
                       <%= f.radio_button :is_patient, true, style: 'margin-left: 20px;', class: 'hidden' %></label>
                     </div>
                   </div>
