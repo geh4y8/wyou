@@ -40,7 +40,7 @@ class UsersController < ApplicationController
         else
           redirect_to attach_to_campaign_path
         end
-      else @user.campaigns.empty?
+      elsif @user.campaigns.empty?
         redirect_to attach_to_campaign_path
       end
     else

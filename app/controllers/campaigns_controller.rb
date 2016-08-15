@@ -80,6 +80,9 @@ class CampaignsController < ApplicationController
     @current_campaigns = current_user.campaigns
     if @current_campaigns.count == 0
       redirect_to new_campaign_path
+    elsif @current_campaigns.count == 1 && current_user.is_patient? && @current_campaigns.first.supporters.count < 3
+      @campaign = @current_campaigns.first
+      render 'campaign_created', locals: { campaign: @campaign }
     elsif @current_campaigns.count == 1
       redirect_to campaign_path(@current_campaigns.first.id)
     else
