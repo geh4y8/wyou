@@ -10,6 +10,9 @@ class CampaignsController < ApplicationController
   end
 
   def new
+    @patient_name = current_user.is_patient? ? current_user.name : nil
+    @patient_email = current_user.is_patient? ? current_user.email : nil
+    @patient_relationship = current_user.is_patient? ? 'self' : nil
     @campaign = Campaign.new
   end
 

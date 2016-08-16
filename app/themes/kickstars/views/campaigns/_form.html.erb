@@ -37,11 +37,11 @@
                   <div class="col-sm-6">
                     <div class="form-group">
                       <label>Recipient Name <small></small></label>
-                      <%= f.text_field :patient_name, class: "form-control", type: "text", :placeholder=>"Enter Recipient's Full Name" %>
+                      <%= f.text_field :patient_name, class: "form-control", type: "text", :placeholder=>"Enter Recipient's Full Name", value: @patient_name %>
                     </div>
                     <div class="form-group">
                       <label>Recipient's Email <small></small></label>
-                      <%= f.text_field :patient_email, :class => "form-control", :placeholder => "Enter Recipient's Email Address", :type=>"email" %>
+                      <%= f.text_field :patient_email, :class => "form-control", :placeholder => "Enter Recipient's Email Address", :type=>"email", value: @patient_email %>
                     </div>
                     <div class="form-group">
                       <label>Recipient's Phone Number <small></small></label>
@@ -49,7 +49,7 @@
                     </div>
                     <div class="form-group">
                       <label>Relationship to Recipient <small></small></label>
-                      <%= f.text_field :relationship, :class => "form-control", :placeholder => "What is your relationship to the recipient?" %>
+                      <%= f.text_field :relationship, :class => "form-control", :placeholder => "What is your relationship to the recipient?", value: @patient_relationship %>
                     </div>
                     <div class="form-group">
                       <div class="row">
