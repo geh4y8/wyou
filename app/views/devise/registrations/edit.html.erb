@@ -1,3 +1,4 @@
+<% reasons_for_leaving = "<option>Please Choose A Reason for Leaving</option><option>I’m no longer experiencing my health circumstances</option><option>Technical problems with the platform</option><option>Inability to find what I need</option><option>I found what I need elsewhere</option><option>I’m cancelling this on behalf of someone else who will no longer use the platform</option><option>Other</option>" %>
 <div class="authform">
   <h3>Edit <%= resource_name.to_s.humanize %></h3>
   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :role => 'form'}) do |f| %>
@@ -45,5 +46,22 @@
 <div class="authform">
 <h3>Cancel Account</h3>
 <p>Unhappy? We'll be sad to see you go.</p>
+<%= select_tag "reason", reasons_for_leaving.html_safe, class: 'form-control' %>
 <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'button right' %>
 </div>
+
+<script>
+$(document).ready(function(){
+  $("#reason").change(function() {
+    var reason = $(this).find(":selected").text();
+    if(reason !== "Please Choose A Reason for Leaving") {
+      jQuery.ajax({
+        url: "/reason_for_leaving",
+        type: "GET",
+        data: {"reason" : reason},
+        dataType: "json"
+      });
+    }
+  });
+});
+</script>

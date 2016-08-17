@@ -69,6 +69,13 @@ class UsersController < ApplicationController
     render 'campaigns/#{@campaign.id}/stores'
   end
 
+  def reason_for_leaving
+    UserFeedback.create!(user_name: current_user.name, reason_for_leaving: params[:reason], patient_name: current_user.email)
+    respond_to do |format|
+       format.json { render nothing: true }
+    end
+  end
+
   private
 
   def admin_only

@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   get '/remove_product_category' => 'categories#remove_product'
   get '/connect/confirm' => 'stripe#confirm'
   get '/possible_campaigns' => 'campaigns#possible_campaigns2'
-
+  get '/reason_for_leaving' => 'users#reason_for_leaving'
 
 
   resources :admin do
