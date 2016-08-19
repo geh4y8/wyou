@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get '/attach_to_campaign' => 'campaigns#possible_campaigns'
   get '/fetch_comments' => 'comments#from_product', as: 'fetch_comments'
   get '/faq' => 'faq#index'
+  get '/consents' => 'faq#consents'
   get '/recipients' => 'landing#recipients'
   get '/admin/orders' => 'admin#orders'
   get '/admin/products' => 'admin#products'

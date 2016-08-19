@@ -5,4 +5,8 @@ class FaqController < ApplicationController
     @campaign = Campaign.find(session[:campaign_id]) if current_user
   end
 
+  def consents
+
+  end
+
 end
