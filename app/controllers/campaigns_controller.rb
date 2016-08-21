@@ -21,7 +21,7 @@ class CampaignsController < ApplicationController
     @user_is_campaign_owner = @campaign.owner_email == current_user.email ? true : false
     @special_not_available = @campaign.donations.any?{|donation| donation.special == true}
     @user = current_user
-    @results = @campaign.goal_percentage(@campaign)
+    @results = @campaign.goal_percentage(@campaign) if @campaign.fund_goal > 0
     @supporter_results = @campaign.supporters_image_count(@campaign)
     session[:campaign_id] = @campaign.id
   end
