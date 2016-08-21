@@ -13,4 +13,11 @@ class RegistrationsController < Devise::RegistrationsController
   def sign_up_params
     params.require(:user).permit(:name, :email, :password, :image, :image_id, :remove_image, :campaign_code, :is_patient)
   end
+
+  protected
+
+  def update_resource(resource, params)
+    binding.pry
+    resource.update_without_password(sign_up_params)
+  end
 end
