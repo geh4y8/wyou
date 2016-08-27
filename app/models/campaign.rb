@@ -24,7 +24,7 @@ class Campaign < ActiveRecord::Base
   def supporters_image_count(campaign)
     supporters = campaign.supporters.order("RANDOM()").limit(8)
     supporters = supporters.map {|x|
-      if x.user.image_id
+      if x.user.try(:image_id)
         x
       end}
 
