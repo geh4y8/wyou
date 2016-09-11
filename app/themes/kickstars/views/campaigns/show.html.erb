@@ -133,8 +133,8 @@
                                                 <%= image_tag attachment_url(supporter.user, :image) %>
                                             </a>
                                             <div class="media-body">
-                                                <h4 class="rs pb10"><a href="#" class="be-fc-orange fw-b"><%= supporter.user.name %></a></h4>
-                                                <p class="rs"><%= supporter.user.email %></p>
+                                                <h4 class="rs pb10"><a href="#" class="be-fc-orange fw-b"><%= supporter.user.try(:name) %></a></h4>
+                                                <p class="rs"><%= supporter.user.try(:email) %></p>
                                                 <p class="rs fc-gray"><%=  %></p>
                                             </div>
                                         </div>
